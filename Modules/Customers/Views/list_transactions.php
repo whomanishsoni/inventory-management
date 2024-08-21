@@ -30,12 +30,12 @@
                         <h3 class="card-title p-3"><?php echo lang('App.transactions') ?></h3>
                         <div class="ml-auto p-2">
                             <?php if (hasPermissions('customer_transactions_add')): ?>
-                            <a href="<?= url(route_to('customers.add_transaction', $customerId)) ?>"
-                                class="btn btn-primary btn-sm" data-toggle="tooltip"
-                                title="<?= lang('App.add_transaction') ?>">
-                                <span class="pr-1"><i class="fa fa-plus"></i></span>
-                                <?php echo lang('App.add_transaction') ?>
-                            </a>
+                                <a href="<?= url(route_to('customers.add_transaction', $customerId)) ?>"
+                                    class="btn btn-primary btn-sm" data-toggle="tooltip"
+                                    title="<?= lang('App.add_transaction') ?>">
+                                    <span class="pr-1"><i class="fa fa-plus"></i></span>
+                                    <?php echo lang('App.add_transaction') ?>
+                                </a>
                             <?php endif ?>
                         </div>
                     </div>
@@ -63,56 +63,56 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
+                                <?php
                                 $counter = 1;
                                 foreach ($listCustomerTransactions as $row): ?>
-                                <tr>
-                                    <td><?php echo $counter++; ?></td>
-                                    <td>
-                                        <?php echo ucwords(strtolower($row->customer_name)) ?>
-                                    </td>
-                                    <td>
-                                        <?php if ($row->transaction_type == 'credit'): ?>
-                                        <span class="badge badge-success"><?php echo lang('App.credit') ?></span>
-                                        <?php elseif ($row->transaction_type == 'debit'): ?>
-                                        <span class="badge badge-danger"><?php echo lang('App.debit') ?></span>
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->amount ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->balance ?>
-                                    </td>
-                                    <td><?php echo date('d-m-Y', strtotime($row->transaction_date)); ?></td>
-                                    <td>
-                                        <?php echo $row->description ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->reference_id ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->created_by ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->updated_by ?>
-                                    </td>
-                                    <td>
-                                        <?php if (hasPermissions('customer_transactions_edit')): ?>
-                                        <a href="<?= url(route_to('customers.edit_transaction', $row->id)) ?>"
-                                            class="btn btn-sm btn-primary"
-                                            title="<?php echo lang('App.edit_transaction') ?>" data-toggle="tooltip"><i
-                                                class="fas fa-edit"></i></a>
-                                        <?php endif ?>
-                                        <?php if (hasPermissions('customer_transactions_delete')): ?>
-                                        <a href="<?= url(route_to('customers.delete_transaction', $row->id)) ?>"
-                                            class="btn btn-sm btn-danger"
-                                            onclick="return confirm('Do you really want to delete this transaction ?')"
-                                            title="<?php echo lang('App.delete_transaction') ?>"
-                                            data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                                        <?php endif ?>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td><?php echo $counter++; ?></td>
+                                        <td>
+                                            <?php echo ucwords(strtolower($row->customer_name)) ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($row->transaction_type == 'credit'): ?>
+                                                <span class="badge badge-success"><?php echo lang('App.credit') ?></span>
+                                            <?php elseif ($row->transaction_type == 'debit'): ?>
+                                                <span class="badge badge-danger"><?php echo lang('App.debit') ?></span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->amount ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->balance ?>
+                                        </td>
+                                        <td><?php echo date('d-m-Y', strtotime($row->transaction_date)); ?></td>
+                                        <td>
+                                            <?php echo $row->description ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->reference_id ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->created_by ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->updated_by ?>
+                                        </td>
+                                        <td>
+                                            <?php if (hasPermissions('customer_transactions_edit')): ?>
+                                                <a href="<?= url(route_to('customers.edit_transaction', $row->id)) ?>"
+                                                    class="btn btn-sm btn-primary"
+                                                    title="<?php echo lang('App.edit_transaction') ?>" data-toggle="tooltip"><i
+                                                        class="fas fa-edit"></i></a>
+                                            <?php endif ?>
+                                            <?php if (hasPermissions('customer_transactions_delete')): ?>
+                                                <a href="<?= url(route_to('customers.delete_transaction', $row->id)) ?>"
+                                                    class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Do you really want to delete this transaction ?')"
+                                                    title="<?php echo lang('App.delete_transaction') ?>"
+                                                    data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                                            <?php endif ?>
+                                        </td>
+                                    </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
@@ -128,73 +128,73 @@
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-<?=  $this->endSection() ?>
+<?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
 <!-- page script -->
 <script>
-$(function() {
-    $('#transactions').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-        "scrollX" : true,
+    $(function () {
+        $('#transactions').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+            "scrollX": true,
+        });
     });
-});
 </script>
 <script>
-$('.status-toggle').bootstrapSwitch({
-    size: 'small',
-    onText: 'Active',
-    offText: 'Inactive',
-    onColor: 'success',
-    offColor: 'default',
-    onSwitchChange: function(event, state) {
-        var status = state ? 'active' : 'inactive';
-        var customerId = $(this).data('id');
+    $('.status-toggle').bootstrapSwitch({
+        size: 'small',
+        onText: 'Active',
+        offText: 'Inactive',
+        onColor: 'success',
+        offColor: 'default',
+        onSwitchChange: function (event, state) {
+            var status = state ? 'active' : 'inactive';
+            var customerId = $(this).data('id');
 
-        $.ajax({
-            url: '<?= site_url(route_to('customers.update_transaction_status')) ?>',
-            type: 'POST',
-            data: {
-                id: customerId,
-                customer_status: status,
-                <?= csrf_token() ?>: '<?= csrf_hash() ?>'
-            },
-            dataType: 'json',
-            success: function(response) {
-                console.log(response);
+            $.ajax({
+                url: '<?= site_url(route_to('customers.update_transaction_status')) ?>',
+                type: 'POST',
+                data: {
+                    id: customerId,
+                    customer_status: status,
+                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                },
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
 
-                // Handle success
-                if (response.success) {
-                    // Use Toastr.js to show success message
-                    toastr.success(response.message, 'Success');
+                    // Handle success
+                    if (response.success) {
+                        // Use Toastr.js to show success message
+                        toastr.success(response.message, 'Success');
 
-                    // Update UI or perform additional actions as needed
+                        // Update UI or perform additional actions as needed
 
-                } else {
-                    // Use Toastr.js to show error message
-                    toastr.error(response.message, 'Error');
-                    console.error('Failed to update status: ' + response.message);
+                    } else {
+                        // Use Toastr.js to show error message
+                        toastr.error(response.message, 'Error');
+                        console.error('Failed to update status: ' + response.message);
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+
+                    // Use Toastr.js to show generic error message
+                    toastr.error('An error occurred during the AJAX request', 'Error');
                 }
-            },
-            error: function(error) {
-                console.error(error);
-
-                // Use Toastr.js to show generic error message
-                toastr.error('An error occurred during the AJAX request', 'Error');
-            }
+            });
+        }
+    });
+    <?php if (session()->has('error')): ?>
+        toastr.error("<?= session('error') ?>", 'Error', {
+            closeButton: true
         });
-    }
-});
-<?php if (session()->has('error')): ?>
-toastr.error("<?= session('error') ?>", 'Error', {
-    closeButton: true
-});
-<?php endif ?>
+    <?php endif ?>
 </script>
-<?=  $this->endSection() ?>
+<?= $this->endSection() ?>

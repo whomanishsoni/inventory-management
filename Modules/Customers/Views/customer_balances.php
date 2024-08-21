@@ -37,20 +37,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
+                                <?php
                                 $counter = 1;
                                 foreach ($customerBalances as $row): ?>
-                                <tr>
-                                    <td><?php echo $counter++; ?></td>
-                                    <td>
-                                        <a href="<?= url(route_to('customers.transactions', $row->customer_id)) ?>">
-                                            <?php echo ucwords(strtolower($row->customer_name)) ?>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <?php echo number_format($row->balance, 2) ?>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td><?php echo $counter++; ?></td>
+                                        <td>
+                                            <a href="<?= url(route_to('customers.transactions', $row->customer_id)) ?>">
+                                                <?php echo ucwords(strtolower($row->customer_name)) ?>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <?php echo number_format($row->balance, 2) ?>
+                                        </td>
+                                    </tr>
                                 <?php endforeach ?>
                             </tbody>
                             <tfoot>
@@ -68,86 +68,86 @@
 </section>
 
 <!-- /.content -->
-<?=  $this->endSection() ?>
+<?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
 <!-- page script -->
 <script>
-$(function() {
-    var table = $('#customer_balances').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-        "scrollX" : true,
-    });
-
-    table.on('search.dt', function() {
-        var totalBalance = 0;
-        table.rows({ filter: 'applied' }).every(function(rowIdx, tableLoop, rowLoop) {
-            var data = this.data();
-            var balance = parseFloat(data[2].replace(/,/g, '')); // Assuming the balance is in the 3rd column (index 2)
-            totalBalance += balance;
+    $(function () {
+        var table = $('#customer_balances').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+            "scrollX": true,
         });
-        $('#totalBalance').text('₹' + totalBalance.toFixed(2));
-    });
 
-    // Initial calculation
-    table.trigger('search.dt');
-});
+        table.on('search.dt', function () {
+            var totalBalance = 0;
+            table.rows({ filter: 'applied' }).every(function (rowIdx, tableLoop, rowLoop) {
+                var data = this.data();
+                var balance = parseFloat(data[2].replace(/,/g, '')); // Assuming the balance is in the 3rd column (index 2)
+                totalBalance += balance;
+            });
+            $('#totalBalance').text('₹' + totalBalance.toFixed(2));
+        });
+
+        // Initial calculation
+        table.trigger('search.dt');
+    });
 </script>
 <script>
-$('.status-toggle').bootstrapSwitch({
-    size: 'small',
-    onText: 'Active',
-    offText: 'Inactive',
-    onColor: 'success',
-    offColor: 'default',
-    onSwitchChange: function(event, state) {
-        var status = state ? 'active' : 'inactive';
-        var customerId = $(this).data('id');
+    $('.status-toggle').bootstrapSwitch({
+        size: 'small',
+        onText: 'Active',
+        offText: 'Inactive',
+        onColor: 'success',
+        offColor: 'default',
+        onSwitchChange: function (event, state) {
+            var status = state ? 'active' : 'inactive';
+            var customerId = $(this).data('id');
 
-        $.ajax({
-            url: '<?= site_url(route_to('customers.update_transaction_status')) ?>',
-            type: 'POST',
-            data: {
-                id: customerId,
-                customer_status: status,
-                <?= csrf_token() ?>: '<?= csrf_hash() ?>'
-            },
-            dataType: 'json',
-            success: function(response) {
-                console.log(response);
+            $.ajax({
+                url: '<?= site_url(route_to('customers.update_transaction_status')) ?>',
+                type: 'POST',
+                data: {
+                    id: customerId,
+                    customer_status: status,
+                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                },
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
 
-                // Handle success
-                if (response.success) {
-                    // Use Toastr.js to show success message
-                    toastr.success(response.message, 'Success');
+                    // Handle success
+                    if (response.success) {
+                        // Use Toastr.js to show success message
+                        toastr.success(response.message, 'Success');
 
-                    // Update UI or perform additional actions as needed
+                        // Update UI or perform additional actions as needed
 
-                } else {
-                    // Use Toastr.js to show error message
-                    toastr.error(response.message, 'Error');
-                    console.error('Failed to update status: ' + response.message);
+                    } else {
+                        // Use Toastr.js to show error message
+                        toastr.error(response.message, 'Error');
+                        console.error('Failed to update status: ' + response.message);
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+
+                    // Use Toastr.js to show generic error message
+                    toastr.error('An error occurred during the AJAX request', 'Error');
                 }
-            },
-            error: function(error) {
-                console.error(error);
-
-                // Use Toastr.js to show generic error message
-                toastr.error('An error occurred during the AJAX request', 'Error');
-            }
+            });
+        }
+    });
+    <?php if (session()->has('error')): ?>
+        toastr.error("<?= session('error') ?>", 'Error', {
+            closeButton: true
         });
-    }
-});
-<?php if (session()->has('error')): ?>
-toastr.error("<?= session('error') ?>", 'Error', {
-    closeButton: true
-});
-<?php endif ?>
+    <?php endif ?>
 </script>
-<?=  $this->endSection() ?>
+<?= $this->endSection() ?>
