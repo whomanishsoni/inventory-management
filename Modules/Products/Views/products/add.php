@@ -1,27 +1,27 @@
 <?= $this->extend('admin/layout/default') ?>
 <?= $this->section('content') ?>
 <style>
-.table-container {
-    overflow-x: auto;
-    margin-bottom: 20px;
-    /* Add some space below the table */
-}
+    .table-container {
+        overflow-x: auto;
+        margin-bottom: 20px;
+        /* Add some space below the table */
+    }
 
-.table {
-    min-width: 1000px;
-    /* Adjust based on your table's width */
-    border-collapse: collapse;
-}
+    .table {
+        min-width: 1000px;
+        /* Adjust based on your table's width */
+        border-collapse: collapse;
+    }
 
-.table th,
-.table td {
-    white-space: nowrap;
-    /* Prevent text from wrapping */
-}
+    .table th,
+    .table td {
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+    }
 
-.hidden-column {
-    display: none;
-}
+    .hidden-column {
+        display: none;
+    }
 </style>
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -86,7 +86,7 @@
                                         data-dropdown-css-class="select2-danger" id="brand_id" name="brand_id">
                                         <option value="" selected><?= lang('App.select_brand') ?></option>
                                         <?php foreach ($brands as $brand): ?>
-                                        <option value="<?= $brand->id; ?>"><?= $brand->brand_name; ?></option>
+                                            <option value="<?= $brand->id; ?>"><?= $brand->brand_name; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <?= isset($validation) && $validation->getError('brand_id') ? '<p class="text-danger mt-2">' . esc($validation->getError('brand_id')) . '</p>' : '' ?>
@@ -103,7 +103,7 @@
                                         data-dropdown-css-class="select2-danger" id="unit_id" name="unit_id">
                                         <option value="" selected><?= lang('App.select_unit') ?></option>
                                         <?php foreach ($units as $unit): ?>
-                                        <option value="<?= $unit->id; ?>"><?= $unit->unit_name; ?></option>
+                                            <option value="<?= $unit->id; ?>"><?= $unit->unit_name; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <?= isset($validation) && $validation->getError('unit_id') ? '<p class="text-danger mt-2">' . esc($validation->getError('unit_id')) . '</p>' : '' ?>
@@ -120,7 +120,7 @@
                                         data-dropdown-css-class="select2-danger" id="category_id" name="category_id">
                                         <option value="" selected><?= lang('App.select_category') ?></option>
                                         <?php foreach ($categories as $category): ?>
-                                        <option value="<?= $category->id; ?>"><?= $category->category_name; ?></option>
+                                            <option value="<?= $category->id; ?>"><?= $category->category_name; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <?= isset($validation) && $validation->getError('category_id') ? '<p class="text-danger mt-2">' . esc($validation->getError('category_id')) . '</p>' : '' ?>
@@ -183,10 +183,10 @@
                                                         id="tax_group_id" name="tax_group_id">
                                                         <option value=""><?= lang('App.select_tax_rate') ?></option>
                                                         <?php foreach ($tax_groups as $tax_group): ?>
-                                                        <option value="<?= $tax_group->id; ?>"
-                                                            data-tax-rate="<?= $tax_group->tax_group_name; ?>">
-                                                            <?= $tax_group->tax_group_name; ?>
-                                                        </option>
+                                                            <option value="<?= $tax_group->id; ?>"
+                                                                data-tax-rate="<?= $tax_group->tax_group_name; ?>">
+                                                                <?= $tax_group->tax_group_name; ?>
+                                                            </option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                     <?= isset($validation) && $validation->getError('select_tax_rate') ? '<p class="text-danger mt-2">' . esc($validation->getError('select_tax_rate')) . '</p>' : '' ?>
@@ -218,9 +218,9 @@
                                 <select class="select2" data-placeholder="<?= lang('App.variations') ?>"
                                     data-dropdown-css-class="select2-danger" id="variation_id" name="variation_id"
                                     style="width: 100%;">
-                                    <option value="" selected disabled><?= lang('App.select_variation')?></option>
+                                    <option value="" selected disabled><?= lang('App.select_variation') ?></option>
                                     <?php foreach ($variations as $variation): ?>
-                                    <option value="<?= $variation->id; ?>"><?= $variation->variation_name; ?></option>
+                                        <option value="<?= $variation->id; ?>"><?= $variation->variation_name; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <?= isset($validation) && $validation->getError('variation_id') ? '<p class="text-danger mt-2">' . esc($validation->getError('variation_id')) . '</p>' : '' ?>
@@ -281,440 +281,440 @@
 <script src="<?php echo assets_url('admin') ?>/plugins/jquery-validation/additional-methods.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    // Set default options for jQuery Validation
-    $.validator.setDefaults({
-        errorElement: 'span',
-        errorPlacement: function(error, element) {
-            error.addClass('invalid-feedback text-danger mt-2');
-            if (element.closest('table').length) {
-                element.closest('td').append(error);
-            } else {
-                element.closest('.form-group').append(error);
+    $(document).ready(function () {
+        // Set default options for jQuery Validation
+        $.validator.setDefaults({
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback text-danger mt-2');
+                if (element.closest('table').length) {
+                    element.closest('td').append(error);
+                } else {
+                    element.closest('.form-group').append(error);
+                }
+            },
+            highlight: function (element) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element) {
+                $(element).removeClass('is-invalid');
             }
-        },
-        highlight: function(element) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function(element) {
-            $(element).removeClass('is-invalid');
-        }
-    });
+        });
 
-    // Add custom validation method for single product price check
-    $.validator.addMethod("singleProductPriceCheck", function(value, element) {
-        var buyingPrice = parseFloat($('#buying_price').val());
-        var customerPrice = parseFloat(value);
-        if (!isNaN(buyingPrice) && !isNaN(customerPrice)) {
+        // Add custom validation method for single product price check
+        $.validator.addMethod("singleProductPriceCheck", function (value, element) {
+            var buyingPrice = parseFloat($('#buying_price').val());
+            var customerPrice = parseFloat(value);
+            if (!isNaN(buyingPrice) && !isNaN(customerPrice)) {
+                return customerPrice >= buyingPrice;
+            }
+            return true;
+        }, "Customer price cannot be less than the buying price");
+
+        // Add custom validation method for variation price check
+        $.validator.addMethod("variationPriceCheck", function (value, element) {
+            var buyingPrice = parseFloat($(element).closest('tr').find(
+                'input[name="variation_buying_price[]"]').val());
+            var customerPrice = parseFloat(value);
             return customerPrice >= buyingPrice;
-        }
-        return true;
-    }, "Customer price cannot be less than the buying price");
+        }, "Customer price cannot be less than the buying price.");
 
-    // Add custom validation method for variation price check
-    $.validator.addMethod("variationPriceCheck", function(value, element) {
-        var buyingPrice = parseFloat($(element).closest('tr').find(
-            'input[name="variation_buying_price[]"]').val());
-        var customerPrice = parseFloat(value);
-        return customerPrice >= buyingPrice;
-    }, "Customer price cannot be less than the buying price.");
+        // Validate the form
+        $('#product-add').validate({
+            rules: {
+                product_name: {
+                    required: true,
+                },
+                brand_id: {
+                    required: true,
+                },
+                unit_id: {
+                    required: true,
+                },
+                category_id: {
+                    required: true,
+                },
+                sub_category_id: {
+                    required: false,
+                },
+                buying_price: {
+                    required: true,
+                    number: true
+                },
+                customer_price: {
+                    required: true,
+                    number: true,
+                    singleProductPriceCheck: true
+                },
+                tax_group_id: {
+                    required: true,
+                },
+                product_status: {
+                    required: true,
+                },
+                'variation_product_name[]': {
+                    required: true,
+                },
+                'variation_buying_price[]': {
+                    required: true,
+                    number: true,
+                },
+                'variation_customer_price[]': {
+                    required: true,
+                    number: true,
+                    variationPriceCheck: true
+                },
+                'variation_tax_group_id[]': {
+                    required: "Please select the tax group",
+                },
+            },
+            messages: {
+                product_name: {
+                    required: "Please enter the product name",
+                },
+                brand_id: {
+                    required: "Please select the brand",
+                },
+                unit_id: {
+                    required: "Please select the unit",
+                },
+                category_id: {
+                    required: "Please select the category",
+                },
+                sub_category_id: {
+                    required: "Please select the sub category",
+                },
+                buying_price: {
+                    required: "Please enter the buying price",
+                    number: "Please enter a valid number"
+                },
+                customer_price: {
+                    required: "Please enter the customer price",
+                    number: "Please enter a valid number",
+                    singleProductPriceCheck: "Customer price cannot be less than the buying price"
+                },
+                tax_group_id: {
+                    required: "Please select the Tax Rate",
+                },
+                product_status: {
+                    required: "Please select the product status",
+                },
+                'variation_product_name[]': {
+                    required: "Please enter the product name",
+                },
+                'variation_buying_price[]': {
+                    required: "Please enter the buying price",
+                    number: "Please enter a valid number",
+                },
+                'variation_customer_price[]': {
+                    required: "Please enter the customer price",
+                    number: "Please enter a valid number",
+                },
+                'variation_tax_group_id[]': {
+                    required: "Please select the tax group",
+                },
 
-    // Validate the form
-    $('#product-add').validate({
-        rules: {
-            product_name: {
-                required: true,
             },
-            brand_id: {
-                required: true,
-            },
-            unit_id: {
-                required: true,
-            },
-            category_id: {
-                required: true,
-            },
-            sub_category_id: {
-                required: false,
-            },
-            buying_price: {
-                required: true,
-                number: true
-            },
-            customer_price: {
-                required: true,
-                number: true,
-                singleProductPriceCheck: true
-            },
-            tax_group_id: {
-                required: true,
-            },
-            product_status: {
-                required: true,
-            },
-            'variation_product_name[]': {
-                required: true,
-            },
-            'variation_buying_price[]': {
-                required: true,
-                number: true,
-            },
-            'variation_customer_price[]': {
-                required: true,
-                number: true,
-                variationPriceCheck: true
-            },
-            'variation_tax_group_id[]': {
-                required: "Please select the tax group",
-            },
-        },
-        messages: {
-            product_name: {
-                required: "Please enter the product name",
-            },
-            brand_id: {
-                required: "Please select the brand",
-            },
-            unit_id: {
-                required: "Please select the unit",
-            },
-            category_id: {
-                required: "Please select the category",
-            },
-            sub_category_id: {
-                required: "Please select the sub category",
-            },
-            buying_price: {
-                required: "Please enter the buying price",
-                number: "Please enter a valid number"
-            },
-            customer_price: {
-                required: "Please enter the customer price",
-                number: "Please enter a valid number",
-                singleProductPriceCheck: "Customer price cannot be less than the buying price"
-            },
-            tax_group_id: {
-                required: "Please select the Tax Rate",
-            },
-            product_status: {
-                required: "Please select the product status",
-            },
-            'variation_product_name[]': {
-                required: "Please enter the product name",
-            },
-            'variation_buying_price[]': {
-                required: "Please enter the buying price",
-                number: "Please enter a valid number",
-            },
-            'variation_customer_price[]': {
-                required: "Please enter the customer price",
-                number: "Please enter a valid number",
-            },
-            'variation_tax_group_id[]': {
-                required: "Please select the tax group",
-            },
+            submitHandler: function (form) {
+                // Additional code for form submission if needed
+                form.submit();
+            }
+        });
 
-        },
-        submitHandler: function(form) {
-            // Additional code for form submission if needed
-            form.submit();
-        }
+        // Ensure product name is not empty when 'variable' is selected
+        $('#has_variation').change(function () {
+            var selectedValue = $(this).val();
+            if (selectedValue === '1' && $.trim($('#product_name').val()) === '') {
+                alert('Product name cannot be empty when variation is selected.');
+                $(this).val('0'); // Reset to default if validation fails
+                return false;
+            }
+        });
     });
-
-    // Ensure product name is not empty when 'variable' is selected
-    $('#has_variation').change(function() {
-        var selectedValue = $(this).val();
-        if (selectedValue === '1' && $.trim($('#product_name').val()) === '') {
-            alert('Product name cannot be empty when variation is selected.');
-            $(this).val('0'); // Reset to default if validation fails
-            return false;
-        }
-    });
-});
 </script>
 <script>
-$(document).ready(function() {
-    var variationCounter = 0;
-    var createdVariations = {};
-    var createdVariationRows = {};
-    var taxGroups = <?php echo json_encode($tax_groups); ?>;
+    $(document).ready(function () {
+        var variationCounter = 0;
+        var createdVariations = {};
+        var createdVariationRows = {};
+        var taxGroups = <?php echo json_encode($tax_groups); ?>;
 
-    // Initialize the visibility based on the default value
-    toggleVariationDisplay($('#has_variation').val());
+        // Initialize the visibility based on the default value
+        toggleVariationDisplay($('#has_variation').val());
 
-    // Handle change event for the toggle variation select box
-    $('#has_variation').change(function() {
-        toggleVariationDisplay($(this).val());
-    });
+        // Handle change event for the toggle variation select box
+        $('#has_variation').change(function () {
+            toggleVariationDisplay($(this).val());
+        });
 
-    function toggleVariationDisplay(value) {
-        if (value === '1') {
-            $('#variation_selection_box').show();
-            $('#variation_values_selection_box').show();
-            $('#single_product_table').hide();
-        } else {
-            $('#variation_selection_box').hide();
-            $('#variation_values_selection_box').hide();
-            $('#single_product_table').show();
-            $('#variation_values_container').empty();
-            createdVariations = {}; // Clear created variations
-            createdVariationRows = {}; // Clear variation rows
+        function toggleVariationDisplay(value) {
+            if (value === '1') {
+                $('#variation_selection_box').show();
+                $('#variation_values_selection_box').show();
+                $('#single_product_table').hide();
+            } else {
+                $('#variation_selection_box').hide();
+                $('#variation_values_selection_box').hide();
+                $('#single_product_table').show();
+                $('#variation_values_container').empty();
+                createdVariations = {}; // Clear created variations
+                createdVariationRows = {}; // Clear variation rows
+            }
         }
-    }
 
-    // Handle single variation selection
-    $('#variation_id').change(function() {
-        var selectedVariationId = $(this).val();
+        // Handle single variation selection
+        $('#variation_id').change(function () {
+            var selectedVariationId = $(this).val();
 
-        // Clear any existing variation tables and selection values
-        $('#variation_values_container').empty();
-        $('#variation_values').empty();
-        createdVariations = {};
-        createdVariationRows = {};
+            // Clear any existing variation tables and selection values
+            $('#variation_values_container').empty();
+            $('#variation_values').empty();
+            createdVariations = {};
+            createdVariationRows = {};
 
-        if (selectedVariationId) {
-            $.ajax({
-                type: "GET",
-                url: "<?php echo site_url(route_to('products.get_variation_values')); ?>",
-                data: {
-                    'variation_id': selectedVariationId
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (Array.isArray(response) && response.length > 0) {
-                        createdVariations[selectedVariationId] = ++variationCounter;
+            if (selectedVariationId) {
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo site_url(route_to('products.get_variation_values')); ?>",
+                    data: {
+                        'variation_id': selectedVariationId
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        if (Array.isArray(response) && response.length > 0) {
+                            createdVariations[selectedVariationId] = ++variationCounter;
 
-                        // Populate the variation values selection box
-                        var $variationValuesSelect = $('#variation_values');
-                        $variationValuesSelect.empty();
-                        $.each(response, function(index, value) {
-                            $variationValuesSelect.append(
-                                '<option value="' + value.id +
-                                '" data-variation-id="' + value.variation_id +
-                                '">' +
-                                value.variation_value + '</option>'
-                            );
-                        });
+                            // Populate the variation values selection box
+                            var $variationValuesSelect = $('#variation_values');
+                            $variationValuesSelect.empty();
+                            $.each(response, function (index, value) {
+                                $variationValuesSelect.append(
+                                    '<option value="' + value.id +
+                                    '" data-variation-id="' + value.variation_id +
+                                    '">' +
+                                    value.variation_value + '</option>'
+                                );
+                            });
 
-                        generateVariationValuesTable(response, createdVariations[
-                            selectedVariationId], selectedVariationId);
+                            generateVariationValuesTable(response, createdVariations[
+                                selectedVariationId], selectedVariationId);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error fetching variation values:", error);
                     }
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching variation values:", error);
+                });
+            }
+        });
+
+        // Fetch and manage variation values and rows
+        $('#variation_values').change(function () {
+            var selectedValues = $(this).val() || [];
+            var variationId = $(this).find('option:selected').data('variation-id') || '';
+
+            // Ensure variationId is a string before using substring
+            variationId = String(variationId);
+
+            var variationTableId = 'variation_values_table_' + createdVariations[variationId];
+
+            // Remove rows for unselected values
+            $('#' + variationTableId + ' tbody tr').each(function () {
+                var rowValueId = $(this).find('input[name="variation_values[]"]').val();
+                if (!selectedValues.includes(rowValueId)) {
+                    $(this).remove();
+                    delete createdVariationRows[rowValueId];
                 }
             });
+
+            // Add rows for newly selected values
+            $.each(selectedValues, function (index, valueId) {
+                if (!createdVariationRows[valueId]) {
+                    var valueText = $('#variation_values option[value="' + valueId + '"]').text();
+                    var variationSkuCode = $('#sku_code').val().trim() + '-' + variationId
+                        .substring(0, 2).toUpperCase() +
+                        (index + 1).toString().padStart(3, '0');
+                    var variationProductName = ($('#product_name').val() + ' - ' + valueText)
+                        .toLowerCase();
+
+                    var newRow = '<tr>';
+                    newRow +=
+                        '<td><input type="text" class="form-control" readonly name="variation_sku_code[]" value="' +
+                        variationSkuCode + '" placeholder="Enter SKU code"></td>';
+                    newRow +=
+                        '<td><input type="text" class="form-control variation-product-name" name="variation_product_name[]" value="' +
+                        variationProductName + '" placeholder="Enter product name"></td>';
+                    newRow +=
+                        '<td class="hidden-column"><input type="hidden" class="form-control variation-value" name="variation_values[]" value="' +
+                        valueId + '"><span>' + valueText + '</span></td>';
+                    newRow +=
+                        '<td><input type="number" name="variation_buying_price[]" class="form-control" placeholder="Enter buying price"></td>';
+                    newRow +=
+                        '<td><input type="number" name="variation_customer_price[]" class="form-control" placeholder="Enter customer price"></td>';
+                    newRow +=
+                        '<td><select class="form-control select2 select2-danger tax-group" name="variation_tax_group_id[]">';
+                    newRow += '<option value="">Select Tax Rate</option>';
+                    $.each(taxGroups, function (taxIndex, taxGroup) {
+                        newRow += '<option value="' + taxGroup.id + '">' + taxGroup
+                            .tax_group_name + '</option>';
+                    });
+                    newRow += '</select></td>';
+                    newRow +=
+                        '<td><input type="text" name="variation_tax_amount[]" class="form-control" readonly placeholder="Tax amount"></td>';
+                    newRow +=
+                        '<td><input type="text" name="variation_sale_price[]" class="form-control" readonly placeholder="Enter sale price"></td>';
+                    newRow +=
+                        '<td><button type="button" class="btn btn-danger remove-row"><i class="fa fa-trash"></i></button></td>';
+                    newRow += '</tr>';
+
+                    $('#' + variationTableId + ' tbody').append(newRow);
+                    createdVariationRows[valueId] = true;
+                }
+            });
+        });
+
+        function generateVariationValuesTable(variationValues, counter, variationId) {
+            var tableId = 'variation_values_table_' + counter;
+            var table = '<div class="table-container" id="table_container_' + counter + '">';
+            table += '<table id="' + tableId + '" class="table">';
+            table +=
+                '<thead><tr><th><?= lang('App.sku_code') ?></th><th><?= lang('App.product_name') ?></th><th class="hidden-column"><?= lang('App.variation_name') ?></th><th><?= lang('App.buying_price') ?></th><th><?= lang('App.customer_price') ?></th><th>Tax Rate</th><th><?= lang('App.tax_amount') ?></th><th><?= lang('App.sale_price') ?></th><th><?= lang('App.action') ?></th></tr></thead>';
+            table += '<tbody></tbody></table></div>';
+            $('#variation_values_container').append(table);
         }
-    });
 
-    // Fetch and manage variation values and rows
-    $('#variation_values').change(function() {
-        var selectedValues = $(this).val() || [];
-        var variationId = $(this).find('option:selected').data('variation-id') || '';
+        // Handle removing rows
+        $(document).on('click', '.remove-row', function () {
+            var row = $(this).closest('tr');
+            var rowValueId = row.find('input[name="variation_values[]"]').val();
+            row.remove();
+            delete createdVariationRows[rowValueId];
 
-        // Ensure variationId is a string before using substring
-        variationId = String(variationId);
-
-        var variationTableId = 'variation_values_table_' + createdVariations[variationId];
-
-        // Remove rows for unselected values
-        $('#' + variationTableId + ' tbody tr').each(function() {
-            var rowValueId = $(this).find('input[name="variation_values[]"]').val();
-            if (!selectedValues.includes(rowValueId)) {
-                $(this).remove();
-                delete createdVariationRows[rowValueId];
-            }
+            // Unselect the value from the variation values box
+            $('#variation_values option[value="' + rowValueId + '"]').prop('selected', false);
+            $('#variation_values').trigger('change'); // Trigger change event to update the UI
         });
 
-        // Add rows for newly selected values
-        $.each(selectedValues, function(index, valueId) {
-            if (!createdVariationRows[valueId]) {
-                var valueText = $('#variation_values option[value="' + valueId + '"]').text();
-                var variationSkuCode = $('#sku_code').val().trim() + '-' + variationId
-                    .substring(0, 2).toUpperCase() +
-                    (index + 1).toString().padStart(3, '0');
-                var variationProductName = ($('#product_name').val() + ' - ' + valueText)
-                    .toLowerCase();
-
-                var newRow = '<tr>';
-                newRow +=
-                    '<td><input type="text" class="form-control" readonly name="variation_sku_code[]" value="' +
-                    variationSkuCode + '" placeholder="Enter SKU code"></td>';
-                newRow +=
-                    '<td><input type="text" class="form-control variation-product-name" name="variation_product_name[]" value="' +
-                    variationProductName + '" placeholder="Enter product name"></td>';
-                newRow +=
-                    '<td class="hidden-column"><input type="hidden" class="form-control variation-value" name="variation_values[]" value="' +
-                    valueId + '"><span>' + valueText + '</span></td>';
-                newRow +=
-                    '<td><input type="number" name="variation_buying_price[]" class="form-control" placeholder="Enter buying price"></td>';
-                newRow +=
-                    '<td><input type="number" name="variation_customer_price[]" class="form-control" placeholder="Enter customer price"></td>';
-                newRow +=
-                    '<td><select class="form-control select2 select2-danger tax-group" name="variation_tax_group_id[]">';
-                newRow += '<option value="">Select Tax Rate</option>';
-                $.each(taxGroups, function(taxIndex, taxGroup) {
-                    newRow += '<option value="' + taxGroup.id + '">' + taxGroup
-                        .tax_group_name + '</option>';
-                });
-                newRow += '</select></td>';
-                newRow +=
-                    '<td><input type="text" name="variation_tax_amount[]" class="form-control" readonly placeholder="Tax amount"></td>';
-                newRow +=
-                    '<td><input type="text" name="variation_sale_price[]" class="form-control" readonly placeholder="Enter sale price"></td>';
-                newRow +=
-                    '<td><button type="button" class="btn btn-danger remove-row"><i class="fa fa-trash"></i></button></td>';
-                newRow += '</tr>';
-
-                $('#' + variationTableId + ' tbody').append(newRow);
-                createdVariationRows[valueId] = true;
-            }
-        });
-    });
-
-    function generateVariationValuesTable(variationValues, counter, variationId) {
-        var tableId = 'variation_values_table_' + counter;
-        var table = '<div class="table-container" id="table_container_' + counter + '">';
-        table += '<table id="' + tableId + '" class="table">';
-        table +=
-            '<thead><tr><th><?= lang('App.sku_code') ?></th><th><?= lang('App.product_name') ?></th><th class="hidden-column"><?= lang('App.variation_name') ?></th><th><?= lang('App.buying_price') ?></th><th><?= lang('App.customer_price') ?></th><th>Tax Rate</th><th><?= lang('App.tax_amount') ?></th><th><?= lang('App.sale_price') ?></th><th><?= lang('App.action')?></th></tr></thead>';
-        table += '<tbody></tbody></table></div>';
-        $('#variation_values_container').append(table);
-    }
-
-    // Handle removing rows
-    $(document).on('click', '.remove-row', function() {
-        var row = $(this).closest('tr');
-        var rowValueId = row.find('input[name="variation_values[]"]').val();
-        row.remove();
-        delete createdVariationRows[rowValueId];
-
-        // Unselect the value from the variation values box
-        $('#variation_values option[value="' + rowValueId + '"]').prop('selected', false);
-        $('#variation_values').trigger('change'); // Trigger change event to update the UI
-    });
-
-    // Update tax amount and sale price when tax group or prices are changed
-    $(document).on('change', '.tax-group', function() {
-        updateRowCalculations($(this).closest('tr'));
-    });
-
-    $(document).on('input', 'input[name="variation_buying_price[]"], input[name="variation_customer_price[]"]',
-        function() {
+        // Update tax amount and sale price when tax group or prices are changed
+        $(document).on('change', '.tax-group', function () {
             updateRowCalculations($(this).closest('tr'));
         });
 
-    // Calculate tax amount and sale price for single product table
-    $('#buying_price, #customer_price, #tax_group_id').on('input change', function() {
-        var buyingPrice = parseFloat($('#buying_price').val());
-        var customerPrice = parseFloat($('#customer_price').val());
-        var taxGroupId = $('#tax_group_id').val();
-
-        if (!isNaN(buyingPrice) && !isNaN(customerPrice) && taxGroupId) {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo site_url(route_to('products.get_tax_rate')); ?>",
-                data: {
-                    tax_group_id: taxGroupId,
-                    customer_price: customerPrice,
-                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
-                },
-                dataType: 'json',
-                success: function(response) {
-                    var taxRate = parseFloat(response.total_tax_amount);
-                    if (!isNaN(taxRate)) {
-                        var taxAmount = (buyingPrice * taxRate) / 100;
-                        var salePrice = customerPrice + taxAmount;
-                        $('#tax_amount').val(taxAmount.toFixed(2));
-                        $('#sale_price').val(salePrice.toFixed(2));
-                    } else {
-                        $('#tax_amount').val('');
-                        $('#sale_price').val('');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error calculating tax amount and sale price:", error);
-                }
+        $(document).on('input', 'input[name="variation_buying_price[]"], input[name="variation_customer_price[]"]',
+            function () {
+                updateRowCalculations($(this).closest('tr'));
             });
+
+        // Calculate tax amount and sale price for single product table
+        $('#buying_price, #customer_price, #tax_group_id').on('input change', function () {
+            var buyingPrice = parseFloat($('#buying_price').val());
+            var customerPrice = parseFloat($('#customer_price').val());
+            var taxGroupId = $('#tax_group_id').val();
+
+            if (!isNaN(buyingPrice) && !isNaN(customerPrice) && taxGroupId) {
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo site_url(route_to('products.get_tax_rate')); ?>",
+                    data: {
+                        tax_group_id: taxGroupId,
+                        customer_price: customerPrice,
+                        <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        var taxRate = parseFloat(response.total_tax_amount);
+                        if (!isNaN(taxRate)) {
+                            var taxAmount = (buyingPrice * taxRate) / 100;
+                            var salePrice = customerPrice + taxAmount;
+                            $('#tax_amount').val(taxAmount.toFixed(2));
+                            $('#sale_price').val(salePrice.toFixed(2));
+                        } else {
+                            $('#tax_amount').val('');
+                            $('#sale_price').val('');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error calculating tax amount and sale price:", error);
+                    }
+                });
+            }
+        });
+
+        // Function to update row calculations
+        function updateRowCalculations(row) {
+            var buyingPrice = parseFloat(row.find('input[name="variation_buying_price[]"]').val()) || 0;
+            var customerPrice = parseFloat(row.find('input[name="variation_customer_price[]"]').val()) || 0;
+            var taxGroupId = row.find('.tax-group').val();
+
+            if (buyingPrice && customerPrice && taxGroupId) {
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo site_url(route_to('products.get_tax_rate')); ?>",
+                    data: {
+                        tax_group_id: taxGroupId,
+                        customer_price: customerPrice,
+                        <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        var taxRate = parseFloat(response.total_tax_amount);
+                        if (!isNaN(taxRate)) {
+                            var taxAmount = (buyingPrice * taxRate) / 100;
+                            var salePrice = customerPrice + taxAmount;
+                            row.find('input[name="variation_tax_amount[]"]').val(taxAmount.toFixed(2));
+                            row.find('input[name="variation_sale_price[]"]').val(salePrice.toFixed(2));
+                        } else {
+                            row.find('input[name="variation_tax_amount[]"]').val('');
+                            row.find('input[name="variation_sale_price[]"]').val('');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error updating row calculations:", error);
+                    }
+                });
+            }
         }
     });
-
-    // Function to update row calculations
-    function updateRowCalculations(row) {
-        var buyingPrice = parseFloat(row.find('input[name="variation_buying_price[]"]').val()) || 0;
-        var customerPrice = parseFloat(row.find('input[name="variation_customer_price[]"]').val()) || 0;
-        var taxGroupId = row.find('.tax-group').val();
-
-        if (buyingPrice && customerPrice && taxGroupId) {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo site_url(route_to('products.get_tax_rate')); ?>",
-                data: {
-                    tax_group_id: taxGroupId,
-                    customer_price: customerPrice,
-                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
-                },
-                dataType: 'json',
-                success: function(response) {
-                    var taxRate = parseFloat(response.total_tax_amount);
-                    if (!isNaN(taxRate)) {
-                        var taxAmount = (buyingPrice * taxRate) / 100;
-                        var salePrice = customerPrice + taxAmount;
-                        row.find('input[name="variation_tax_amount[]"]').val(taxAmount.toFixed(2));
-                        row.find('input[name="variation_sale_price[]"]').val(salePrice.toFixed(2));
-                    } else {
-                        row.find('input[name="variation_tax_amount[]"]').val('');
-                        row.find('input[name="variation_sale_price[]"]').val('');
+</script>
+<script>
+    $(document).ready(function () {
+        // Fetch sub-categories based on selected category
+        $('#category_id').change(function () {
+            var categoryId = $(this).val();
+            if (categoryId) {
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo site_url(route_to('products.get_sub_categories')); ?>",
+                    data: {
+                        'category_id': categoryId
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        $('#sub_category_id').empty();
+                        $('#sub_category_id').append(
+                            '<option value="" selected><?= lang('App.select_sub_category') ?></option>'
+                        );
+                        $.each(response, function (index, subCategory) {
+                            $('#sub_category_id').append('<option value="' + subCategory
+                                .id + '">' + subCategory.sub_category_name +
+                                '</option>');
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error fetching sub-categories:", error);
                     }
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error updating row calculations:", error);
-                }
-            });
-        }
-    }
-});
-</script>
-<script>
-$(document).ready(function() {
-    // Fetch sub-categories based on selected category
-    $('#category_id').change(function() {
-        var categoryId = $(this).val();
-        if (categoryId) {
-            $.ajax({
-                type: "GET",
-                url: "<?php echo site_url(route_to('products.get_sub_categories')); ?>",
-                data: {
-                    'category_id': categoryId
-                },
-                dataType: 'json',
-                success: function(response) {
-                    $('#sub_category_id').empty();
-                    $('#sub_category_id').append(
-                        '<option value="" selected><?= lang('App.select_sub_category') ?></option>'
-                    );
-                    $.each(response, function(index, subCategory) {
-                        $('#sub_category_id').append('<option value="' + subCategory
-                            .id + '">' + subCategory.sub_category_name +
-                            '</option>');
-                    });
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching sub-categories:", error);
-                }
-            });
-        } else {
-            $('#sub_category_id').empty();
-            $('#sub_category_id').append(
-                '<option value="" selected><?= lang('App.select_sub_category') ?></option>');
-        }
+                });
+            } else {
+                $('#sub_category_id').empty();
+                $('#sub_category_id').append(
+                    '<option value="" selected><?= lang('App.select_sub_category') ?></option>');
+            }
+        });
     });
-});
 </script>
 <script>
-$(document).ready(function() {
-    $('.select2').select2();
-});
+    $(document).ready(function () {
+        $('.select2').select2();
+    });
 </script>
 
 <?= $this->endSection() ?>

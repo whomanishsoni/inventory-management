@@ -15,7 +15,8 @@ use Products\Models\VariationValuesModel;
 use Products\Models\TaxGroupsModel;
 use Products\Models\TaxRatesModel;
 
-class Products extends AdminBaseController {
+class Products extends AdminBaseController
+{
 
     public $title = 'Products Management';
     public $menu = 'products';
@@ -23,12 +24,12 @@ class Products extends AdminBaseController {
     public function products()
     {
         $listProducts = (new ProductsModel())
-        ->join('brands', 'brands.id = products.brand_id')
-        ->join('units', 'units.id = products.unit_id')
-        ->join('categories', 'categories.id = products.category_id')
-        ->join('sub_categories', 'sub_categories.id = products.sub_category_id', 'left')
-        ->select('products.*, brands.brand_name , units.unit_abbreviation , categories.category_name , sub_categories.sub_category_name')
-        ->findAll();
+            ->join('brands', 'brands.id = products.brand_id')
+            ->join('units', 'units.id = products.unit_id')
+            ->join('categories', 'categories.id = products.category_id')
+            ->join('sub_categories', 'sub_categories.id = products.sub_category_id', 'left')
+            ->select('products.*, brands.brand_name , units.unit_abbreviation , categories.category_name , sub_categories.sub_category_name')
+            ->findAll();
 
         $this->updatePageData(['submenu' => 'Product List']);
         return view('Products\Views\products\list', compact('listProducts'));
@@ -52,7 +53,7 @@ class Products extends AdminBaseController {
     {
         $productModel = new ProductsModel();
         $productVariationsModel = new ProductVariationsModel();
-    
+
         $product = $productModel
             ->join('brands', 'brands.id = products.brand_id')
             ->join('units', 'units.id = products.unit_id')
@@ -70,7 +71,7 @@ class Products extends AdminBaseController {
             ->select('product_variations.*, variations.variation_name AS variation_name, variation_values.variation_value AS variation_value,brands.brand_name AS variation_brand_name, units.unit_abbreviation AS variation_unit_abbreviation, categories.category_name AS variation_category_name, sub_categories.sub_category_name AS variation_sub_category_name')
             ->where('product_variations.product_id', $id)
             ->findAll();
-    
+
         return view('Products\Views\products\variation_product_details', compact('product', 'variations'));
     }
 
@@ -79,7 +80,7 @@ class Products extends AdminBaseController {
         if (!$this->hasPermission('products_add')) {
             return redirect()->to(route_to('products.index'))->with('error', 'Permission Denied');
         }
-        
+
         $sku_code = $this->generateSKU();
 
         $brandModel = new BrandsModel();
@@ -96,7 +97,7 @@ class Products extends AdminBaseController {
             'tax_groups' => $taxGroupModel->where('tax_group_status', 'active')->orderBy('tax_group_name', 'desc')->findAll(),
             'sku_code' => $sku_code,
         ];
-        
+
         $this->updatePageData(['submenu' => 'Add New Product']);
         return view('Products\Views\products\add', $activeEntities);
     }
@@ -106,7 +107,7 @@ class Products extends AdminBaseController {
         if (!$this->hasPermission('products_add')) {
             return redirect()->to(route_to('products.index'))->with('error', 'Permission Denied');
         }
-    
+
         // Basic validation rules
         $validationRules = [
             'product_name' => 'required',
@@ -115,11 +116,11 @@ class Products extends AdminBaseController {
             'category_id' => 'required',
             'product_status' => 'required|in_list[active,inactive]',
         ];
-    
+
         if (!$this->validate($validationRules)) {
             return view('Products\Views\products\add', ['validation' => $this->validator]);
         }
-    
+
         // Prepare product data
         $productName = strtolower($this->request->getPost('product_name'));
         $productData = [
@@ -137,12 +138,13 @@ class Products extends AdminBaseController {
             'product_status' => $this->request->getPost('product_status'),
             'has_variation' => '0',
         ];
-    
+
         $productModel = new ProductsModel();
         $productId = $productModel->insert($productData);
-    
+
         // Check if variations are selected
-        $variationIds = $this->request->getPost('variation_id');
+        $variationIds = $this->request->getPost('variation_id') ?? null;
+
         if ($variationIds) {
             $variationSkuCodes = $this->request->getPost('variation_sku_code');
             $variationProductNames = $this->request->getPost('variation_product_name');
@@ -152,47 +154,66 @@ class Products extends AdminBaseController {
             $variationSalePrices = $this->request->getPost('variation_sale_price');
             $variationTaxGroupIds = $this->request->getPost('variation_tax_group_id');
             $variationTaxAmounts = $this->request->getPost('variation_tax_amount');
-    
             $productVariationsModel = new ProductVariationsModel();
-    
+
             // Ensure each variation is processed correctly
             $totalVariationValues = count($variationValues);
-            
+
+            // Check for mismatch in variation IDs and values
+
+            if (is_array($variationIds) && count($variationIds) !== $totalVariationValues) {
+                throw new \Exception('Mismatch in variation IDs and values');
+            }
+
             for ($i = 0; $i < $totalVariationValues; $i++) {
-                // Create each variation entry
+                // Check if the variation ID is set
+                if (isset($variationIds[$i])) {
+                    $variationId = $variationIds[$i];
+                }
+                // Skip variations with missing essential fields
+                if (
+                    empty($variationSkuCodes[$i]) ||
+                    empty($variationProductNames[$i]) ||
+                    empty($variationValues[$i]) ||
+                    empty($variationBuyingPrices[$i]) ||
+                    empty($variationCustomerPrices[$i]) ||
+                    empty($variationSalePrices[$i])
+                ) {
+                    continue; // Skip this iteration if any essential field is empty
+                }
                 $variationData = [
                     'product_id' => $productId,
-                    'variation_sku_code' => strtolower($variationSkuCodes[$i]),
-                    'variation_product_name' => strtolower($variationProductNames[$i]),
-                    'variation_id' => $variationIds[$i % count($variationIds)],
+                    'variation_sku_code' => isset($variationSkuCodes[$i]) ? $variationSkuCodes[$i] : '',
+                    'variation_product_name' => isset($variationProductNames[$i]) ? $variationProductNames[$i] : '',
+                    'variation_id' => $variationId,
                     'variation_value_id' => $variationValues[$i],
                     'variation_brand_id' => $this->request->getPost('brand_id'),
                     'variation_unit_id' => $this->request->getPost('unit_id'),
                     'variation_category_id' => $this->request->getPost('category_id'),
                     'variation_sub_category_id' => $this->request->getPost('sub_category_id'),
-                    'variation_tax_group_id' => $variationTaxGroupIds[$i],
-                    'variation_buying_price' => $variationBuyingPrices[$i],
-                    'variation_customer_price' => $variationCustomerPrices[$i],
-                    'variation_tax_amount' => $variationTaxAmounts[$i],
-                    'variation_sale_price' => $variationSalePrices[$i],
+                    'variation_tax_group_id' => isset($variationTaxGroupIds[$i]) ? $variationTaxGroupIds[$i] : '',
+                    'variation_buying_price' => isset($variationBuyingPrices[$i]) ? $variationBuyingPrices[$i] : '',
+                    'variation_customer_price' => isset($variationCustomerPrices[$i]) ? $variationCustomerPrices[$i] : '',
+                    'variation_tax_amount' => isset($variationTaxAmounts[$i]) ? $variationTaxAmounts[$i] : '',
+                    'variation_sale_price' => isset($variationSalePrices[$i]) ? $variationSalePrices[$i] : '',
                     'product_variation_status' => 'active',
                 ];
-    
+
                 $productVariationsModel->insert($variationData);
             }
-    
+
             $productModel->update($productId, ['has_variation' => '1']);
         }
-    
+
         return redirect()->to(route_to('products.index'))->with('notifySuccess', 'Product Added Successfully');
     }
-    
+
     // public function storeProducts()
     // {
     //     if (!$this->hasPermission('products_add')) {
     //         return redirect()->to(route_to('products.index'))->with('error', 'Permission Denied');
     //     }
-    
+
     //     // Basic validation rules
     //     $validationRules = [
     //         'product_name' => 'required',
@@ -201,11 +222,11 @@ class Products extends AdminBaseController {
     //         'category_id' => 'required',
     //         'product_status' => 'required|in_list[active,inactive]',
     //     ];
-    
+
     //     if (!$this->validate($validationRules)) {
     //         return view('Products\Views\products\add', ['validation' => $this->validator]);
     //     }
-    
+
     //     // Prepare product data
     //     $productName = strtolower($this->request->getPost('product_name'));
     //     $productData = [
@@ -223,10 +244,10 @@ class Products extends AdminBaseController {
     //         'product_status' => $this->request->getPost('product_status'),
     //         'has_variation' => '0',
     //     ];
-    
+
     //     $productModel = new ProductsModel();
     //     $productId = $productModel->insert($productData);
-    
+
     //     // Check if a variation is selected
     //     $variationId = $this->request->getPost('variation_id');
     //     if ($variationId) {
@@ -235,14 +256,14 @@ class Products extends AdminBaseController {
     //         $variationCustomerPrices = $this->request->getPost('variation_customer_price');
     //         $variationSalePrices = $this->request->getPost('variation_sale_price');
     //         $variationTaxGroupId = $this->request->getPost('variation_tax_group_id');
-    
+
     //         $productVariationsModel = new ProductVariationsModel();
     //         $variationValuesModel = new VariationValuesModel();
-    
+
     //         foreach ($variationValues as $key => $variationValueId) {
     //             $variationValue = strtolower($variationValuesModel->find($variationValueId)->variation_value);
     //             $variationProductName = $productName . ' - ' . $variationValue;
-    
+
     //             $variationData = [
     //                 'variation_sku_code' => $this->generateSKU(),
     //                 'variation_product_name' => $variationProductName,
@@ -258,22 +279,22 @@ class Products extends AdminBaseController {
     //                 'variation_customer_price' => $variationCustomerPrices[$key],
     //                 'variation_sale_price' => $variationSalePrices[$key],
     //             ];
-    
+
     //             $productVariationsModel->insert($variationData);
     //         }
-    
+
     //         $productModel->update($productId, ['has_variation' => '1']);
     //     }
-    
+
     //     return redirect()->to(route_to('products.index'))->with('notifySuccess', 'Product Added Successfully');
     // }
-      
+
     public function editProducts($id)
     {
         if (!$this->hasPermission('products_edit')) {
             return redirect()->to(route_to('products.index'))->with('error', 'Permission Denied');
         }
-    
+
         // Load the necessary models
         $productModel = new ProductsModel();
         $productVariationsModel = new ProductVariationsModel();
@@ -287,14 +308,14 @@ class Products extends AdminBaseController {
 
         // Fetch product data
         $product = $productModel->find($id);
-    
+
         if (!$product) {
             return redirect()->to(route_to('products.index'))->with('error', 'Product not found');
         }
-    
+
         // Fetch product variations
         $productVariations = $productVariationsModel->where('product_id', $id)->findAll();
-    
+
         // Fetch related data
         $activeEntities = [
             'product' => $product,
@@ -309,18 +330,18 @@ class Products extends AdminBaseController {
         ];
 
         // dd($activeEntities['variations']);
-    
+
         $this->updatePageData(['submenu' => 'Edit Product']);
-    
+
         return view('Products\Views\products\edit', $activeEntities);
     }
-    
+
     public function updateProducts($id)
     {
         if (!$this->hasPermission('products_edit')) {
             return redirect()->to(route_to('products.index'))->with('error', 'Permission Denied');
         }
-    
+
         // Basic validation rules
         $validationRules = [
             'product_name' => 'required',
@@ -329,11 +350,11 @@ class Products extends AdminBaseController {
             'category_id' => 'required',
             'product_status' => 'required|in_list[active,inactive]',
         ];
-    
+
         if (!$this->validate($validationRules)) {
             return redirect()->back()->with('validation', $this->validator)->withInput();
         }
-    
+
         // Prepare product data
         $productName = strtolower($this->request->getPost('product_name'));
         $productData = [
@@ -350,10 +371,10 @@ class Products extends AdminBaseController {
             'sale_price' => $this->request->getPost('sale_price'),
             'product_status' => $this->request->getPost('product_status'),
         ];
-    
+
         $productModel = new ProductsModel();
         $productModel->update($id, $productData);
-    
+
         // Check if variations are selected
         $variationIds = $this->request->getPost('variation_id');
         if ($variationIds) {
@@ -365,15 +386,15 @@ class Products extends AdminBaseController {
             $variationSalePrices = $this->request->getPost('variation_sale_price');
             $variationTaxGroupIds = $this->request->getPost('variation_tax_group_id');
             $variationTaxAmounts = $this->request->getPost('variation_tax_amount');
-    
+
             $productVariationsModel = new ProductVariationsModel();
-    
+
             // First, delete the existing variations
             $productVariationsModel->where('product_id', $id)->delete();
-    
+
             // Then, insert the new variations
             $totalVariationValues = count($variationValues);
-    
+
             for ($i = 0; $i < $totalVariationValues; $i++) {
                 // Create each variation entry
                 $variationData = [
@@ -393,17 +414,17 @@ class Products extends AdminBaseController {
                     'variation_sale_price' => $variationSalePrices[$i],
                     'product_variation_status' => 'active',
                 ];
-    
+
                 $productVariationsModel->insert($variationData);
             }
-    
+
             $productModel->update($id, ['has_variation' => '1']);
         } else {
             $productModel->update($id, ['has_variation' => '0']);
         }
-    
+
         return redirect()->to(route_to('products.index'))->with('notifySuccess', 'Product Updated Successfully');
-    }  
+    }
 
     public function deleteProducts($id)
     {
@@ -419,7 +440,7 @@ class Products extends AdminBaseController {
     {
         $productId = $this->request->getPost('id');
         $newStatus = $this->request->getPost('product_status');
-    
+
         try {
             if (empty($productId) || !is_numeric($productId) || empty($newStatus)) {
                 throw new \Exception('Invalid input data');
@@ -446,8 +467,8 @@ class Products extends AdminBaseController {
 
         $subCategoriesModel = new SubCategoriesModel();
         $subCategories = $subCategoriesModel->where('category_id', $categoryId)
-                                            ->where('sub_category_status', 'active')
-                                            ->findAll();
+            ->where('sub_category_status', 'active')
+            ->findAll();
         return $this->response->setJSON($subCategories);
     }
 
@@ -457,8 +478,8 @@ class Products extends AdminBaseController {
 
         $variationValuesModel = new VariationValuesModel();
         $variationValues = $variationValuesModel->where('variation_id', $variationId)
-                                            ->where('variation_value_status', 'active')
-                                            ->findAll();
+            ->where('variation_value_status', 'active')
+            ->findAll();
         return $this->response->setJSON($variationValues);
     }
 
@@ -485,23 +506,23 @@ class Products extends AdminBaseController {
             return $this->response->setStatusCode(404)->setJSON(['error' => 'No tax rates found']);
         }
     }
-    
+
     public function hasPermission($permission)
     {
-    // Implement your permission checking logic here
-    // Example: Check if the logged-in user has the specified permission
-    // You can use your authentication and authorization logic or a library
-    // For example, you might have a 'Roles' and 'Permissions' system in your database
+        // Implement your permission checking logic here
+        // Example: Check if the logged-in user has the specified permission
+        // You can use your authentication and authorization logic or a library
+        // For example, you might have a 'Roles' and 'Permissions' system in your database
 
-    // Replace the logic below with your actual permission check
-    $allowedPermissions = [
-        'products_list',  
-        'products_add',
-        'products_edit',
-        'products_delete',
-    ];
+        // Replace the logic below with your actual permission check
+        $allowedPermissions = [
+            'products_list',
+            'products_add',
+            'products_edit',
+            'products_delete',
+        ];
 
-    return in_array($permission, $allowedPermissions);
-}
+        return in_array($permission, $allowedPermissions);
+    }
 
 }
