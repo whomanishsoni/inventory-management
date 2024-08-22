@@ -46,74 +46,85 @@
                                     <th><?php echo lang('App.customer_email') ?></th>
                                     <th><?php echo lang('App.customer_city') ?></th>
                                     <th><?php echo lang('App.customer_state') ?></th>
+                                    <th><?php echo lang('App.customer_balances') ?></th>
                                     <th><?php echo lang('App.customer_created_at') ?></th>
                                     <th><?php echo lang('App.customer_status') ?></th>
                                     <th><?php echo lang('App.action') ?></th>
                                 </tr>
                             </thead>
+
                             <tbody>
                                 <?php
                                 $counter = 1;
                                 foreach ($listCustomers as $row): ?>
                                     <tr>
                                         <td><?php echo $counter++; ?></td>
-                                        <td>
-                                            <?php echo $row->customer_name ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row->customer_phone ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row->customer_email ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row->city_name ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row->state_name ?>
-                                        </td>
+                                        <td><?php echo $row->customer_name; ?></td>
+                                        <td><?php echo $row->customer_phone; ?></td>
+                                        <td><?php echo $row->customer_email; ?></td>
+                                        <td><?php echo $row->city_name; ?></td>
+                                        <td><?php echo $row->state_name; ?></td>
+                                        <td><?php echo $row->balance; ?></td> <!-- Display the balance here -->
                                         <td><?php echo date('d-m-Y', strtotime($row->created_at)); ?></td>
                                         <td>
                                             <input type="checkbox" class="status-toggle" data-id="<?php echo $row->id; ?>"
                                                 <?php echo ($row->customer_status == 'active') ? 'checked' : ''; ?>>
                                         </td>
                                         <td>
-                                            <?php if (hasPermissions('customer_transactions_add')): ?>
-                                                <!-- Button to trigger the modal -->
-                                                <a href="<?= url(route_to('customers.transactions', $row->id)) ?>"
-                                                    class="btn btn-sm btn-default"
-                                                    title="<?php echo lang('App.view_transcation') ?>" data-toggle="tooltip"
-                                                    data-id="<?= $row->id ?>" data-toggle="modal"
-                                                    data-target="#addBalanceModal">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                            <?php endif ?>
-                                            <?php if (hasPermissions('customer_transactions_add')): ?>
-                                                <!-- Button to trigger the modal -->
-                                                <a href="<?= url(route_to('customers.add_transaction', $row->id)) ?>"
-                                                    class="btn btn-sm btn-success" title="<?php echo lang('App.add_balance') ?>"
-                                                    data-toggle="tooltip" data-id="<?= $row->id ?>" data-toggle="modal"
-                                                    data-target="#addBalanceModal">
-                                                    <i class="fas fa-coins"></i>
-                                                </a>
-                                            <?php endif ?>
-                                            <?php if (hasPermissions('customers_edit')): ?>
-                                                <a href="<?= url(route_to('customers.edit', $row->id)) ?>"
-                                                    class="btn btn-sm btn-primary"
-                                                    title="<?php echo lang('App.edit_customer') ?>" data-toggle="tooltip"><i
-                                                        class="fas fa-edit"></i></a>
-                                            <?php endif ?>
-                                            <?php if (hasPermissions('customers_delete')): ?>
-                                                <a href="<?= url(route_to('customers.delete', $row->id)) ?>"
-                                                    class="btn btn-sm btn-danger"
-                                                    onclick="return confirm('Do you really want to delete this customer ?')"
-                                                    title="<?php echo lang('App.delete_customer') ?>" data-toggle="tooltip"><i
-                                                        class="fa fa-trash"></i></a>
-                                            <?php endif ?>
+                                            <div style="display:flex; gap:5px;">
+                                                <?php if (hasPermissions('customer_transactions_add')): ?>
+                                                    <!-- Button to trigger the modal -->
+                                                    <a href="<?= url(route_to('customers.transactions', $row->id)) ?>"
+                                                        class="btn btn-sm btn-default"
+                                                        title="<?php echo lang('App.view_transcation') ?>" data-toggle="tooltip"
+                                                        data-id="<?= $row->id ?>" data-toggle="modal"
+                                                        data-target="#addBalanceModal">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                <?php endif ?>
+                                                <?php if (hasPermissions('customer_transactions_add')): ?>
+                                                    <!-- Button to trigger the modal -->
+                                                    <a href="<?= url(route_to('customers.add_transaction', $row->id)) ?>"
+                                                        class="btn btn-sm btn-success"
+                                                        title="<?php echo lang('App.add_balance') ?>" data-toggle="tooltip"
+                                                        data-id="<?= $row->id ?>" data-toggle="modal"
+                                                        data-target="#addBalanceModal">
+                                                        <i class="fas fa-coins"></i>
+                                                    </a>
+                                                <?php endif ?>
+                                                <?php if (hasPermissions('customers_edit')): ?>
+                                                    <a href="<?= url(route_to('customers.edit', $row->id)) ?>"
+                                                        class="btn btn-sm btn-primary"
+                                                        title="<?php echo lang('App.edit_customer') ?>" data-toggle="tooltip"><i
+                                                            class="fas fa-edit"></i></a>
+                                                <?php endif ?>
+                                                <?php if (hasPermissions('customers_delete')): ?>
+                                                    <a href="<?= url(route_to('customers.delete', $row->id)) ?>"
+                                                        class="btn btn-sm btn-danger"
+                                                        onclick="return confirm('Do you really want to delete this customer ?')"
+                                                        title="<?php echo lang('App.delete_customer') ?>"
+                                                        data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                                                <?php endif ?>
+                                            </div>
                                         </td>
                                     </tr>
-                                <?php endforeach ?>
+                                <?php endforeach; ?>
                             </tbody>
+
+                            <!-- Total Balance Section -->
+                            <tfoot>
+                                <tr>
+
+                                </tr>
+                            </tfoot>
+                            <tfoot>
+                                <tr>
+                                    <th class="text-center"><?php echo lang('App.total_balance'); ?>
+                                        <b id="totalBalance">
+                                            ₹<?php echo number_format($totalBalance, 2); ?></b>
+                                    </th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                     <!-- /.card-body -->
@@ -133,15 +144,33 @@
 <!-- page script -->
 <script>
     $(function () {
-        $('#customers').DataTable({
+        var table = $('#customers').DataTable({
             "paging": true,
-            "lengthChange": false,
+            "lengthChange": true,
             "searching": true,
             "ordering": true,
             "info": true,
             "autoWidth": false,
-            "responsive": true,
+            "responsive": false,
+            "scrollX": true,
         });
+
+        function updateTotalBalance() {
+            var totalBalance = 0;
+            table.rows({ filter: 'applied' }).every(function () {
+                var data = this.data();
+                var balance = parseFloat(data[6].replace(/[^0-9.-]+/g, '')); // Assuming balance is in the 7th column (index 6)
+                totalBalance += balance;
+            });
+            $('#totalBalance').text('₹' + totalBalance.toFixed(2));
+        }
+
+        table.on('search.dt', function () {
+            updateTotalBalance();
+        });
+
+        // Initial calculation
+        updateTotalBalance();
     });
 </script>
 <script>

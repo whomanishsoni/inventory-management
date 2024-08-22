@@ -12,10 +12,7 @@
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('App.home') ?></a></li>
                     <li class="breadcrumb-item"><a
-                            href="<?php echo url('/customers/balances') ?>"><?php echo lang('App.customer_balances') ?></a>
-                    </li>
-                    <li class="breadcrumb-item"><a
-                            href="<?php echo url('/customers/transactions', $customerId) ?>"><?php echo lang('App.transactions') ?></a>
+                            href="<?php echo url('/customers') ?>"><?php echo lang('App.customers') ?></a>
                     </li>
                     <li class="breadcrumb-item active"><?php echo lang('App.add_transaction') ?></li>
                 </ol>
@@ -58,10 +55,10 @@
                                         <option value="credit"><?= lang('App.credit') ?></option>
                                         <option value="debit"><?= lang('App.debit') ?></option>
                                     </select>
-                                    <?php if(isset($validation) && $validation->getError('transaction_type')): ?>
-                                    <p class='text-danger mt-2'>
-                                        <?= $validation->getError('transaction_type') ?>
-                                    </p>
+                                    <?php if (isset($validation) && $validation->getError('transaction_type')): ?>
+                                        <p class='text-danger mt-2'>
+                                            <?= $validation->getError('transaction_type') ?>
+                                        </p>
                                     <?php endif; ?>
                                 </div>
 
@@ -70,10 +67,10 @@
                                     <label for="transaction_date"><?= lang('App.transaction_date') ?></label>
                                     <input type="date" class="form-control" name="transaction_date"
                                         id="transaction_date" placeholder="<?= lang('App.transaction_date') ?>" />
-                                    <?php if(isset($validation) && $validation->getError('transaction_date')): ?>
-                                    <p class='text-danger mt-2'>
-                                        <?= $validation->getError('transaction_date') ?>
-                                    </p>
+                                    <?php if (isset($validation) && $validation->getError('transaction_date')): ?>
+                                        <p class='text-danger mt-2'>
+                                            <?= $validation->getError('transaction_date') ?>
+                                        </p>
                                     <?php endif; ?>
                                 </div>
 
@@ -83,10 +80,10 @@
                                     <input type="number" class="form-control" name="transaction_amount"
                                         id="transaction_amount" placeholder="<?= lang('App.transaction_amount') ?>"
                                         step="0.01" required />
-                                    <?php if(isset($validation) && $validation->getError('transaction_amount')): ?>
-                                    <p class='text-danger mt-2'>
-                                        <?= $validation->getError('transaction_amount') ?>
-                                    </p>
+                                    <?php if (isset($validation) && $validation->getError('transaction_amount')): ?>
+                                        <p class='text-danger mt-2'>
+                                            <?= $validation->getError('transaction_amount') ?>
+                                        </p>
                                     <?php endif; ?>
                                 </div>
 
@@ -97,10 +94,10 @@
                                     <textarea class="form-control" name="transaction_description"
                                         id="transaction_description"
                                         placeholder="<?= lang('App.transaction_description') ?>"></textarea>
-                                    <?php if(isset($validation) && $validation->getError('transaction_description')): ?>
-                                    <p class='text-danger mt-2'>
-                                        <?= $validation->getError('transaction_description') ?>
-                                    </p>
+                                    <?php if (isset($validation) && $validation->getError('transaction_description')): ?>
+                                        <p class='text-danger mt-2'>
+                                            <?= $validation->getError('transaction_description') ?>
+                                        </p>
                                     <?php endif; ?>
                                 </div>
 
@@ -111,10 +108,10 @@
                                     <input type="text" class="form-control" name="transaction_reference_id"
                                         id="transaction_reference_id"
                                         placeholder="<?= lang('App.transaction_reference_id') ?>" />
-                                    <?php if(isset($validation) && $validation->getError('transaction_reference_id')): ?>
-                                    <p class='text-danger mt-2'>
-                                        <?= $validation->getError('transaction_reference_id') ?>
-                                    </p>
+                                    <?php if (isset($validation) && $validation->getError('transaction_reference_id')): ?>
+                                        <p class='text-danger mt-2'>
+                                            <?= $validation->getError('transaction_reference_id') ?>
+                                        </p>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -123,7 +120,7 @@
                         <!-- Form Buttons -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-flat btn-primary"><?= lang('App.submit') ?></button>
-                            <a href="<?= url('/customers/transactions/'.$customerId) ?>"
+                            <a href="<?= url('/customers/transactions/' . $customerId) ?>"
                                 onclick="return confirm('Are you sure you want to leave?')"
                                 class="btn btn-flat btn-danger"><?= lang('App.cancel') ?></a>
                         </div>
@@ -152,75 +149,75 @@
 <script src="<?php echo assets_url('admin') ?>/plugins/jquery-validation/additional-methods.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    // Set default options for jQuery Validation
-    $.validator.setDefaults({
-        errorElement: 'span',
-        errorPlacement: function(error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.form-group').append(error);
-        },
-        highlight: function(element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-        }
-    });
+    $(document).ready(function () {
+        // Set default options for jQuery Validation
+        $.validator.setDefaults({
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
 
-    $('#transaction-add').validate({
-        rules: {
-            customer_name: {
-                required: true,
+        $('#transaction-add').validate({
+            rules: {
+                customer_name: {
+                    required: true,
+                },
+                transaction_type: {
+                    required: true,
+                },
+                transaction_date: {
+                    required: true,
+                    date: true,
+                },
+                transaction_amount: {
+                    required: true,
+                    number: true,
+                    min: 0,
+                },
+                transaction_description: {
+                    required: false,
+                    maxlength: 255,
+                },
+                transaction_reference_id: {
+                    required: false,
+                    maxlength: 255,
+                },
             },
-            transaction_type: {
-                required: true,
+            messages: {
+                customer_name: {
+                    required: "Please enter the customer name",
+                },
+                transaction_type: {
+                    required: "Please select the transaction type",
+                },
+                transaction_date: {
+                    required: "Please enter the transaction date",
+                    date: "Please enter a valid date",
+                },
+                transaction_amount: {
+                    required: "Please enter the amount",
+                    number: "Please enter a valid number",
+                    min: "Amount cannot be negative",
+                },
+                transaction_description: {
+                    maxlength: "Description cannot be more than 255 characters",
+                },
+                transaction_reference_id: {
+                    maxlength: "Reference ID cannot be more than 255 characters",
+                },
             },
-            transaction_date: {
-                required: true,
-                date: true,
-            },
-            transaction_amount: {
-                required: true,
-                number: true,
-                min: 0,
-            },
-            transaction_description: {
-                required: false,
-                maxlength: 255,
-            },
-            transaction_reference_id: {
-                required: false,
-                maxlength: 255,
-            },
-        },
-        messages: {
-            customer_name: {
-                required: "Please enter the customer name",
-            },
-            transaction_type: {
-                required: "Please select the transaction type",
-            },
-            transaction_date: {
-                required: "Please enter the transaction date",
-                date: "Please enter a valid date",
-            },
-            transaction_amount: {
-                required: "Please enter the amount",
-                number: "Please enter a valid number",
-                min: "Amount cannot be negative",
-            },
-            transaction_description: {
-                maxlength: "Description cannot be more than 255 characters",
-            },
-            transaction_reference_id: {
-                maxlength: "Reference ID cannot be more than 255 characters",
-            },
-        },
-    });
+        });
 
-    $('.select2').select2();
-});
+        $('.select2').select2();
+    });
 </script>
 
 <?= $this->endSection() ?>

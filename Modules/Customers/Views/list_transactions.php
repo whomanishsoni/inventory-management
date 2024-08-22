@@ -11,7 +11,7 @@
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('App.home') ?></a></li>
                     <li class="breadcrumb-item"><a
-                            href="<?php echo url('/customers/balances') ?>"><?php echo lang('App.customer_balances') ?></a>
+                            href="<?php echo url('/customers') ?>"><?php echo lang('App.customers') ?></a>
                     </li>
                     <li class="breadcrumb-item active"><?php echo lang('App.transactions') ?></li>
                 </ol>
@@ -98,19 +98,21 @@
                                             <?php echo $row->updated_by ?>
                                         </td>
                                         <td>
-                                            <?php if (hasPermissions('customer_transactions_edit')): ?>
-                                                <a href="<?= url(route_to('customers.edit_transaction', $row->id)) ?>"
-                                                    class="btn btn-sm btn-primary"
-                                                    title="<?php echo lang('App.edit_transaction') ?>" data-toggle="tooltip"><i
-                                                        class="fas fa-edit"></i></a>
-                                            <?php endif ?>
-                                            <?php if (hasPermissions('customer_transactions_delete')): ?>
-                                                <a href="<?= url(route_to('customers.delete_transaction', $row->id)) ?>"
-                                                    class="btn btn-sm btn-danger"
-                                                    onclick="return confirm('Do you really want to delete this transaction ?')"
-                                                    title="<?php echo lang('App.delete_transaction') ?>"
-                                                    data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                                            <?php endif ?>
+                                            <div style="display:flex; gap:5px;">
+                                                <?php if (hasPermissions('customer_transactions_edit')): ?>
+                                                    <a href="<?= url(route_to('customers.edit_transaction', $row->id)) ?>"
+                                                        class="btn btn-sm btn-primary"
+                                                        title="<?php echo lang('App.edit_transaction') ?>"
+                                                        data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                                                <?php endif ?>
+                                                <?php if (hasPermissions('customer_transactions_delete')): ?>
+                                                    <a href="<?= url(route_to('customers.delete_transaction', $row->id)) ?>"
+                                                        class="btn btn-sm btn-danger"
+                                                        onclick="return confirm('Do you really want to delete this transaction ?')"
+                                                        title="<?php echo lang('App.delete_transaction') ?>"
+                                                        data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                                                <?php endif ?>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
