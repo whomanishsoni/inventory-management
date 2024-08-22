@@ -253,7 +253,7 @@
                                                 <td>
                                                     <input type="number" class="form-control" name="sale_price"
                                                         id="sale_price" placeholder="<?= lang('App.sale_price') ?>"
-                                                        step="0.01" value="<?= esc($product->sale_price) ?>" />
+                                                        readonly step="0.01" value="<?= esc($product->sale_price) ?>" />
                                                     <?= isset($validation) && $validation->getError('sale_price') ? '<p class="text-danger mt-2">' . esc($validation->getError('sale_price')) . '</p>' : '' ?>
                                                 </td>
                                             </tr>
@@ -323,13 +323,13 @@
                                                 <td>
                                                     <input type="number" class="form-control"
                                                         name="variation_tax_amount[]"
-                                                        value="<?= esc($variation->variation_tax_amount) ?>" readonly
+                                                        value="<?= esc($variation->variation_tax_amount) ?>" 
                                                         step="0.01" />
                                                 </td>
                                                 <td>
                                                     <input type="number" class="form-control"
                                                         name="variation_sale_price[]"
-                                                        value="<?= esc($variation->variation_sale_price) ?>"
+                                                        value="<?= esc($variation->variation_sale_price) ?>" 
                                                         step="0.01" />
                                                 </td>
                                                 <td>
@@ -357,10 +357,10 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12 text-right">
+                            <div class="col-md-12 text-left">
+                            <button type="submit" class="btn btn-primary"><?= lang('App.update_product') ?></button>
                                 <a href="<?= route_to('products.index') ?>"
                                     class="btn btn-danger"><?= lang('App.cancel') ?></a>
-                                <button type="submit" class="btn btn-primary"><?= lang('App.update_product') ?></button>
                             </div>
                         </div>
 
@@ -422,42 +422,28 @@ $(document).ready(function() {
 $(document).ready(function() {
     // Toggle between Single and Variable product type
     $('#has_variation').change(function() {
-        if ($(this).val() == '1') {
-            $('#variation_selection_box').show();
-            $('#variation_values_selection_box').show();
-            $('#variable_product_table').show();
+        if ($(this).val() === '1') {
+            $('#variation_selection_box, #variation_values_selection_box, #variable_product_table').show();
             $('#single_product_table').hide();
         } else {
-            $('#variation_selection_box').hide();
-            $('#variation_values_selection_box').hide();
-            $('#variable_product_table').hide();
+            $('#variation_selection_box, #variation_values_selection_box, #variable_product_table').hide();
             $('#single_product_table').show();
         }
     });
 
     // Calculate Tax Amount and Sale Price for Single Product
-    $('#tax_group_id, #buying_price, #customer_price').change(function() {
-        let taxRate = $('#tax_group_id option:selected').data('tax-rate') || 0;
-        let buyingPrice = parseFloat($('#buying_price').val()) || 0;
-        let customerPrice = parseFloat($('#customer_price').val()) || 0;
-        let taxAmount = (buyingPrice * taxRate) / 100;
-        $('#tax_amount').val(taxAmount.toFixed(2));
-        $('#sale_price').val((customerPrice + taxAmount).toFixed(2));
+    $('#tax_group_id, #buying_price, #customer_price').on('change', function() {
+        updateSingleProductPricing();
     });
 
     // Calculate Tax Amount and Sale Price for Variable Product
-    $('body').on('change',
-        'select[name="variation_tax_group_id[]"], input[name="variation_buying_price[]"], input[name="variation_customer_price[]"]',
+    $('body').on('change', 
+        'select[name="variation_tax_group_id[]"], input[name="variation_buying_price[]"], input[name="variation_customer_price[]"]', 
         function() {
             let row = $(this).closest('tr');
-            let taxRate = row.find('select[name="variation_tax_group_id[]"] option:selected').data(
-                'tax-rate') || 0;
-            let buyingPrice = parseFloat(row.find('input[name="variation_buying_price[]"]').val()) || 0;
-            let customerPrice = parseFloat(row.find('input[name="variation_customer_price[]"]').val()) || 0;
-            let taxAmount = (buyingPrice * taxRate) / 100;
-            row.find('input[name="variation_tax_amount[]"]').val(taxAmount.toFixed(2));
-            row.find('input[name="variation_sale_price[]"]').val((customerPrice + taxAmount).toFixed(2));
-        });
+            updateRowCalculations(row);
+        }
+    );
 
     // Pre-fill Sub-Categories based on Category
     $('#category_id').change(function() {
@@ -466,19 +452,12 @@ $(document).ready(function() {
             $.ajax({
                 type: "GET",
                 url: "<?= site_url(route_to('products.get_sub_categories')) ?>",
-                data: {
-                    'category_id': categoryId
-                },
+                data: { 'category_id': categoryId },
                 dataType: 'json',
                 success: function(response) {
-                    $('#sub_category_id').empty();
-                    $('#sub_category_id').append(
-                        '<option value="" selected><?= lang('App.select_sub_category') ?></option>'
-                    );
+                    $('#sub_category_id').empty().append('<option value="" selected><?= lang('App.select_sub_category') ?></option>');
                     $.each(response, function(index, subCategory) {
-                        $('#sub_category_id').append('<option value="' + subCategory
-                            .id + '">' + subCategory.sub_category_name +
-                            '</option>');
+                        $('#sub_category_id').append('<option value="' + subCategory.id + '">' + subCategory.sub_category_name + '</option>');
                     });
                 },
                 error: function(xhr, status, error) {
@@ -486,15 +465,13 @@ $(document).ready(function() {
                 }
             });
         } else {
-            $('#sub_category_id').empty();
-            $('#sub_category_id').append(
-                '<option value="" selected><?= lang('App.select_sub_category') ?></option>');
+            $('#sub_category_id').empty().append('<option value="" selected><?= lang('App.select_sub_category') ?></option>');
         }
     });
 
     // Fetch and populate variation values based on selected variations
     $('#variation_id').change(function() {
-        var selectedVariations = $(this).val() || []; // Get all selected variation IDs
+        var selectedVariations = $(this).val() || [];
 
         // Remove tables for unselected variations
         $.each(createdVariations, function(variationId, counter) {
@@ -509,23 +486,12 @@ $(document).ready(function() {
             if (variationId && !createdVariations[variationId]) {
                 $.ajax({
                     type: "GET",
-                    url: "<?php echo site_url(route_to('products.get_variation_values'));?>",
+                    url: "<?php echo site_url(route_to('products.get_variation_values')); ?>",
                     data: { 'variation_id': variationId },
                     dataType: 'json',
                     success: function(response) {
                         if (Array.isArray(response) && response.length > 0) {
-                            // Populate the variation values selection box
-                            var $variationValuesSelect = $('#variation_values');
-                            $variationValuesSelect.empty();
-                            $.each(response, function(index, value) {
-                                $variationValuesSelect.append(
-                                    '<option value="' + value.id + '" data-variation-id="' + value.variation_id + '">' +
-                                    value.variation_value + '</option>'
-                                );
-                            });
-
-                            createdVariations[variationId] = ++variationCounter;
-                            generateVariationValuesTable(response, createdVariations[variationId], variationId);
+                            populateVariationValues(response, variationId);
                         }
                     },
                     error: function(xhr, status, error) {
@@ -536,12 +502,109 @@ $(document).ready(function() {
         });
     });
 
+    // Handle changes to tax group or prices
+    $(document).on('change', '.tax-group', function () {
+        updateRowCalculations($(this).closest('tr'));
+    });
+
+    $(document).on('input', 'input[name="variation_buying_price[]"], input[name="variation_customer_price[]"]', function () {
+        updateRowCalculations($(this).closest('tr'));
+    });
+
+    // Calculate tax amount and sale price for single product table
+    $('#buying_price, #customer_price, #tax_group_id').on('input change', function () {
+        updateSingleProductPricing();
+    });
+
     // Remove variation row
     $('body').on('click', '.remove-row', function() {
         $(this).closest('tr').remove();
     });
+
+    // Function to update row calculations
+    function updateRowCalculations(row) {
+        let buyingPrice = parseFloat(row.find('input[name="variation_buying_price[]"]').val()) || 0;
+        let customerPrice = parseFloat(row.find('input[name="variation_customer_price[]"]').val()) || 0;
+        let taxGroupId = row.find('.tax-group').val();
+
+        if (buyingPrice && customerPrice && taxGroupId) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo site_url(route_to('products.get_tax_rate')); ?>",
+                data: {
+                    tax_group_id: taxGroupId,
+                    customer_price: customerPrice,
+                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                },
+                dataType: 'json',
+                success: function(response) {
+                    let taxRate = parseFloat(response.total_tax_amount);
+                    if (!isNaN(taxRate)) {
+                        let taxAmount = (buyingPrice * taxRate) / 100;
+                        let salePrice = customerPrice + taxAmount;
+                        row.find('input[name="variation_tax_amount[]"]').val(taxAmount.toFixed(2));
+                        row.find('input[name="variation_sale_price[]"]').val(salePrice.toFixed(2));
+                    } else {
+                        row.find('input[name="variation_tax_amount[]"]').val('');
+                        row.find('input[name="variation_sale_price[]"]').val('');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error updating row calculations:", error);
+                }
+            });
+        }
+    }
+
+    // Function to update single product pricing
+    function updateSingleProductPricing() {
+        let buyingPrice = parseFloat($('#buying_price').val());
+        let customerPrice = parseFloat($('#customer_price').val());
+        let taxGroupId = $('#tax_group_id').val();
+
+        if (!isNaN(buyingPrice) && !isNaN(customerPrice) && taxGroupId) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo site_url(route_to('products.get_tax_rate')); ?>",
+                data: {
+                    tax_group_id: taxGroupId,
+                    customer_price: customerPrice,
+                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                },
+                dataType: 'json',
+                success: function(response) {
+                    let taxRate = parseFloat(response.total_tax_amount);
+                    if (!isNaN(taxRate)) {
+                        let taxAmount = (buyingPrice * taxRate) / 100;
+                        let salePrice = customerPrice + taxAmount;
+                        $('#tax_amount').val(taxAmount.toFixed(2));
+                        $('#sale_price').val(salePrice.toFixed(2));
+                    } else {
+                        $('#tax_amount').val('');
+                        $('#sale_price').val('');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error calculating tax amount and sale price:", error);
+                }
+            });
+        }
+    }
+
+    // Function to populate variation values
+    function populateVariationValues(response, variationId) {
+        var $variationValuesSelect = $('#variation_values');
+        $variationValuesSelect.empty();
+        $.each(response, function(index, value) {
+            $variationValuesSelect.append('<option value="' + value.id + '" data-variation-id="' + value.variation_id + '">' + value.variation_value + '</option>');
+        });
+
+        createdVariations[variationId] = ++variationCounter;
+        generateVariationValuesTable(response, createdVariations[variationId], variationId);
+    }
 });
 </script>
+
 <script>
 $(document).ready(function() {
     $('.select2').select2();

@@ -329,8 +329,6 @@ class Products extends AdminBaseController
             'sub_categories' => $subCategoryModel->where('category_id', $product->category_id)->findAll(),
         ];
 
-        // dd($activeEntities['variations']);
-
         $this->updatePageData(['submenu' => 'Edit Product']);
 
         return view('Products\Views\products\edit', $activeEntities);
@@ -338,42 +336,40 @@ class Products extends AdminBaseController
 
     public function updateProducts($id)
     {
-        if (!$this->hasPermission('products_edit')) {
-            return redirect()->to(route_to('products.index'))->with('error', 'Permission Denied');
-        }
+        // Get the product data from the request
+        $productName = $this->request->getPost('product_name');
+        $skuCode = $this->request->getPost('sku_code');
+        $brandId = $this->request->getPost('brand_id');
+        $unitId = $this->request->getPost('unit_id');
+        $categoryId = $this->request->getPost('category_id');
+        $subCategoryId = $this->request->getPost('sub_category_id');
+        $taxGroupId = $this->request->getPost('tax_group_id');
+        $buyingPrice = $this->request->getPost('buying_price');
+        $customerPrice = $this->request->getPost('customer_price');
+        $taxAmount = $this->request->getPost('tax_amount');
+        $salePrice = $this->request->getPost('sale_price');
+        $hasVariation = $this->request->getPost('has_variation');
 
-        // Basic validation rules
-        $validationRules = [
-            'product_name' => 'required',
-            'brand_id' => 'required',
-            'unit_id' => 'required',
-            'category_id' => 'required',
-            'product_status' => 'required|in_list[active,inactive]',
-        ];
-
-        if (!$this->validate($validationRules)) {
-            return redirect()->back()->with('validation', $this->validator)->withInput();
-        }
-
-        // Prepare product data
-        $productName = strtolower($this->request->getPost('product_name'));
+        // Create an array of product data
         $productData = [
-            'sku_code' => strtolower($this->request->getPost('sku_code')),
             'product_name' => $productName,
-            'brand_id' => $this->request->getPost('brand_id'),
-            'unit_id' => $this->request->getPost('unit_id'),
-            'category_id' => $this->request->getPost('category_id'),
-            'sub_category_id' => $this->request->getPost('sub_category_id'),
-            'tax_group_id' => $this->request->getPost('tax_group_id'),
-            'buying_price' => $this->request->getPost('buying_price'),
-            'customer_price' => $this->request->getPost('customer_price'),
-            'tax_amount' => $this->request->getPost('tax_amount'),
-            'sale_price' => $this->request->getPost('sale_price'),
-            'product_status' => $this->request->getPost('product_status'),
+            'sku_code' => $skuCode,
+            'brand_id' => $brandId,
+            'unit_id' => $unitId,
+            'category_id' => $categoryId,
+            'sub_category_id' => $subCategoryId,
+            'tax_group_id' => $taxGroupId,
+            'buying_price' => $buyingPrice,
+            'customer_price' => $customerPrice,
+            'tax_amount' => $taxAmount,
+            'sale_price' => $salePrice,
+            'has_variation' => $hasVariation,
         ];
 
+        // Update the product in the database
         $productModel = new ProductsModel();
         $productModel->update($id, $productData);
+
 
         // Check if variations are selected
         $variationIds = $this->request->getPost('variation_id');

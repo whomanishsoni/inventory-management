@@ -29,6 +29,7 @@ $lang['product_name'] = 'Product Name';
 $lang['product_created_at'] = 'Created at';
 $lang['product_status'] = 'Status';
 $lang['product_variations_details'] = 'Product variations Details';
+$lang['update_product'] = 'Click To save';
 // Actions
 $lang['add_product'] = 'Add Product';
 $lang['edit_product'] = 'Edit Product';
