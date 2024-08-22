@@ -43,12 +43,12 @@ class Products extends AdminBaseController
             ->join('units', 'units.id = products.unit_id')
             ->join('categories', 'categories.id = products.category_id')
             ->join('sub_categories', 'sub_categories.id = products.sub_category_id', 'left')
-            ->select('products.*, brands.brand_name , units.unit_abbreviation , categories.category_name , sub_categories.sub_category_name')
+            ->join('tax_groups', 'tax_groups.id = products.tax_group_id', 'left')
+            ->select('products.*, brands.brand_name, units.unit_abbreviation, categories.category_name, sub_categories.sub_category_name, tax_groups.tax_group_name')
             ->find($id);
 
         return view('Products\Views\products\single_product_details', compact('product'));
     }
-
     public function getProductVariations($id)
     {
         $productModel = new ProductsModel();
@@ -425,17 +425,24 @@ class Products extends AdminBaseController
 
         return redirect()->to(route_to('products.index'))->with('notifySuccess', 'Product Updated Successfully');
     }
-
     public function deleteProducts($id)
     {
         if (!$this->hasPermission('products_delete')) {
             return redirect()->to(route_to('products.index'))->with('error', 'Permission Denied');
         }
-        (new ProductsModel())->delete($id);
+
+        $productModel = new ProductsModel();
+        $product = $productModel->find($id);
+
+        if ($product->has_variation == 1) {
+            $productVariationsModel = new ProductVariationsModel();
+            $productVariationsModel->where('product_id', $id)->delete();
+        }
+
+        $productModel->delete($id);
 
         return redirect()->to(route_to('products.index'))->with('notifySuccess', 'Product Deleted Successfully');
     }
-
     public function updateProductsStatus()
     {
         $productId = $this->request->getPost('id');
