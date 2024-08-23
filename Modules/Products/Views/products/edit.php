@@ -217,7 +217,8 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>
+                                                <td>   
+                                                    
                                                     <input type="number" class="form-control" name="buying_price"
                                                         id="buying_price" placeholder="<?= lang('App.buying_price') ?>"
                                                         step="0.01" value="<?= esc($product->buying_price) ?>" />
@@ -284,7 +285,8 @@
                                         </thead>
                                         <tbody id="variation_table">
                                             <?php foreach ($product_variations as $variation): ?>
-                                            <tr>
+                                           <tr>
+                                           <input type="hidden" name="variation_value_id[]" value="<?= esc($variation->variation_value_id) ?>">
                                                 <td>
                                                     <input type="text" class="form-control" name="variation_sku_code[]"
                                                         value="<?= esc($variation->variation_sku_code) ?>" readonly />
@@ -324,13 +326,13 @@
                                                     <input type="number" class="form-control"
                                                         name="variation_tax_amount[]"
                                                         value="<?= esc($variation->variation_tax_amount) ?>" 
-                                                        step="0.01" />
+                                                        readonly step="0.01" />
                                                 </td>
                                                 <td>
                                                     <input type="number" class="form-control"
                                                         name="variation_sale_price[]"
                                                         value="<?= esc($variation->variation_sale_price) ?>" 
-                                                        step="0.01" />
+                                                        readonly step="0.01" />
                                                 </td>
                                                 <td>
                                                     <select class="form-control select2 select2-danger"
@@ -349,7 +351,7 @@
                                                             class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
-                                            <?php endforeach; ?>
+                                            <?php endforeach; ?> 
                                         </tbody>
                                     </table>
                                 </div>
@@ -521,40 +523,47 @@ $(document).ready(function() {
         $(this).closest('tr').remove();
     });
 
-    // Function to update row calculations
-    function updateRowCalculations(row) {
-        let buyingPrice = parseFloat(row.find('input[name="variation_buying_price[]"]').val()) || 0;
-        let customerPrice = parseFloat(row.find('input[name="variation_customer_price[]"]').val()) || 0;
-        let taxGroupId = row.find('.tax-group').val();
+// Function to update row calculations
+function updateRowCalculations(row) {
+    let buyingPrice = parseFloat(row.find('input[name="variation_buying_price[]"]').val()) || 0;
+    let customerPrice = parseFloat(row.find('input[name="variation_customer_price[]"]').val()) || 0;
+    let taxGroupId = row.find('select[name="variation_tax_group_id[]"]').val();
 
-        if (buyingPrice && customerPrice && taxGroupId) {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo site_url(route_to('products.get_tax_rate')); ?>",
-                data: {
-                    tax_group_id: taxGroupId,
-                    customer_price: customerPrice,
-                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
-                },
-                dataType: 'json',
-                success: function(response) {
+    // Ensure that tax group ID is selected and prices are valid
+    if (taxGroupId && buyingPrice > 0 && customerPrice > 0) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url(route_to('products.get_tax_rate')); ?>",
+            data: {
+                tax_group_id: taxGroupId,
+                customer_price: customerPrice,
+                <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response && !isNaN(response.total_tax_amount)) {
                     let taxRate = parseFloat(response.total_tax_amount);
-                    if (!isNaN(taxRate)) {
-                        let taxAmount = (buyingPrice * taxRate) / 100;
-                        let salePrice = customerPrice + taxAmount;
-                        row.find('input[name="variation_tax_amount[]"]').val(taxAmount.toFixed(2));
-                        row.find('input[name="variation_sale_price[]"]').val(salePrice.toFixed(2));
-                    } else {
-                        row.find('input[name="variation_tax_amount[]"]').val('');
-                        row.find('input[name="variation_sale_price[]"]').val('');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error updating row calculations:", error);
+                    let taxAmount = (customerPrice * taxRate) / 100;
+                    let salePrice = customerPrice + taxAmount;
+
+                    row.find('input[name="variation_tax_amount[]"]').val(taxAmount.toFixed(2));
+                    row.find('input[name="variation_sale_price[]"]').val(salePrice.toFixed(2));
+                } else {
+                    row.find('input[name="variation_tax_amount[]"]').val('');
+                    row.find('input[name="variation_sale_price[]"]').val('');
                 }
-            });
-        }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error updating row calculations:", error);
+            }
+        });
+    } else {
+        // Clear the fields if data is invalid or missing
+        row.find('input[name="variation_tax_amount[]"]').val('');
+        row.find('input[name="variation_sale_price[]"]').val('');
     }
+}
+
 
     // Function to update single product pricing
     function updateSingleProductPricing() {
@@ -590,6 +599,42 @@ $(document).ready(function() {
             });
         }
     }
+    // Function to update variation product pricing
+function updateVariationProductPricing() {
+    $('#variation_table').find('tr').each(function() {
+        let buyingPrice = parseFloat($(this).find('input[name^="variation_buying_price"]').val());
+        let customerPrice = parseFloat($(this).find('input[name^="variation_customer_price"]').val());
+        let taxGroupId = $(this).find('select[name^="variation_tax_group_id"]').val();
+
+        if (!isNaN(buyingPrice) && !isNaN(customerPrice) && taxGroupId) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo site_url(route_to('products.get_tax_rate')); ?>",
+                data: {
+                    tax_group_id: taxGroupId,
+                    customer_price: customerPrice,
+                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                },
+                dataType: 'json',
+                success: function(response) {
+                    let taxRate = parseFloat(response.total_tax_amount);
+                    if (!isNaN(taxRate)) {
+                        let taxAmount = (buyingPrice * taxRate) / 100;
+                        let salePrice = customerPrice + taxAmount;
+                        $(this).find('input[name^="variation_tax_amount"]').val(taxAmount.toFixed(2));
+                        $(this).find('input[name^="variation_sale_price"]').val(salePrice.toFixed(2));
+                    } else {
+                        $(this).find('input[name^="variation_tax_amount"]').val('');
+                        $(this).find('input[name^="variation_sale_price"]').val('');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error calculating tax amount and sale price:", error);
+                }
+            });
+        }
+    });
+}
 
     // Function to populate variation values
     function populateVariationValues(response, variationId) {
@@ -604,7 +649,6 @@ $(document).ready(function() {
     }
 });
 </script>
-
 <script>
 $(document).ready(function() {
     $('.select2').select2();
