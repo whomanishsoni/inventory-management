@@ -106,7 +106,8 @@
                                             <option value="<?= $unit->id; ?>"><?= $unit->unit_name; ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                    <?= isset($validation) && $validation->getError('unit_id') ? '<p class="text-danger mt-2">' . esc($validation->getError('unit_id')) . '</p>' : '' ?>
+                                    <?= isset($validation) && $validation->getError('unit_id') ?
+                                        '<p id="unit-error" class="text-danger mt-2">' . esc($validation->getError('unit_id')) . '</p>' : '' ?>
                                 </div>
                             </div>
                         </div>
@@ -319,107 +320,117 @@
             return customerPrice >= buyingPrice;
         }, "Customer price cannot be less than the buying price.");
 
-        // Validate the form
-        $('#product-add').validate({
-            rules: {
-                product_name: {
-                    required: true,
-                },
-                brand_id: {
-                    required: true,
-                },
-                unit_id: {
-                    required: true,
-                },
-                category_id: {
-                    required: true,
-                },
-                sub_category_id: {
-                    required: false,
-                },
-                buying_price: {
-                    required: true,
-                    number: true
-                },
-                customer_price: {
-                    required: true,
-                    number: true,
-                    singleProductPriceCheck: true
-                },
-                tax_group_id: {
-                    required: true,
-                },
-                product_status: {
-                    required: true,
-                },
-                'variation_product_name[]': {
-                    required: true,
-                },
-                'variation_buying_price[]': {
-                    required: true,
-                    number: true,
-                },
-                'variation_customer_price[]': {
-                    required: true,
-                    number: true,
-                    variationPriceCheck: true
-                },
-                'variation_tax_group_id[]': {
-                    required: "Please select the tax group",
-                },
-            },
-            messages: {
-                product_name: {
-                    required: "Please enter the product name",
-                },
-                brand_id: {
-                    required: "Please select the brand",
-                },
-                unit_id: {
-                    required: "Please select the unit",
-                },
-                category_id: {
-                    required: "Please select the category",
-                },
-                sub_category_id: {
-                    required: "Please select the sub category",
-                },
-                buying_price: {
-                    required: "Please enter the buying price",
-                    number: "Please enter a valid number"
-                },
-                customer_price: {
-                    required: "Please enter the customer price",
-                    number: "Please enter a valid number",
-                    singleProductPriceCheck: "Customer price cannot be less than the buying price"
-                },
-                tax_group_id: {
-                    required: "Please select the Tax Rate",
-                },
-                product_status: {
-                    required: "Please select the product status",
-                },
-                'variation_product_name[]': {
-                    required: "Please enter the product name",
-                },
-                'variation_buying_price[]': {
-                    required: "Please enter the buying price",
-                    number: "Please enter a valid number",
-                },
-                'variation_customer_price[]': {
-                    required: "Please enter the customer price",
-                    number: "Please enter a valid number",
-                },
-                'variation_tax_group_id[]': {
-                    required: "Please select the tax group",
-                },
+// Validate the form
+$('#product-add').validate({
+    rules: {
+        product_name: {
+            required: true,
+        },
+        brand_id: {
+            required: true,
+        },
+        unit_id: {
+            required: true,
+        },
+        category_id: {
+            required: true,
+        },
+        sub_category_id: {
+            required: false,
+        },
+        buying_price: {
+            required: true,
+            number: true
+        },
+        customer_price: {
+            required: true,
+            number: true,
+            singleProductPriceCheck: true
+        },
+        tax_group_id: {
+            required: true,
+        },
+        product_status: {
+            required: true,
+        },
+        'variation_product_name[]': {
+            required: true,
+        },
+        'variation_buying_price[]': {
+            required: true,
+            number: true,
+        },
+        'variation_customer_price[]': {
+            required: true,
+            number: true,
+            variationPriceCheck: true
+        },
+        'variation_tax_group_id[]': {
+            required: "Please select the tax group",
+        },
+    },
+    messages: {
+        product_name: {
+            required: "Please enter the product name",
+        },
+        brand_id: {
+            required: "Please select the brand",
+        },
+        unit_id: {
+            required: "Please select the unit",
+        },
+        category_id: {
+            required: "Please select the category",
+        },
+        sub_category_id: {
+            required: "Please select the sub category",
+        },
+        buying_price: {
+            required: "Please enter the buying price",
+            number: "Please enter a valid number"
+        },
+        customer_price: {
+            required: "Please enter the customer price",
+            number: "Please enter a valid number",
+            singleProductPriceCheck: "Customer price cannot be less than the buying price"
+        },
+        tax_group_id: {
+            required: "Please select the Tax Rate",
+        },
+        product_status: {
+            required: "Please select the product status",
+        },
+        'variation_product_name[]': {
+            required: "Please enter the product name",
+        },
+        'variation_buying_price[]': {
+            required: "Please enter the buying price",
+            number: "Please enter a valid number",
+        },
+        'variation_customer_price[]': {
+            required: "Please enter the customer price",
+            number: "Please enter a valid number",
+        },
+        'variation_tax_group_id[]': {
+            required: "Please select the tax group",
+        },
+    },
+    submitHandler: function (form) {
+        // Additional code for form submission if needed
+        form.submit();
+    }
+});
 
-            },
-            submitHandler: function (form) {
-                // Additional code for form submission if needed
-                form.submit();
-            }
-        });
+// Automatically hide or remove error messages when a valid option is selected
+$('#unit_id, #brand_id, #category_id, #sub_category_id, #tax_group_id').on('change', function() {
+    var $this = $(this);
+    if ($this.val() !== "") {
+        $this.removeClass('is-invalid'); // Remove invalid class if using Bootstrap
+        $this.closest('.form-group').find('.text-danger').remove(); // Remove error message
+    }
+});
+
+
 
         // Ensure product name is not empty when 'variable' is selected
         $('#has_variation').change(function () {
@@ -716,5 +727,4 @@
         $('.select2').select2();
     });
 </script>
-
 <?= $this->endSection() ?>

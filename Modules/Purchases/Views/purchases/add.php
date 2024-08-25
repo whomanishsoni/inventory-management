@@ -41,7 +41,7 @@
                                         data-dropdown-css-class="select2-danger" id="supplier_id" name="supplier_id">
                                         <option value="" selected><?= lang('App.select_supplier') ?></option>
                                         <?php foreach ($suppliers as $supplier): ?>
-                                        <option value="<?= $supplier->id; ?>"><?= $supplier->supplier_name; ?></option>
+                                            <option value="<?= $supplier->id; ?>"><?= $supplier->supplier_name; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <?= isset($validation) && $validation->getError('supplier_id') ? '<p class="text-danger mt-2">' . esc($validation->getError('supplier_id')) . '</p>' : '' ?>
@@ -185,116 +185,124 @@
 <script src="<?php echo assets_url('admin') ?>/plugins/jquery-validation/additional-methods.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $.validator.setDefaults({
-        errorElement: 'span',
-        errorPlacement: function(error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.form-group').append(error);
-        },
-        highlight: function(element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-            $(element).closest('.form-group').find('.invalid-feedback').remove();
-        }
-    });
-
-    $('#purchase-add').validate({
-        rules: {
-            supplier_id: {
-                required: true,
-                digits: true
+    $(document).ready(function () {
+        $.validator.setDefaults({
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
             },
-            purchase_date: {
-                required: true,
-                date: true
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
             },
-            payment_status: {
-                required: true,
-                oneOf: ["paid", "unpaid", "partial"]
-            },
-            purchase_status: {
-                required: true,
-                oneOf: ["received", "pending"]
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+                $(element).closest('.form-group').find('.invalid-feedback').remove();
             }
-        },
-        messages: {
-            supplier_id: {
-                required: "Please select a supplier.",
-                digits: "Invalid supplier ID."
+        });
+
+        $('#purchase-add').validate({
+            rules: {
+                supplier_id: {
+                    required: true,
+                    digits: true
+                },
+                purchase_date: {
+                    required: true,
+                    date: true
+                },
+                payment_status: {
+                    required: true,
+                    oneOf: ["paid", "unpaid", "partial"]
+                },
+                purchase_status: {
+                    required: true,
+                    oneOf: ["received", "pending"]
+                }
             },
-            purchase_date: {
-                required: "Please enter the purchase date.",
-                date: "Please enter a valid date."
+            messages: {
+                supplier_id: {
+                    required: "Please select a supplier.",
+                    digits: "Invalid supplier ID."
+                },
+                purchase_date: {
+                    required: "Please enter the purchase date.",
+                    date: "Please enter a valid date."
+                },
+                payment_status: {
+                    required: "Please select the payment status.",
+                    oneOf: "Invalid payment status."
+                },
+                purchase_status: {
+                    required: "Please select the purchase status.",
+                    oneOf: "Invalid purchase status."
+                }
             },
-            payment_status: {
-                required: "Please select the payment status.",
-                oneOf: "Invalid payment status."
-            },
-            purchase_status: {
-                required: "Please select the purchase status.",
-                oneOf: "Invalid purchase status."
+            submitHandler: function (form) {
+                form.submit();
             }
-        },
-        submitHandler: function(form) {
-            form.submit();
-        }
+        });
+        $('#supplier_id').on('change', function () {
+            var $this = $(this);
+            if ($this.val() !== "") {
+                $this.removeClass('is-invalid'); // Remove invalid class if using Bootstrap
+                $this.closest('.form-group').find('.text-danger').remove(); // Remove error message
+            }
+        });
+
+
+        // Custom validation method for oneOf
+        $.validator.addMethod("oneOf", function (value, element, arg) {
+            return $.inArray(value, arg) != -1;
+        }, "Please specify a valid value.");
+
+        $('#paid_amount').val('0');
     });
-
-    // Custom validation method for oneOf
-    $.validator.addMethod("oneOf", function(value, element, arg) {
-        return $.inArray(value, arg) != -1;
-    }, "Please specify a valid value.");
-
-    $('#paid_amount').val('0');
-});
 </script>
 
 <script>
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    const productInput = document.getElementById('product_name');
-    const productSuggestions = document.getElementById('product_suggestions');
-    const productTableBody = document.getElementById('product_table_body');
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        const productInput = document.getElementById('product_name');
+        const productSuggestions = document.getElementById('product_suggestions');
+        const productTableBody = document.getElementById('product_table_body');
 
-    // Function to fetch product suggestions
-    function fetchProductSuggestions(query) {
-        // Construct the URL for AJAX request
-        var url = '<?= site_url(route_to('purchases.search')) ?>?query=' + encodeURIComponent(query);
+        // Function to fetch product suggestions
+        function fetchProductSuggestions(query) {
+            // Construct the URL for AJAX request
+            var url = '<?= site_url(route_to('purchases.search')) ?>?query=' + encodeURIComponent(query);
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                // Clear previous suggestions
-                productSuggestions.innerHTML = '';
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear previous suggestions
+                    productSuggestions.innerHTML = '';
 
-                // Populate suggestions
-                data.forEach(product => {
-                    const suggestion = document.createElement('button');
-                    suggestion.classList.add('list-group-item', 'list-group-item-action');
-                    suggestion.textContent = product.product_name;
+                    // Populate suggestions
+                    data.forEach(product => {
+                        const suggestion = document.createElement('button');
+                        suggestion.classList.add('list-group-item', 'list-group-item-action');
+                        suggestion.textContent = product.product_name;
 
-                    suggestion.addEventListener('click', function() {
-                        addProductToTable(product);
-                        productSuggestions.innerHTML = '';
-                        productInput.value = '';
+                        suggestion.addEventListener('click', function () {
+                            addProductToTable(product);
+                            productSuggestions.innerHTML = '';
+                            productInput.value = '';
+                        });
+
+                        productSuggestions.appendChild(suggestion);
                     });
-
-                    productSuggestions.appendChild(suggestion);
+                })
+                .catch(error => {
+                    console.error('Error fetching product suggestions:', error);
                 });
-            })
-            .catch(error => {
-                console.error('Error fetching product suggestions:', error);
-            });
-    }
+        }
 
-    // Function to add product to the table
-    function addProductToTable(product) {
-        const row = document.createElement('tr');
+        // Function to add product to the table
+        function addProductToTable(product) {
+            const row = document.createElement('tr');
 
-        row.innerHTML = `
+            row.innerHTML = `
             <td>${product.product_name}</td>
             <td><input type="number" class="form-control" name="quantity[]" value="1" required></td>
             <td><input type="number" class="form-control" name="purchase_price[]" value="${product.customer_price}" required></td>
@@ -302,75 +310,75 @@ document.addEventListener('DOMContentLoaded', function() {
             <td><button type="button" class="btn btn-sm btn-danger btn-remove-product">Remove</button></td>
         `;
 
-        productTableBody.appendChild(row);
-        updateTotalAmount();
-    }
-
-    // Function to update total amount
-    function updateTotalAmount() {
-        let totalAmount = 0;
-        const rows = productTableBody.querySelectorAll('tr');
-
-        rows.forEach(row => {
-            const quantity = parseInt(row.querySelector('input[name="quantity[]"]').value);
-            const purchasePrice = parseFloat(row.querySelector('input[name="purchase_price[]"]').value);
-            const totalRow = row.querySelector('.total-row');
-
-            const total = quantity * purchasePrice;
-            totalRow.textContent = total.toFixed(2);
-            totalAmount += total;
-        });
-
-        document.getElementById('total_amount_display').value = totalAmount.toFixed(2);
-        document.querySelector('input[name="total_amount"]').value = totalAmount.toFixed(2);
-
-        // Calculate remaining amount if paid amount is filled
-        updateRemainingAmount();
-    }
-
-    // Function to update remaining amount based on paid amount
-    function updateRemainingAmount() {
-        const totalAmount = parseFloat(document.getElementById('total_amount_display').value);
-        const paidAmount = parseFloat(document.getElementById('paid_amount').value);
-        const remainingAmountDisplay = document.getElementById('remaining_amount_display');
-
-        const remainingAmount = totalAmount - paidAmount;
-        remainingAmountDisplay.value = remainingAmount.toFixed(2);
-        document.querySelector('input[name="remaining_amount"]').value = remainingAmount.toFixed(2);
-    }
-
-    // Event listener for product search input
-    productInput.addEventListener('input', function() {
-        const query = this.value.trim();
-        if (query.length >= 2) {
-            fetchProductSuggestions(query);
-        } else {
-            productSuggestions.innerHTML = '';
-        }
-    });
-
-    // Event listener for removing product from table
-    productTableBody.addEventListener('click', function(event) {
-        if (event.target.classList.contains('btn-remove-product')) {
-            event.target.closest('tr').remove();
+            productTableBody.appendChild(row);
             updateTotalAmount();
         }
+
+        // Function to update total amount
+        function updateTotalAmount() {
+            let totalAmount = 0;
+            const rows = productTableBody.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                const quantity = parseInt(row.querySelector('input[name="quantity[]"]').value);
+                const purchasePrice = parseFloat(row.querySelector('input[name="purchase_price[]"]').value);
+                const totalRow = row.querySelector('.total-row');
+
+                const total = quantity * purchasePrice;
+                totalRow.textContent = total.toFixed(2);
+                totalAmount += total;
+            });
+
+            document.getElementById('total_amount_display').value = totalAmount.toFixed(2);
+            document.querySelector('input[name="total_amount"]').value = totalAmount.toFixed(2);
+
+            // Calculate remaining amount if paid amount is filled
+            updateRemainingAmount();
+        }
+
+        // Function to update remaining amount based on paid amount
+        function updateRemainingAmount() {
+            const totalAmount = parseFloat(document.getElementById('total_amount_display').value);
+            const paidAmount = parseFloat(document.getElementById('paid_amount').value);
+            const remainingAmountDisplay = document.getElementById('remaining_amount_display');
+
+            const remainingAmount = totalAmount - paidAmount;
+            remainingAmountDisplay.value = remainingAmount.toFixed(2);
+            document.querySelector('input[name="remaining_amount"]').value = remainingAmount.toFixed(2);
+        }
+
+        // Event listener for product search input
+        productInput.addEventListener('input', function () {
+            const query = this.value.trim();
+            if (query.length >= 2) {
+                fetchProductSuggestions(query);
+            } else {
+                productSuggestions.innerHTML = '';
+            }
+        });
+
+        // Event listener for removing product from table
+        productTableBody.addEventListener('click', function (event) {
+            if (event.target.classList.contains('btn-remove-product')) {
+                event.target.closest('tr').remove();
+                updateTotalAmount();
+            }
+        });
+
+        // Event listener for paid amount input
+        document.getElementById('paid_amount').addEventListener('input', updateRemainingAmount);
+
+        // Initial update of total amount and remaining amount
+        updateTotalAmount();
+        updateRemainingAmount();
     });
-
-    // Event listener for paid amount input
-    document.getElementById('paid_amount').addEventListener('input', updateRemainingAmount);
-
-    // Initial update of total amount and remaining amount
-    updateTotalAmount();
-    updateRemainingAmount();
-});
 
 </script>
 
 <script>
-$(document).ready(function() {
-    $('.select2').select2();
-});
+    $(document).ready(function () {
+        $('.select2').select2();
+    });
 </script>
 
 

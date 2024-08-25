@@ -370,73 +370,63 @@ class Products extends AdminBaseController
         $productModel = new ProductsModel();
         $productModel->update($id, $productData);
 
-        // Check if variations are selected
-        $variationIds = $this->request->getPost('variation_id') ?? null;
+        // Process variations if they exist
+        $variationId = $this->request->getPost('variation_id') ?? [];
+        $variationSkuCodes = $this->request->getPost('variation_sku_code') ?? [];
+        $variationProductNames = $this->request->getPost('variation_product_name') ?? [];
+        $variationValues = $this->request->getPost('variation_value_id') ?? [];
+        $variationBuyingPrices = $this->request->getPost('variation_buying_price') ?? [];
+        $variationCustomerPrices = $this->request->getPost('variation_customer_price') ?? [];
+        $variationSalePrices = $this->request->getPost('variation_sale_price') ?? [];
+        $variationTaxGroupIds = $this->request->getPost('variation_tax_group_id') ?? [];
+        $variationTaxAmounts = $this->request->getPost('variation_tax_amount') ?? [];
 
-        if ($variationIds) {
-            $variationSkuCodes = $this->request->getPost('variation_sku_code');
-            $variationProductNames = $this->request->getPost('variation_product_name');
-            $variationValues = $this->request->getPost('variation_values');
-            $variationBuyingPrices = $this->request->getPost('variation_buying_price');
-            $variationCustomerPrices = $this->request->getPost('variation_customer_price');
-            $variationSalePrices = $this->request->getPost('variation_sale_price');
-            $variationTaxGroupIds = $this->request->getPost('variation_tax_group_id');
-            $variationTaxAmounts = $this->request->getPost('variation_tax_amount');
+        $productVariationsModel = new ProductVariationsModel();
+        // dd($variationTaxAmounts);
 
-            $productVariationsModel = new ProductVariationsModel();
-            $totalVariationValues = count($variationIds);
-            if (is_array($variationIds) && count($variationIds) !== $totalVariationValues) {
-                throw new \Exception('Mismatch in variation IDs and values');
+        foreach ($variationValues as $index => $variationValuess) {
+            // Create variation data array
+            $variationData = [
+                'product_id' => $id,
+                'variation_sku_code' => $variationSkuCodes[$index],
+                'variation_product_name' => $variationProductNames[$index],
+                'variation_value_id' => $variationValues[$index],
+                'variation_brand_id' => $brandId,
+                'variation_unit_id' => $unitId,
+                'variation_category_id' => $categoryId,
+                'variation_sub_category_id' => $subCategoryId,
+                'variation_tax_group_id' => $variationTaxGroupIds[$index] ?? null,
+                'variation_buying_price' => $variationBuyingPrices[$index],
+                'variation_customer_price' => $variationCustomerPrices[$index],
+                'variation_tax_amount' => $variationTaxAmounts[$index] ?? null,
+                'variation_sale_price' => $variationSalePrices[$index],
+                'product_variation_status' => 'active',
+            ];
 
-            }
-            for ($i = 0; $i < $totalVariationValues; $i++) {
-                // Prepare variation data for the current index
 
-                if (isset($variationIds[$i])) {
-                    $variationId = $variationIds[$i];
+            // Check for existing variations using the variation_id and variation_value_id
+            $existingVariations = $productVariationsModel->where([
+                'product_id' => $id,
+                'variation_id' => $variationId,
+                'variation_value_id' => $variationValues[$index],
+            ])->findAll();
+            //dd($existingVariations);
+
+            if (!empty($existingVariations)) {
+                // Update existing variations
+                foreach ($existingVariations as $existingVariation) {
+                    log_message('debug', 'Updating variation id: {0} with data: {1}', [$existingVariation->id, print_r($variationData, true)]);
+                    $productVariationsModel->update($existingVariation->id, $variationData);
                 }
-                $variationData = [
-                    'product_id' => $id,
-                    'variation_sku_code' => $variationSkuCodes[$i] ?? '',
-                    'variation_product_name' => $variationProductNames[$i] ?? '',
-                    'variation_brand_id' => $this->request->getPost('brand_id'),
-                    'variation_unit_id' => $this->request->getPost('unit_id'),
-                    'variation_category_id' => $this->request->getPost('category_id'),
-                    'variation_sub_category_id' => $this->request->getPost('sub_category_id'),
-                    'variation_tax_group_id' => $variationTaxGroupIds[$i] ?? '',
-                    'variation_buying_price' => $variationBuyingPrices[$i] ?? '',
-                    'variation_customer_price' => $variationCustomerPrices[$i] ?? '',
-                    'variation_tax_amount' => $variationTaxAmounts[$i] ?? '',
-                    'variation_sale_price' => $variationSalePrices[$i] ?? '',
-                    'product_variation_status' => $this->request->getPost('product_variation_status')[$i] ?? 'active',
-                ];
-
-                //   dd($variationData);
-                // Find existing variations that match the current variation ID and product ID
-                $existingVariations = $productVariationsModel->where([
-                    'product_id' => $id,
-                    'variation_id' => $variationId,
-                ])->find();
-                //    dd($existingVariations);
-                // Update or insert the variation data
-                if (!empty($existingVariations)) {
-                    foreach ($existingVariations as $existingVariation) {
-                        $productVariationsModel->update($existingVariation->id, $variationData);
-                    }
-                } else {
-                    $productVariationsModel->insert($variationData);
-                }
+            } else {
+                // Insert a new variation
+                log_message('debug', 'Inserting new variation with data: {0}', [print_r($variationData, true)]);
+                $productVariationsModel->insert($variationData);
             }
 
-            // Update the product to indicate it has variations
-            $productModel->update($id, ['has_variation' => '1']);
         }
-
-        // Redirect after processing all variations
         return redirect()->to(route_to('products.index'))->with('notifySuccess', 'Product Updated Successfully');
-
     }
-
 
     public function deleteProducts($id)
     {
