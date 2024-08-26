@@ -166,24 +166,24 @@
                             </select>
                         </div>
 
-                        <!-- Variation Selection Box -->
-                        <div class="form-group" id="variation_selection_box"
-                            <?= $product->has_variation == 0 ? 'style="display:none;"' : ''; ?>>
-                            <label for="variation_id"><?= lang('App.variations') ?></label>
-                            <div class="select2-danger">
-                                <select class="select2" multiple="multiple"
-                                    data-placeholder="<?= lang('App.variations') ?>"
-                                    data-dropdown-css-class="select2-danger" id="variation_id" name="variation_id[]"
-                                    style="width: 100%;">
-                                    <?php foreach ($variations as $variation): ?>
-                                    <option value="<?= $variation->id; ?>"
-                                        <?= in_array($variation->id, array_column($product_variations, 'variation_id')) ? 'selected' : ''; ?>>
-                                        <?= $variation->variation_name; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <?= isset($validation) && $validation->getError('variation_id') ? '<p class="text-danger mt-2">' . esc($validation->getError('variation_id')) . '</p>' : '' ?>
+                     <!-- Variation Selection Box -->
+                            <div class="form-group" id="variation_selection_box"
+                                <?= $product->has_variation == 0 ? 'style="display:none;"' : ''; ?>>
+                                <label for="variation_id"><?= lang('App.variations') ?></label>
+                                <div class="select2-danger">
+                                    <select class="select2" multiple="multiple"
+                                        data-placeholder="<?= lang('App.variations') ?>"
+                                        data-dropdown-css-class="select2-danger" id="variation_id" name="variation_id[]"
+                                        style="width: 100%;">
+                                        <?php foreach ($variations as $variation): ?>
+                                        <option value="<?= $variation->id; ?>"
+                                            <?= in_array($variation->id, array_column($product_variations, 'variation_id')) ? 'selected' : 'disabled'; ?>>
+                                            <?= $variation->variation_name; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?= isset($validation) && $validation->getError('variation_id') ? '<p class="text-primary mt-2">' . esc($validation->getError('variation_id')) . '</p>' : '' ?>
+                                </div>
                             </div>
-                        </div>
 
                         <!-- Variation Values Selection Box -->
                         <div class="form-group" id="variation_values_selection_box"
@@ -653,5 +653,27 @@ function updateVariationProductPricing() {
 $(document).ready(function() {
     $('.select2').select2();
 });
+</script>
+<script>
+// Function to toggle the disabled state of options based on the selected value
+function toggleVariationOptions() {
+    var selectBox = document.getElementById('has_variation');
+    var selectedValue = selectBox.value;
+    var options = selectBox.options;
+
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].value !== selectedValue) {
+            options[i].disabled = true;  // Disable other option
+        } else {
+            options[i].disabled = false; // Enable the selected option
+        }
+    }
+}
+
+// Add event listener to the select box to trigger the function on change
+document.getElementById('has_variation').addEventListener('change', toggleVariationOptions);
+
+// Call the function on page load to set the initial state
+toggleVariationOptions();
 </script>
 <?= $this->endSection() ?>

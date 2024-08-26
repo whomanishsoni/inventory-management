@@ -382,7 +382,6 @@ class Products extends AdminBaseController
         $variationTaxAmounts = $this->request->getPost('variation_tax_amount') ?? [];
 
         $productVariationsModel = new ProductVariationsModel();
-        // dd($variationTaxAmounts);
 
         foreach ($variationValues as $index => $variationValuess) {
             // Create variation data array
@@ -402,25 +401,18 @@ class Products extends AdminBaseController
                 'variation_sale_price' => $variationSalePrices[$index],
                 'product_variation_status' => 'active',
             ];
-
-
             // Check for existing variations using the variation_id and variation_value_id
             $existingVariations = $productVariationsModel->where([
                 'product_id' => $id,
                 'variation_id' => $variationId,
                 'variation_value_id' => $variationValues[$index],
             ])->findAll();
-            //dd($existingVariations);
 
             if (!empty($existingVariations)) {
-                // Update existing variations
                 foreach ($existingVariations as $existingVariation) {
-                    log_message('debug', 'Updating variation id: {0} with data: {1}', [$existingVariation->id, print_r($variationData, true)]);
                     $productVariationsModel->update($existingVariation->id, $variationData);
                 }
             } else {
-                // Insert a new variation
-                log_message('debug', 'Inserting new variation with data: {0}', [print_r($variationData, true)]);
                 $productVariationsModel->insert($variationData);
             }
 
