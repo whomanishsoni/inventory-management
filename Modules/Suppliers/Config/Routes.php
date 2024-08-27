@@ -16,4 +16,11 @@ $routes->group('suppliers', ['namespace' => '\Suppliers\Controllers'], function 
     $routes->post('update_status', 'Suppliers::updateSuppliersStatus', ['as' => 'suppliers.update_status']);
     $routes->get('get_states', 'Suppliers::getStates', ['as' => 'suppliers.get_states']);
     $routes->get('get_cities', 'Suppliers::getCities', ['as' => 'suppliers.get_cities']);
+
+
+    // Routes for suppliers transactions
+    $routes->get('transactions/(:num)', 'Suppliers::transactions/$1', ['as' => 'Suppliers.transactions']);
+    $routes->get('add_transaction/(:num)', 'Suppliers::addTransactions/$1', ['as' => 'suppliers.add_transaction']);
+    $routes->post('store_transaction/(:num)', 'Suppliers::storeTransactions/$1', ['as' => 'suppliers.store_transaction']);
+
 });

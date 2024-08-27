@@ -27,10 +27,10 @@
                         <h3 class="card-title p-3"><?php echo lang('App.suppliers') ?></h3>
                         <div class="ml-auto p-2">
                             <?php if (hasPermissions('suppliers_add')): ?>
-                            <a href="<?= url(route_to('suppliers.add')) ?>" class="btn btn-primary btn-sm"
-                                data-toggle="tooltip" title="<?= lang('App.add_supplier') ?>"><span
-                                    class="pr-1"><i class="fa fa-plus"></i></span>
-                                <?php echo lang('App.add_supplier') ?></a>
+                                <a href="<?= url(route_to('suppliers.add')) ?>" class="btn btn-primary btn-sm"
+                                    data-toggle="tooltip" title="<?= lang('App.add_supplier') ?>"><span class="pr-1"><i
+                                            class="fa fa-plus"></i></span>
+                                    <?php echo lang('App.add_supplier') ?></a>
                             <?php endif ?>
                         </div>
                     </div>
@@ -52,47 +52,56 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
+                                <?php
                                 $counter = 1;
                                 foreach ($listSuppliers as $row): ?>
-                                <tr>
-                                    <td><?php echo $counter++; ?></td>
-                                    <td>
-                                        <?php echo $row->supplier_name ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->supplier_contact_person ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->supplier_phone ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->city_name ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->state_name ?>
-                                    </td>
-                                    <td><?php echo date('d-m-Y', strtotime($row->created_at)); ?></td>
-                                    <td>
-                                        <input type="checkbox" class="status-toggle" data-id="<?php echo $row->id; ?>"
-                                            <?php echo ($row->supplier_status == 'active') ? 'checked' : ''; ?>>
-                                    </td>
-                                    <td>
-                                        <?php if (hasPermissions('suppliers_edit')): ?>
-                                        <a href="<?= url(route_to('suppliers.edit', $row->id)) ?>"
-                                            class="btn btn-sm btn-primary"
-                                            title="<?php echo lang('App.edit_supplier') ?>"
-                                            data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                                        <?php endif ?>
-                                        <?php if (hasPermissions('suppliers_delete')): ?>
-                                        <a href="<?= url(route_to('suppliers.delete', $row->id)) ?>"
-                                            class="btn btn-sm btn-danger"
-                                            onclick="return confirm('Do you really want to delete this supplier ?')"
-                                            title="<?php echo lang('App.delete_supplier') ?>"
-                                            data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                                        <?php endif ?>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td><?php echo $counter++; ?></td>
+                                        <td>
+                                            <?php echo $row->supplier_name ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->supplier_contact_person ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->supplier_phone ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->city_name ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->state_name ?>
+                                        </td>
+                                        <td><?php echo date('d-m-Y', strtotime($row->created_at)); ?></td>
+                                        <td>
+                                            <input type="checkbox" class="status-toggle" data-id="<?php echo $row->id; ?>"
+                                                <?php echo ($row->supplier_status == 'active') ? 'checked' : ''; ?>>
+                                        </td>
+                                        <td>
+                                            <?php if (hasPermissions('suppliers_transactions_add')): ?>
+                                                <!-- Button to trigger the modal -->
+                                                <a href="<?= url(route_to('suppliers.add_transaction', $row->id)) ?>"
+                                                    class="btn btn-sm btn-success" title="<?php echo lang('App.add_balance') ?>"
+                                                    data-toggle="tooltip" data-id="<?= $row->id ?>" data-toggle="modal"
+                                                    data-target="#addBalanceModal">
+                                                    <i class="fas fa-coins"></i>
+                                                </a>
+                                            <?php endif ?>
+                                            <?php if (hasPermissions('suppliers_edit')): ?>
+                                                <a href="<?= url(route_to('suppliers.edit', $row->id)) ?>"
+                                                    class="btn btn-sm btn-primary"
+                                                    title="<?php echo lang('App.edit_supplier') ?>" data-toggle="tooltip"><i
+                                                        class="fas fa-edit"></i></a>
+                                            <?php endif ?>
+                                            <?php if (hasPermissions('suppliers_delete')): ?>
+                                                <a href="<?= url(route_to('suppliers.delete', $row->id)) ?>"
+                                                    class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Do you really want to delete this supplier ?')"
+                                                    title="<?php echo lang('App.delete_supplier') ?>" data-toggle="tooltip"><i
+                                                        class="fa fa-trash"></i></a>
+                                            <?php endif ?>
+                                        </td>
+                                    </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
@@ -108,72 +117,73 @@
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-<?=  $this->endSection() ?>
+<?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
 <!-- page script -->
 <script>
-$(function() {
-    $('#suppliers').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
+    $(function () {
+        var table = $('#customers').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": false,
+            "scrollX": true,
+        });
     });
-});
 </script>
 <script>
-$('.status-toggle').bootstrapSwitch({
-    size: 'small',
-    onText: 'Active',
-    offText: 'Inactive',
-    onColor: 'success',
-    offColor: 'default',
-    onSwitchChange: function(event, state) {
-        var status = state ? 'active' : 'inactive';
-        var supplierId = $(this).data('id');
+    $('.status-toggle').bootstrapSwitch({
+        size: 'small',
+        onText: 'Active',
+        offText: 'Inactive',
+        onColor: 'success',
+        offColor: 'default',
+        onSwitchChange: function (event, state) {
+            var status = state ? 'active' : 'inactive';
+            var supplierId = $(this).data('id');
 
-        $.ajax({
-            url: '<?= site_url(route_to('suppliers.update_status')) ?>',
-            type: 'POST',
-            data: {
-                id: supplierId,
-                supplier_status: status,
-                <?= csrf_token() ?>: '<?= csrf_hash() ?>'
-            },
-            dataType: 'json',
-            success: function(response) {
-                console.log(response);
+            $.ajax({
+                url: '<?= site_url(route_to('suppliers.update_status')) ?>',
+                type: 'POST',
+                data: {
+                    id: supplierId,
+                    supplier_status: status,
+                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                },
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
 
-                // Handle success
-                if (response.success) {
-                    // Use Toastr.js to show success message
-                    toastr.success(response.message, 'Success');
+                    // Handle success
+                    if (response.success) {
+                        // Use Toastr.js to show success message
+                        toastr.success(response.message, 'Success');
 
-                    // Update UI or perform additional actions as needed
+                        // Update UI or perform additional actions as needed
 
-                } else {
-                    // Use Toastr.js to show error message
-                    toastr.error(response.message, 'Error');
-                    console.error('Failed to update status: ' + response.message);
+                    } else {
+                        // Use Toastr.js to show error message
+                        toastr.error(response.message, 'Error');
+                        console.error('Failed to update status: ' + response.message);
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+
+                    // Use Toastr.js to show generic error message
+                    toastr.error('An error occurred during the AJAX request', 'Error');
                 }
-            },
-            error: function(error) {
-                console.error(error);
-
-                // Use Toastr.js to show generic error message
-                toastr.error('An error occurred during the AJAX request', 'Error');
-            }
+            });
+        }
+    });
+    <?php if (session()->has('error')): ?>
+        toastr.error("<?= session('error') ?>", 'Error', {
+            closeButton: true
         });
-    }
-});
-<?php if (session()->has('error')): ?>
-toastr.error("<?= session('error') ?>", 'Error', {
-    closeButton: true
-});
-<?php endif ?>
+    <?php endif ?>
 </script>
-<?=  $this->endSection() ?>
+<?= $this->endSection() ?>
