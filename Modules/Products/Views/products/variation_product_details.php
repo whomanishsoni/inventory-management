@@ -73,7 +73,7 @@
                                     <td><?php echo $variation->variation_customer_price; ?></td>
                                     <td><?php echo $variation->variation_sale_price; ?></td>
                                     <td>
-                                        <input type="checkbox" class="status-toggle" data-id="<?php echo $variation->id; ?>"
+                                        <input type="checkbox" class="status-variation-toggle" data-id="<?php echo $variation->id; ?>"
                                             <?php echo ($variation->product_variation_status == 'active') ? 'checked' : ''; ?>>
                                     </td>
                                     <td><?php echo $variation->created_at; ?></td>
@@ -109,7 +109,7 @@ $(function() {
 });
 </script>
 <script>
-$('.status-toggle').bootstrapSwitch({
+$('.status-variation-toggle').bootstrapSwitch({
     size: 'small',
     onText: 'Active',
     offText: 'Inactive',
@@ -120,11 +120,11 @@ $('.status-toggle').bootstrapSwitch({
         var productId = $(this).data('id');
 
         $.ajax({
-            url: '<?= site_url(route_to('products.update_status')) ?>',
+            url: '<?= site_url(route_to('products.update_variation_status')) ?>',
             type: 'POST',
             data: {
                 id: productId,
-                product_status: status,
+                product_variation_status: status,
                 <?= csrf_token() ?>: '<?= csrf_hash() ?>'
             },
             dataType: 'json',

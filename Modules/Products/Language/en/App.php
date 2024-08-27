@@ -18,6 +18,7 @@ $lang['buying_price'] = 'Buying Price';
 $lang['customer_price'] = 'Customer Price';
 $lang['single'] = 'Single';
 $lang['variable'] = 'Variable';
+$lang['product_variation_value_status'] = 'Product Status';
 
 
 

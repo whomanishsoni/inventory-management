@@ -48,7 +48,6 @@
                                     <th><?php echo lang('App.sub_category') ?></th>
                                     <th><?php echo lang('App.variant') ?></th>
                                     <th><?php echo lang('App.product_created_at') ?></th>
-                                    <th><?php echo lang('App.product_status') ?></th>
                                     <th><?php echo lang('App.action') ?></th>
                                 </tr>
                             </thead>
@@ -76,10 +75,6 @@
                                             <?php endif; ?>
                                         </td>
                                         <td><?php echo date('d-m-Y', strtotime($row->created_at)); ?></td>
-                                        <td>
-                                            <input type="checkbox" class="status-toggle" data-id="<?php echo $row->id; ?>"
-                                                <?php echo ($row->product_status == 'active') ? 'checked' : ''; ?>>
-                                        </td>
                                         <td>
                                             <div style="display: flex; gap: 5px;">
                                                 <?php if (hasPermissions('products_view')): ?>
@@ -146,56 +141,5 @@
             "scrollX": true,
         });
     });
-</script>
-<script>
-    $('.status-toggle').bootstrapSwitch({
-        size: 'small',
-        onText: 'Active',
-        offText: 'Inactive',
-        onColor: 'success',
-        offColor: 'default',
-        onSwitchChange: function (event, state) {
-            var status = state ? 'active' : 'inactive';
-            var productId = $(this).data('id');
-
-            $.ajax({
-                url: '<?= site_url(route_to('products.update_status')) ?>',
-                type: 'POST',
-                data: {
-                    id: productId,
-                    product_status: status,
-                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
-                },
-                dataType: 'json',
-                success: function (response) {
-                    console.log(response);
-
-                    // Handle success
-                    if (response.success) {
-                        // Use Toastr.js to show success message
-                        toastr.success(response.message, 'Success');
-
-                        // Update UI or perform additional actions as needed
-
-                    } else {
-                        // Use Toastr.js to show error message
-                        toastr.error(response.message, 'Error');
-                        console.error('Failed to update status: ' + response.message);
-                    }
-                },
-                error: function (error) {
-                    console.error(error);
-
-                    // Use Toastr.js to show generic error message
-                    toastr.error('An error occurred during the AJAX request', 'Error');
-                }
-            });
-        }
-    });
-    <?php if (session()->has('error')): ?>
-        toastr.error("<?= session('error') ?>", 'Error', {
-            closeButton: true
-        });
-    <?php endif ?>
 </script>
 <?= $this->endSection() ?>

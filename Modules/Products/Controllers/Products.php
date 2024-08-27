@@ -456,6 +456,29 @@ class Products extends AdminBaseController
             return $this->response->setJSON(['success' => false, 'message' => 'An error occurred while updating status']);
         }
     }
+    public function updateProductsVariationStatus()
+    {
+        $productId = $this->request->getPost('id');
+        $newStatus = $this->request->getPost('product_variation_status');
+
+        try {
+            if (empty($productId) || empty($newStatus)) {
+                throw new \Exception('Invalid input data');
+            }
+
+            // Load the model for product variations
+            $variationModel = new ProductVariationsModel();
+
+            // Update the product variation status
+            $variationModel->update($productId, ['product_variation_status' => $newStatus]);
+
+            return $this->response->setJSON(['success' => true, 'message' => 'Variation status updated successfully']);
+        } catch (\Exception $e) {
+            log_message('error', 'Failed to update status: ' . $e->getMessage());
+            return $this->response->setJSON(['success' => false, 'message' => 'An error occurred while updating status']);
+        }
+    }
+
 
     private function generateSKU()
     {

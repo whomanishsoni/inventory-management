@@ -5,7 +5,7 @@ namespace Modules\Config;
 $routes = \Config\Services::routes();
 
 $routes->group('product-management', ['namespace' => '\Products\Controllers'], function ($routes) {
-    
+
     // Products
     $routes->group('products', ['namespace' => 'Products\Controllers'], function ($routes) {
         $routes->get('', 'Products::products', ['as' => 'products.index']);
@@ -15,13 +15,14 @@ $routes->group('product-management', ['namespace' => '\Products\Controllers'], f
         $routes->post('update/(:num)', 'Products::updateProducts/$1', ['as' => 'products.update']);
         $routes->get('delete/(:num)', 'Products::deleteProducts/$1', ['as' => 'products.delete']);
         $routes->post('update_status', 'Products::updateProductsStatus', ['as' => 'products.update_status']);
+        $routes->post('update_variation_status', 'Products::updateProductsVariationStatus', ['as' => 'products.update_variation_status']);
         $routes->get('get_sub_categories', 'Products::getSubCategories', ['as' => 'products.get_sub_categories']);
         $routes->get('get_variation_values', 'Products::getVariationValues', ['as' => 'products.get_variation_values']);
         $routes->post('get_tax_rate', 'Products::getTaxRate', ['as' => 'products.get_tax_rate']);
         $routes->get('single/(:num)', 'Products::getProductsDetails/$1', ['as' => 'products.single_product_details']);
         $routes->get('variation/(:num)', 'Products::getProductVariations/$1', ['as' => 'products.variation_product_details']);
     });
-    
+
     // Brands
     $routes->group('brands', ['namespace' => '\Products\Controllers'], function ($routes) {
         $routes->get('', 'Brands::brands', ['as' => 'brands.index']);

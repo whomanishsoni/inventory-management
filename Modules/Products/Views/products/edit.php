@@ -158,7 +158,7 @@
                         <div class="form-group">
                             <label for="has_variation"><?= lang('App.product_type') ?></label>
                             <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                id="has_variation" name="has_variation">
+                                id="has_variation" name="has_variation" disabled>
                                 <option value="0" <?= $product->has_variation == 0 ? 'selected' : ''; ?>>
                                     <?= lang('App.single') ?></option>
                                 <option value="1" <?= $product->has_variation == 1 ? 'selected' : ''; ?>>
@@ -166,46 +166,51 @@
                             </select>
                         </div>
 
-                     <!-- Variation Selection Box -->
-                            <div class="form-group" id="variation_selection_box"
-                                <?= $product->has_variation == 0 ? 'style="display:none;"' : ''; ?>>
-                                <label for="variation_id"><?= lang('App.variations') ?></label>
-                                <div class="select2-danger">
-                                    <select class="select2" multiple="multiple"
-                                        data-placeholder="<?= lang('App.variations') ?>"
-                                        data-dropdown-css-class="select2-danger" id="variation_id" name="variation_id[]"
-                                        style="width: 100%;">
-                                        <?php foreach ($variations as $variation): ?>
-                                        <option value="<?= $variation->id; ?>"
-                                            <?= in_array($variation->id, array_column($product_variations, 'variation_id')) ? 'selected' : 'disabled'; ?>>
-                                            <?= $variation->variation_name; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    <?= isset($validation) && $validation->getError('variation_id') ? '<p class="text-primary mt-2">' . esc($validation->getError('variation_id')) . '</p>' : '' ?>
+                        <!-- Variation Selection Box -->
+                                <div class="form-group" id="variation_selection_box"
+                                    <?= $product->has_variation == 0 ? 'style="display:none;"' : ''; ?>>
+                                    <label for="variation_id"><?= lang('App.variations') ?></label>
+                                    <div class="select2-danger">
+                                        <select class="select2" multiple="multiple"
+                                            data-placeholder="<?= lang('App.variations') ?>"
+                                            data-dropdown-css-class="select2-danger" id="variation_id" name="variation_id[]"
+                                            style="width: 100%;" disabled>
+                                            <?php foreach ($variations as $variation): ?>
+                                            <option value="<?= $variation->id; ?>"
+                                                <?= in_array($variation->id, array_column($product_variations, 'variation_id')) ? 'selected' : 'disabled'; ?>>
+                                                <?= $variation->variation_name; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                        <?= isset($validation) && $validation->getError('variation_id') ? '<p class="text-primary mt-2">' . esc($validation->getError('variation_id')) . '</p>' : '' ?>
+                                    </div>
                                 </div>
-                            </div>
 
-                        <!-- Variation Values Selection Box -->
-                        <div class="form-group" id="variation_values_selection_box"
-                            <?= $product->has_variation == 0 ? 'style="display:none;"' : ''; ?>>
-                            <label for="variation_values"><?= lang('App.variation_values') ?></label>
-                            <div class="select2-danger">
-                                <select class="select2" multiple="multiple"
-                                    data-placeholder="<?= lang('App.variation_values') ?>"
-                                    data-dropdown-css-class="select2-danger" id="variation_values"
-                                    name="variation_values[]" style="width: 100%;">
-
-                                </select>
-                                <?= isset($validation) && $validation->getError('variation_values') ? '<p class="text-danger mt-2">' . esc($validation->getError('variation_values')) . '</p>' : '' ?>
-                            </div>
-                        </div>
-
-                        <!-- Table for Single Product Type -->
-                        <div class="row" id="single_product_table"
-                            <?= $product->has_variation == 1 ? 'style="display:none;"' : ''; ?>>
-                            <div class="col-md-12">
-                                <div class="table-container">
-                                    <table class="table table-bordered">
+                                              <!-- Variation Values Selection Box -->
+                                    <div class="form-group" id="variation_values_selection_box"
+                                        <?= $product->has_variation == 0 ? 'style="display:none;"' : ''; ?>>
+                                        <label for="variation_values"><?= lang('App.variation_values') ?></label>
+                                        <div class="select2-danger">
+                                            <select class="select2" multiple="multiple"
+                                                data-placeholder="<?= lang('App.variation_values') ?>"
+                                                data-dropdown-css-class="select2-danger" id="variation_values"
+                                                name="variation_values[]" style="width: 100%;">
+                                                <?php foreach ($variations as $variation): ?>
+                                                    <option value="<?= $variation->id; ?>"
+                                                        <?= in_array($variation->id, array_column($product_variations, 'variation_id')) ? 'selected' : ''; ?>>
+                                                        <?= $variation->variation_name; ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                            <?= isset($validation) && $validation->getError('variation_values') ? '<p class="text-danger mt-2">' . esc($validation->getError('variation_values')) . '</p>' : '' ?>
+                                        </div>
+                                    </div>
+                                
+                            <!-- Table for Single Product Type -->
+                            <div class="row" id="single_product_table"
+                                <?= $product->has_variation == 1 ? 'style="display:none;"' : ''; ?>>
+                                <div class="col-md-12">
+                                    <div class="table-container">
+                                        <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th><?= lang('App.buying_price') ?></th>
@@ -213,6 +218,7 @@
                                                 <th><?= lang('App.tax_rate') ?></th>
                                                 <th><?= lang('App.tax_amount') ?></th>
                                                 <th><?= lang('App.sale_price') ?></th>
+                                                <th><?= lang('App.product_variation_value_status') ?></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -257,7 +263,13 @@
                                                         readonly step="0.01" value="<?= esc($product->sale_price) ?>" />
                                                     <?= isset($validation) && $validation->getError('sale_price') ? '<p class="text-danger mt-2">' . esc($validation->getError('sale_price')) . '</p>' : '' ?>
                                                 </td>
-                                            </tr>
+                                                <td>
+                                                     <input type="checkbox" class="status-toggle"
+                                                        <?php if ($product->product_status === 'active') echo 'checked'; ?>
+                                                              data-id="<?= $product->id ?>" 
+                                                              value="<?= esc(lang('App.active')) ?>">
+                                                </td>
+                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -279,7 +291,7 @@
                                                 <th><?= lang('App.tax_rate') ?></th>
                                                 <th><?= lang('App.tax_amount') ?></th>
                                                 <th><?= lang('App.sale_price') ?></th>
-                                                <th><?= lang('App.status') ?></th>
+                                                <th><?= lang('App.product_variation_value_status') ?></th>
                                                 <th><?= lang('App.actions') ?></th>
                                             </tr>
                                         </thead>
@@ -335,17 +347,10 @@
                                                         readonly step="0.01" />
                                                 </td>
                                                 <td>
-                                                    <select class="form-control select2 select2-danger"
-                                                        data-dropdown-css-class="select2-danger"
-                                                        name="variation_status[]">
-                                                        <option value="1"
-                                                            <?= $variation->product_variation_status == 1 ? 'selected' : ''; ?>>
-                                                            <?= lang('App.active') ?></option>
-                                                        <option value="0"
-                                                            <?= $variation->product_variation_status == 0 ? 'selected' : ''; ?>>
-                                                            <?= lang('App.inactive') ?></option>
-                                                    </select>
-                                                </td>
+                                        <input type="checkbox" class="status-variation-toggle" data-id="<?php echo $variation->id; ?>"
+                                            <?php echo ($variation->product_variation_status == 'active') ? 'checked' : ''; ?>>
+                                    </td>
+
                                                 <td>
                                                     <button type="button" class="btn btn-danger remove-row"><i
                                                             class="fa fa-trash"></i></button>
@@ -669,11 +674,120 @@ function toggleVariationOptions() {
         }
     }
 }
-
 // Add event listener to the select box to trigger the function on change
 document.getElementById('has_variation').addEventListener('change', toggleVariationOptions);
-
 // Call the function on page load to set the initial state
 toggleVariationOptions();
 </script>
+<script>$(document).ready(function () {
+    $('#variation_values').change(function () {
+        var selectedValues = $(this).val();
+        console.log('Selected Variation Values:', selectedValues);  // Debug: Check if values are captured
+        
+        if (selectedValues.length > 0) {
+            // Further processing here...
+        } else {
+            console.log('No variation values selected');
+        }
+    });
+});
+</script>
+<script>
+$(document).ready(function() {
+    // Initialize bootstrapSwitch
+    $('.status-toggle').bootstrapSwitch({
+        size: 'small',
+        onText: 'Active',
+        offText: 'Inactive',
+        onColor: 'success',
+        offColor: 'default',
+        onSwitchChange: function (event, state) {
+            var status = state ? 'active' : 'inactive';
+            var productId = $(this).data('id');  // Get the product ID from the data-id attribute
+
+            // Send AJAX request to update status
+            $.ajax({
+                url: '<?= site_url(route_to('products.update_status')) ?>',
+                type: 'POST',
+                data: {
+                    id: productId,
+                    product_status: status,
+                    '<?= csrf_token() ?>': '<?= csrf_hash() ?>'
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.success) {
+                        toastr.success(response.message, 'Success');
+                    } else {
+                        toastr.error(response.message, 'Error');
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+                    toastr.error('An error occurred during the AJAX request', 'Error');
+                }
+            }); 
+        }
+    });
+
+    // Handle session error message with Toastr.js
+    <?php if (session()->has('error')): ?>
+        toastr.error("<?= session('error') ?>", 'Error', {
+            closeButton: true
+        });
+    <?php endif ?>
+});
+</script>
+<script>
+$('.status-variation-toggle').bootstrapSwitch({
+    size: 'small',
+    onText: 'Active',
+    offText: 'Inactive',
+    onColor: 'success',
+    offColor: 'default',
+    onSwitchChange: function(event, state) {
+        var status = state ? 'active' : 'inactive';
+        var productId = $(this).data('id');
+
+        $.ajax({
+            url: '<?= site_url(route_to('products.update_variation_status')) ?>',
+            type: 'POST',
+            data: {
+                id: productId,
+                product_variation_status: status,
+                <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+            },
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
+
+                // Handle success
+                if (response.success) {
+                    // Use Toastr.js to show success message
+                    toastr.success(response.message, 'Success');
+
+                    // Update UI or perform additional actions as needed
+
+                } else {
+                    // Use Toastr.js to show error message
+                    toastr.error(response.message, 'Error');
+                    console.error('Failed to update status: ' + response.message);
+                }
+            },
+            error: function(error) {
+                console.error(error);
+
+                // Use Toastr.js to show generic error message
+                toastr.error('An error occurred during the AJAX request', 'Error');
+            }
+        });
+    }
+});
+<?php if (session()->has('error')): ?>
+toastr.error("<?= session('error') ?>", 'Error', {
+    closeButton: true
+});
+<?php endif ?>
+</script>
+
 <?= $this->endSection() ?>
