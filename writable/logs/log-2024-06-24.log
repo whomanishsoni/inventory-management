@@ -1,0 +1,128 @@
+ERROR - 2024-06-24 11:57:48 --> Table 'inventory_management.users' doesn't exist
+CRITICAL - 2024-06-24 11:57:48 --> Table 'inventory_management.users' doesn't exist
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\inventory-management\app\Models\BaseModel.php(17): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(116): App\Models\BaseModel->getById(1)
+#8 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/purchase-manag...', 'before')
+#11 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+ERROR - 2024-06-24 11:58:04 --> Table 'inventory_management.users' doesn't exist
+CRITICAL - 2024-06-24 11:58:04 --> Table 'inventory_management.users' doesn't exist
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\inventory-management\app\Models\BaseModel.php(17): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(116): App\Models\BaseModel->getById(1)
+#8 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/purchase-manag...', 'before')
+#11 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+ERROR - 2024-06-24 12:06:31 --> Table 'inventory_management.users' doesn't exist
+CRITICAL - 2024-06-24 12:06:31 --> Table 'inventory_management.users' doesn't exist
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\inventory-management\app\Models\BaseModel.php(17): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(116): App\Models\BaseModel->getById(1)
+#8 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/purchase-manag...', 'before')
+#11 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+ERROR - 2024-06-24 12:16:41 --> Table 'inventory_management.users' doesn't exist
+CRITICAL - 2024-06-24 12:16:41 --> Table 'inventory_management.users' doesn't exist
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\inventory-management\app\Models\BaseModel.php(17): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(116): App\Models\BaseModel->getById(1)
+#8 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/purchase-manag...', 'before')
+#11 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+ERROR - 2024-06-24 12:16:44 --> Table 'inventory_management.users' doesn't exist
+CRITICAL - 2024-06-24 12:16:44 --> Table 'inventory_management.users' doesn't exist
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\inventory-management\app\Models\BaseModel.php(17): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(116): App\Models\BaseModel->getById(1)
+#8 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/purchase-manag...', 'before')
+#11 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+ERROR - 2024-06-24 12:16:45 --> Table 'inventory_management.users' doesn't exist
+CRITICAL - 2024-06-24 12:16:45 --> Table 'inventory_management.users' doesn't exist
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\inventory-management\app\Models\BaseModel.php(17): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(116): App\Models\BaseModel->getById(1)
+#8 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/dashboard', 'before')
+#11 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+ERROR - 2024-06-24 12:16:48 --> Table 'inventory_management.users' doesn't exist
+CRITICAL - 2024-06-24 12:16:48 --> Table 'inventory_management.users' doesn't exist
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\inventory-management\app\Models\BaseModel.php(17): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(116): App\Models\BaseModel->getById(1)
+#8 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/dashboard', 'before')
+#11 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+ERROR - 2024-06-24 12:16:54 --> Table 'inventory_management.users' doesn't exist
+CRITICAL - 2024-06-24 12:16:54 --> Table 'inventory_management.users' doesn't exist
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\inventory-management\app\Models\BaseModel.php(17): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(116): App\Models\BaseModel->getById(1)
+#8 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#11 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}

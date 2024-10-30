@@ -1,0 +1,20 @@
+CRITICAL - 2024-06-25 17:50:26 --> Cannot use object of type stdClass as array
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Locations\\Views...', Array, true)
+#3 C:\wamp64\www\inventory-management\Modules\Locations\Controllers\Locations.php(187): view('Locations\\Views...', Array)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Locations\Controllers\Locations->editStates('3')
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Locations\Controllers\Locations))
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-06-25 18:20:51 --> Cannot use object of type stdClass as array
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Locations\\Views...', Array, true)
+#3 C:\wamp64\www\inventory-management\Modules\Locations\Controllers\Locations.php(95): view('Locations\\Views...', Array)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Locations\Controllers\Locations->editCities('3')
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Locations\Controllers\Locations))
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}

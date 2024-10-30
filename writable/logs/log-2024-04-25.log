@@ -1,0 +1,136 @@
+CRITICAL - 2024-04-25 11:22:32 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 11:23:20 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 11:29:57 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 11:31:30 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 11:45:33 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 11:46:48 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 11:48:16 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 11:48:37 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 12:03:32 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 12:04:04 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 12:04:08 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 12:04:15 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 12:04:23 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 12:04:35 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 12:06:11 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 12:08:02 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-25 12:15:55 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\pos\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\p...', 118, Array)
+#1 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
