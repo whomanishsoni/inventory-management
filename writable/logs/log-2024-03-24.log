@@ -1,0 +1,227 @@
+CRITICAL - 2024-03-24 12:18:47 --> Undefined offset: 0
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Router\RouteCollection.php(1091): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\wamp64\\www\\p...', 1091, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Router\RouteCollection.php(971): CodeIgniter\Router\RouteCollection->fillRouteParams('product-managem...', Array)
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(882): CodeIgniter\Router\RouteCollection->reverseRoute('variation-value...')
+#3 C:\wamp64\www\pos\Modules\Products\Views\variation-values\list.php(30): route_to('variation-value...')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#7 C:\wamp64\www\pos\Modules\Products\Controllers\VariationValues.php(19): view('Products\\Views\\...', Array)
+#8 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues('1')
+#9 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#10 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-24 12:20:26 --> Undefined property: stdClass::$variation_value_name
+#0 C:\wamp64\www\pos\Modules\Products\Views\variation-values\list.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\p...', 57, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\VariationValues.php(19): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues('1')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-03-24 13:37:03 --> Too few arguments to function Products\Controllers\VariationValues::variationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 13:38:56 --> Too few arguments to function Products\Controllers\VariationValues::variationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 17:16:16 --> Too few arguments to function Products\Controllers\VariationValues::variationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 17:27:02 --> Class 'Products\Controllers\VariationValuesModel' not found
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Variations->variations()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Variations))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 17:27:31 --> Class 'Products\Controllers\VariationValuesModel' not found
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Variations->variations()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Variations))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 17:37:01 --> Undefined variable: variationID
+#0 C:\wamp64\www\pos\Modules\Products\Views\variation-values\list.php(51): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 51, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\VariationValues.php(26): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues('1')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-03-24 17:37:45 --> Undefined variable: variationID
+#0 C:\wamp64\www\pos\Modules\Products\Views\variation-values\list.php(51): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 51, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\VariationValues.php(26): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues('1')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2024-03-24 17:56:01 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+ERROR - 2024-03-24 17:56:01 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2024-03-24 17:56:01 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\wamp64\www\pos\app\Models\BaseModel.php(17): CodeIgniter\BaseModel->first()
+#5 C:\wamp64\www\pos\app\Helpers\basic_helper.php(116): App\Models\BaseModel->getById(1)
+#6 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#8 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#9 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-03-24 17:56:01 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\wamp64\www\pos\app\Models\BaseModel.php(17): CodeIgniter\BaseModel->first()
+#5 C:\wamp64\www\pos\app\Helpers\basic_helper.php(116): App\Models\BaseModel->getById(1)
+#6 C:\wamp64\www\pos\app\Filters\AuthFilter.php(14): is_logged()
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#8 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#9 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2024-03-24 18:47:25 --> Failed to update status: Invalid input data
+ERROR - 2024-03-24 18:47:28 --> Failed to update status: Invalid input data
+CRITICAL - 2024-03-24 19:26:57 --> Too few arguments to function Products\Controllers\VariationValues::variationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 19:39:22 --> Undefined variable: variationId
+#0 C:\wamp64\www\pos\Modules\Products\Views\variation-values\add.php(38): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 38, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\VariationValues.php(35): view('Products\\Views\\...')
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->addVariationValues()
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-03-24 19:39:49 --> Undefined variable: variationId
+#0 C:\wamp64\www\pos\Modules\Products\Views\variation-values\add.php(39): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 39, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\VariationValues.php(35): view('Products\\Views\\...')
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->addVariationValues()
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-03-24 19:40:48 --> Too few arguments to function Products\Controllers\VariationValues::addVariationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->addVariationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 19:50:33 --> Undefined variable: variations
+#0 C:\wamp64\www\pos\Modules\Products\Views\variation-values\add.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 41, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\VariationValues.php(35): view('Products\\Views\\...')
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->addVariationValues()
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-03-24 19:53:07 --> Too few arguments to function Products\Controllers\VariationValues::variationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 19:54:39 --> Too few arguments to function Products\Controllers\VariationValues::variationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 19:55:14 --> Too few arguments to function Products\Controllers\VariationValues::variationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 20:07:33 --> Undefined variable: variation
+#0 C:\wamp64\www\pos\Modules\Products\Views\variations\edit.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 36, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\VariationValues.php(71): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->editVariationValues('1')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-03-24 20:08:34 --> Undefined variable: variation
+#0 C:\wamp64\www\pos\Modules\Products\Views\variations\edit.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 36, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\VariationValues.php(71): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->editVariationValues('1')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-03-24 20:09:13 --> Undefined variable: variation
+#0 C:\wamp64\www\pos\Modules\Products\Views\variations\edit.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 36, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\VariationValues.php(71): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->editVariationValues('1')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-03-24 20:52:25 --> Too few arguments to function Products\Controllers\VariationValues::variationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 21:21:17 --> Too few arguments to function Products\Controllers\VariationValues::addVariationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->addVariationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-24 21:29:33 --> Too few arguments to function Products\Controllers\VariationValues::variationValues(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\VariationValues->variationValues()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\VariationValues))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}

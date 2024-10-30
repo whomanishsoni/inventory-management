@@ -1,0 +1,9 @@
+CRITICAL - 2024-08-05 20:59:32 --> Undefined variable $totalTime
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Debug\Toolbar\Views\toolbar.tpl.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\wamp64\\www\\i...', 40)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Debug\Toolbar.php(501): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Debug\Toolbar.php(464): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#3 C:\wamp64\www\inventory-management\app\Config\Events.php(48): CodeIgniter\Debug\Toolbar->respond()
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Events\Events.php(149): CodeIgniter\Events\Events::Config\{closure}()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(308): CodeIgniter\Events\Events::trigger('pre_system')
+#6 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}

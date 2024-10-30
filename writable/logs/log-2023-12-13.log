@@ -1,0 +1,117 @@
+CRITICAL - 2023-12-13 15:05:50 --> Undefined variable: candidates
+#0 C:\wamp64\www\pos\Modules\Products\Views\products\list.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 50, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('\\Products\\Views...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\Products.php(14): view('\\Products\\Views...')
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->index()
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-12-13 16:20:17 --> Table 'pos.products' doesn't exist
+CRITICAL - 2023-12-13 16:20:17 --> Table 'pos.products' doesn't exist
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\pos\Modules\Products\Controllers\Products.php(16): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->index()
+#8 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#9 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2023-12-13 16:40:56 --> Table 'pos.brands' doesn't exist
+CRITICAL - 2023-12-13 16:40:56 --> Table 'pos.brands' doesn't exist
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\pos\Modules\Brands\Controllers\Brands.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Brands\Controllers\Brands->index()
+#8 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Brands\Controllers\Brands))
+#9 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2023-12-13 17:35:26 --> Table 'pos.products' doesn't exist
+CRITICAL - 2023-12-13 17:35:26 --> Table 'pos.products' doesn't exist
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\pos\Modules\Products\Controllers\Products.php(16): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->index()
+#8 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#9 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-13 20:29:54 --> Undefined variable: candidates
+#0 C:\wamp64\www\pos\Modules\Brands\Views\list.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 57, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('\\Brands\\Views\\l...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Brands\Controllers\Brands.php(17): view('\\Brands\\Views\\l...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Brands\Controllers\Brands->index()
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Brands\Controllers\Brands))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-12-13 20:32:20 --> Undefined variable: candidates
+#0 C:\wamp64\www\pos\Modules\Brands\Views\list.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 57, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('\\Brands\\Views\\l...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Brands\Controllers\Brands.php(17): view('\\Brands\\Views\\l...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Brands\Controllers\Brands->index()
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Brands\Controllers\Brands))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-12-13 20:34:54 --> Invalid file: \Candidates\Views\candidate\add.php
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('\\Candidates\\Vie...')
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('\\Candidates\\Vie...', Array, true)
+#2 C:\wamp64\www\pos\Modules\Brands\Controllers\Brands.php(23): view('\\Candidates\\Vie...')
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Brands\Controllers\Brands->add()
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Brands\Controllers\Brands))
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-12-13 20:36:41 --> Invalid file: \Candidates\Views\candidate\edit.php
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('\\Candidates\\Vie...')
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('\\Candidates\\Vie...', Array, true)
+#2 C:\wamp64\www\pos\Modules\Brands\Controllers\Brands.php(28): view('\\Candidates\\Vie...')
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Brands\Controllers\Brands->edit('1')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Brands\Controllers\Brands))
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-12-13 20:37:17 --> Class 'Brands\Controllers\CandidateModel' not found
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Brands\Controllers\Brands->delete('1')
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Brands\Controllers\Brands))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2023-12-13 20:53:10 --> Invalid file: \Candidates\Views\candidate\edit.php
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('\\Candidates\\Vie...')
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('\\Candidates\\Vie...', Array, true)
+#2 C:\wamp64\www\pos\Modules\Brands\Controllers\Brands.php(28): view('\\Candidates\\Vie...')
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Brands\Controllers\Brands->edit('1')
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Brands\Controllers\Brands))
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-12-13 20:55:27 --> Invalid file: \Candidates\Views\candidate\add.php
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('\\Candidates\\Vie...')
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('\\Candidates\\Vie...', Array, true)
+#2 C:\wamp64\www\pos\Modules\Brands\Controllers\Brands.php(23): view('\\Candidates\\Vie...')
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Brands\Controllers\Brands->add()
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Brands\Controllers\Brands))
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}

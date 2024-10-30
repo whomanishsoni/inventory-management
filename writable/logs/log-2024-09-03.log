@@ -1,0 +1,109 @@
+CRITICAL - 2024-09-03 11:35:40 --> Undefined variable $totalTime
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Debug\Toolbar\Views\toolbar.tpl.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\wamp64\\www\\i...', 40)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Debug\Toolbar.php(501): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Debug\Toolbar.php(464): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#3 C:\wamp64\www\inventory-management\app\Config\Events.php(48): CodeIgniter\Debug\Toolbar->respond()
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Events\Events.php(149): CodeIgniter\Events\Events::Config\{closure}()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(308): CodeIgniter\Events\Events::trigger('pre_system')
+#6 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-09-03 12:00:10 --> The action you requested is not allowed.
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Security\Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-03 12:00:14 --> The action you requested is not allowed.
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Security\Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-03 12:00:16 --> The action you requested is not allowed.
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Security\Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-03 12:24:15 --> Undefined array key 1
+#0 C:\wamp64\www\inventory-management\Modules\Products\Controllers\Products.php(523): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\wamp64\\www\\i...', 523)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->updateProducts('4')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-03 12:26:52 --> Undefined array key 1
+#0 C:\wamp64\www\inventory-management\Modules\Products\Controllers\Products.php(523): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\wamp64\\www\\i...', 523)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->updateProducts('4')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-03 12:26:58 --> Undefined property: stdClass::$product_status
+#0 C:\wamp64\www\inventory-management\Modules\Products\Views\products\edit.php(338): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 338)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Products\Controllers\Products.php(343): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->editProducts('4')
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-03 12:27:01 --> Undefined property: stdClass::$product_status
+#0 C:\wamp64\www\inventory-management\Modules\Products\Views\products\edit.php(338): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 338)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Products\Controllers\Products.php(343): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->editProducts('4')
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-03 12:28:11 --> Undefined array key 1
+#0 C:\wamp64\www\inventory-management\Modules\Products\Controllers\Products.php(523): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\wamp64\\www\\i...', 523)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->updateProducts('4')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-03 12:37:12 --> Undefined property: stdClass::$product_variation_status
+#0 C:\wamp64\www\inventory-management\Modules\Products\Views\products\edit.php(338): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 338)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Products\Controllers\Products.php(343): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->editProducts('4')
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-03 12:37:15 --> Undefined property: stdClass::$product_variation_status
+#0 C:\wamp64\www\inventory-management\Modules\Products\Views\products\edit.php(338): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 338)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Products\Controllers\Products.php(343): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->editProducts('4')
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-03 12:37:22 --> Undefined property: stdClass::$product_variation_status
+#0 C:\wamp64\www\inventory-management\Modules\Products\Views\products\edit.php(338): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 338)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Products\Controllers\Products.php(343): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->editProducts('4')
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

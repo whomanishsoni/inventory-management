@@ -1,0 +1,26 @@
+ERROR - 2024-05-18 19:30:05 --> Unknown column 'buying_price' in 'field list'
+CRITICAL - 2024-05-18 19:30:05 --> Unknown column 'buying_price' in 'field list'
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `pr...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\wamp64\www\inventory-management\Modules\Products\Controllers\Products.php(109): CodeIgniter\Model->insert(Array)
+#8 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->storeProducts()
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#10 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-18 21:31:29 --> Undefined property: stdClass::$tax_rate
+#0 C:\wamp64\www\inventory-management\Modules\Products\Views\products\add.php(211): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 211, Array)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Products\Controllers\Products.php(68): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Products->addProducts()
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Products))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

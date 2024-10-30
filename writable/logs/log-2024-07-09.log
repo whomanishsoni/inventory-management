@@ -1,0 +1,93 @@
+CRITICAL - 2024-07-09 11:26:25 --> The action you requested is not allowed.
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Security\Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-07-09 11:26:26 --> The action you requested is not allowed.
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Security\Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-07-09 11:26:27 --> The action you requested is not allowed.
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Security\Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-07-09 11:26:39 --> The action you requested is not allowed.
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Security\Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-07-09 11:26:40 --> The action you requested is not allowed.
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Security\Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2024-07-09 12:38:41 --> Unknown column 'product_variations.variation_product_name' in 'field list'
+CRITICAL - 2024-07-09 12:38:41 --> Unknown column 'product_variations.variation_product_name' in 'field list'
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `purchas...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `purchas...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `purchas...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `purchas...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(145): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->editPurchases('19')
+#8 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2024-07-09 12:41:04 --> Unknown column 'variation_values.variation_value_name' in 'field list'
+CRITICAL - 2024-07-09 12:41:04 --> Unknown column 'variation_values.variation_value_name' in 'field list'
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `purchas...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `purchas...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `purchas...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `purchas...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(147): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->editPurchases('19')
+#8 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2024-07-09 12:53:02 --> Unknown column 'variation_values.value_name' in 'field list'
+CRITICAL - 2024-07-09 12:53:02 --> Unknown column 'variation_values.value_name' in 'field list'
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `purchas...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `purchas...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `purchas...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `purchas...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(147): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->editPurchases('19')
+#8 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-09 17:43:50 --> Undefined property: stdClass::$price
+#0 C:\wamp64\www\inventory-management\Modules\Purchases\Views\purchases\edit.php(111): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 111, Array)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Purchases\\Views...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(155): view('Purchases\\Views...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->editPurchases('19')
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
