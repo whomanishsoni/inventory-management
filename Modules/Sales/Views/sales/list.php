@@ -27,10 +27,10 @@
                         <h3 class="card-title p-3"><?php echo lang('App.Sales') ?></h3>
                         <div class="ml-auto p-2">
                             <?php if (hasPermissions('sales_add')): ?>
-                                <a href="<?= url(route_to('Sales.add')) ?>" class="btn btn-primary btn-sm"
-                                    data-toggle="tooltip" title="<?= lang('App.add_sale') ?>"><span class="pr-1"><i
+                                <a href="<?= url(route_to('sales.add')) ?>" class="btn btn-primary btn-sm"
+                                    data-toggle="tooltip" title="<?= lang('App.add_Sales') ?>"><span class="pr-1"><i
                                             class="fa fa-plus"></i></span>
-                                    <?php echo lang('App.add_sale') ?></a>
+                                    <?php echo lang('App.add_Sales') ?></a>
                             <?php endif ?>
                         </div>
                     </div>
@@ -101,12 +101,12 @@
                                         <td><?php echo date('d-m-Y', strtotime($row->created_at)); ?></td>
                                         <td>
                                             <?php if (hasPermissions('sales_edit')): ?>
-                                                <a href="<?= url(route_to('Sales.edit', $row->id)) ?>"
+                                                <a href="<?= url(route_to('sales.edit', $row->id)) ?>"
                                                     class="btn btn-sm btn-primary" title="<?php echo lang('App.edit_sale') ?>"
                                                     data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                                             <?php endif ?>
                                             <?php if (hasPermissions('sales_delete')): ?>
-                                                <a href="<?= url(route_to('Sales.delete', $row->id)) ?>"
+                                                <a href="<?= url(route_to('sales.delete', $row->id)) ?>"
                                                     class="btn btn-sm btn-danger"
                                                     onclick="return confirm('Do you really want to delete this sale ?')"
                                                     title="<?php echo lang('App.delete_sale') ?>" data-toggle="tooltip"><i

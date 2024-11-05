@@ -6,14 +6,14 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1><?= lang('App.edit_purchase') ?></h1>
+                <h1><?= lang('App.edit_Sales') ?></h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?= url('/') ?>"><?= lang('App.home') ?></a></li>
                     <li class="breadcrumb-item"><a
-                            href="<?= url('/purchase-management/purchases') ?>"><?= lang('App.purchases') ?></a></li>
-                    <li class="breadcrumb-item active"><?= lang('App.edit_purchase') ?></li>
+                            href="<?= url('/sale-management/sales') ?>"><?= lang('App.sales') ?></a></li>
+                    <li class="breadcrumb-item active"><?= lang('App.edit_Sales') ?></li>
                 </ol>
             </div>
         </div>
@@ -22,7 +22,7 @@
 
 <!-- Main content -->
 <section class="content">
-    <?= form_open(route_to('purchases.update', $purchase->id), ['id' => 'purchase-edit', 'method' => 'post', 'autocomplete' => 'off']); ?>
+    <?= form_open(route_to('sales.update', $sale->id), ['id' => 'sale-edit', 'method' => 'post', 'autocomplete' => 'off']); ?>
     <div class="container-fluid">
         <div class="row">
             <!-- Left column -->
@@ -31,31 +31,31 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <!-- Supplier Name & Purchase Date & Reference No -->
+                        <!-- customer Name & Purchase Date & Reference No -->
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="supplier_id"><?= lang('App.supplier') ?></label>
+                                    <label for="customer_id"><?= lang('App.customer') ?></label>
                                     <select class="form-control select2 select2-danger"
-                                        data-dropdown-css-class="select2-danger" id="supplier_id" name="supplier_id">
-                                        <option value=""><?= lang('App.select_supplier') ?></option>
-                                        <?php foreach ($suppliers as $supplier): ?>
-                                            <option value="<?= $supplier->id; ?>" <?= ($supplier->id == $purchase->supplier_id) ? 'selected' : '' ?>>
-                                                <?= $supplier->supplier_name; ?>
+                                        data-dropdown-css-class="select2-danger" id="customer_id" name="customer_id">
+                                        <option value=""><?= lang('App.select_customer') ?></option>
+                                        <?php foreach ($customers as $customer): ?>
+                                            <option value="<?= $customer->id; ?>" <?= ($customer->id == $sale->customer_id) ? 'selected' : '' ?>>
+                                                <?= $customer->customer_name; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
-                                    <?= isset($validation) && $validation->getError('supplier_id') ? '<p class="text-danger mt-2">' . esc($validation->getError('supplier_id')) . '</p>' : '' ?>
+                                    <?= isset($validation) && $validation->getError('customer_id') ? '<p class="text-danger mt-2">' . esc($validation->getError('customer_id')) . '</p>' : '' ?>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="purchase_date"><?= lang('App.purchase_date') ?></label>
-                                    <input type="date" class="form-control" name="purchase_date" id="purchase_date"
-                                        value="<?= old('purchase_date', date('Y-m-d', strtotime($purchase->purchase_date))) ?>"
+                                    <label for="sale_date"><?= lang('App.sale_date') ?></label>
+                                    <input type="date" class="form-control" name="sale_date" id="sale_date"
+                                        value="<?= old('sale_date', date('Y-m-d', strtotime($sale->created_at))) ?>"
                                         required />
-                                    <?= isset($validation) && $validation->getError('purchase_date') ? '<p class="text-danger mt-2">' . esc($validation->getError('purchase_date')) . '</p>' : '' ?>
+                                    <?= isset($validation) && $validation->getError('sale_date') ? '<p class="text-danger mt-2">' . esc($validation->getError('purchase_date')) . '</p>' : '' ?>
                                 </div>
                             </div>
 
@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     <label for="reference_no"><?= lang('App.reference_no') ?></label>
                                     <input type="text" class="form-control" id="reference_no" name="reference_no"
-                                        value="<?= old('reference_no', $purchase->reference_no) ?>" readonly>
+                                        value="<?= old('reference_no', $sale->reference_no) ?>" readonly>
                                     <?= isset($validation) && $validation->getError('reference_no') ? '<p class="text-danger mt-2">' . esc($validation->getError('reference_no')) . '</p>' : '' ?>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                                                     <strong><?= lang('App.total_amount') ?></strong>
                                                 </td>
                                                 <td><input type="text" class="form-control" id="total_amount_display"
-                                                        value="<?= old('total_amount', $purchase->total_amount) ?>"
+                                                        value="<?= old('total_amount', $sale->total_amount) ?>"
                                                         disabled /></td>
                                                 <td></td>
                                             </tr>
@@ -118,7 +118,7 @@
                                                 </td>
                                                 <td><input type="number" class="form-control" name="paid_amount"
                                                         id="paid_amount"
-                                                        value="<?= old('paid_amount', $purchase->paid_amount) ?>" />
+                                                        value="<?= old('paid_amount', $sale->paid_amount) ?>" />
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -128,7 +128,7 @@
                                                 </td>
                                                 <td><input type="text" class="form-control"
                                                         id="remaining_amount_display"
-                                                        value="<?= old('remaining_amount', $purchase->remaining_amount) ?>"
+                                                        value="<?= old('remaining_amount', $sale->remaining_amount) ?>"
                                                         disabled /></td>
                                                 <td></td>
                                             </tr>
@@ -145,13 +145,13 @@
                                     <label for="payment_status"><?= lang('App.payment_status') ?></label>
                                     <select class="form-control" name="payment_status" id="payment_status">
                                         <option value=""><?= lang('App.select_payment_status') ?></option>
-                                        <option value="paid" <?= ($purchase->payment_status == 'paid') ? 'selected' : '' ?>>
+                                        <option value="paid" <?= ($sale->payment_status == 'paid') ? 'selected' : '' ?>>
                                             <?= lang('App.paid') ?>
                                         </option>
-                                        <option value="unpaid" <?= ($purchase->payment_status == 'unpaid') ? 'selected' : '' ?>>
+                                        <option value="unpaid" <?= ($sale->payment_status == 'unpaid') ? 'selected' : '' ?>>
                                             <?= lang('App.unpaid') ?>
                                         </option>
-                                        <option value="partial" <?= ($purchase->payment_status == 'partial') ? 'selected' : '' ?>>
+                                        <option value="partial" <?= ($sale->payment_status == 'partial') ? 'selected' : '' ?>>
                                             <?= lang('App.partial') ?>
                                         </option>
                                     </select>
@@ -164,23 +164,26 @@
                                     <label for="purchase_status"><?= lang('App.purchase_status') ?></label>
                                     <select class="form-control" name="purchase_status" id="purchase_status">
                                         <option value=""><?= lang('App.select_purchase_status') ?></option>
-                                        <option value="received" <?= ($purchase->purchase_status == 'received') ? 'selected' : '' ?>>
-                                            <?= lang('App.received') ?>
+                                        <option value="completed" <?= ($sale->sale_status == 'completed') ? 'selected' : '' ?>>
+                                            <?= lang('App.completed') ?>
                                         </option>
-                                        <option value="pending" <?= ($purchase->purchase_status == 'pending') ? 'selected' : '' ?>>
+                                        <option value="pending" <?= ($sale->sale_status == 'pending') ? 'selected' : '' ?>>
                                             <?= lang('App.pending') ?>
                                         </option>
+                                        <option value="pending" <?= ($sale->sale_status == 'canceled') ? 'selected' : '' ?>>
+                                            <?= lang('App.canceled') ?>
+                                        </option>
                                     </select>
-                                    <?= isset($validation) && $validation->getError('purchase_status') ? '<p class="text-danger mt-2">' . esc($validation->getError('purchase_status')) . '</p>' : '' ?>
+                                    <?= isset($validation) && $validation->getError('sale_status') ? '<p class="text-danger mt-2">' . esc($validation->getError('purchase_status')) . '</p>' : '' ?>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Hidden fields to store calculated values -->
                         <input type="hidden" name="total_amount"
-                            value="<?= old('total_amount', $purchase->total_amount) ?>">
+                            value="<?= old('total_amount', $sale->total_amount) ?>">
                         <input type="hidden" name="remaining_amount"
-                            value="<?= old('remaining_amount', $purchase->remaining_amount) ?>">
+                            value="<?= old('remaining_amount', $sale->remaining_amount) ?>">
 
                     </div>
                 </div>
@@ -271,7 +274,7 @@
         }, "<?= lang('App.valid_value_error') ?>");
 
         // Initialize paid amount field with current value or default
-        $('#paid_amount').val('<?= old('paid_amount', $purchase->paid_amount) ?>');
+        $('#paid_amount').val('<?= old('paid_amount', $sale->paid_amount) ?>');
     });
 </script>
 
@@ -297,8 +300,8 @@
         const existingProducts = new Set(); // Store existing product IDs
 
         // Load existing purchase items and populate the table
-        const purchaseItems = <?= json_encode($purchaseItems) ?>;
-        purchaseItems.forEach(item => {
+        const saleItems = <?= json_encode($saleItems) ?>;
+        saleItems.forEach(item => {
             // Always add the product row regardless of whether it has a variation or not
             addProductRow(item, true);
             addedProductNames.add(item.product_name);

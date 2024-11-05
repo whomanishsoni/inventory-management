@@ -44,7 +44,7 @@ class Sales extends AdminBaseController
         return view('Sales\Views\sales\add', $activeEntities);
     }
 
-    public function storePurchases()
+    public function storeSales()
     {
         if (!$this->hasPermission('sales_add')) {
             return redirect()->to(route_to('sales.index'))->with('error', 'Permission Denied');
@@ -69,7 +69,7 @@ class Sales extends AdminBaseController
         // }
 
         // Retrieve form data
-        $supplierId = $this->request->getPost('supplier_id');
+        $CustomerId = $this->request->getPost('customer_id');
         $referenceNo = $this->request->getPost('reference_no');
         $purchaseDate = $this->request->getPost('purchase_date');
         $paymentStatus = $this->request->getPost('payment_status');
@@ -80,9 +80,9 @@ class Sales extends AdminBaseController
         $products = $this->request->getPost('products');
 
         // Insert data into 'purchases' table
-        $purchasesModel = new PurchasesModel();
-        $purchaseData = [
-            'supplier_id' => $supplierId,
+        $SalesModel = new SalesModel();
+        $saleData = [
+            'customer_id' => $CustomerId,
             'reference_no' => $referenceNo,
             'total_amount' => $totalAmount,
             'paid_amount' => $paidAmount,
@@ -91,73 +91,73 @@ class Sales extends AdminBaseController
             'payment_status' => $paymentStatus,
             'purchase_status' => $purchaseStatus,
         ];
-        $purchaseId = $purchasesModel->insert($purchaseData);
 
-        $purchaseItemsModel = new PurchaseItemsModel();
+        $salesId = $SalesModel->insert($saleData);
+
+        $salesItemsModel = new SaleItemsModel();
         foreach ($products as $product) {
             $itemData = [
-                'purchase_id' => $purchaseId,
-                'product_id' => $product['product_id'],
-                'product_name' => $product['product_name'],
-                'sku_code' => $product['sku_code'],
-                'variation_id' => $product['variation_id'] ?? null,
-                'variation_value_id' => $product['variation_value_id'] ?? null,
-                'quantity' => $product['quantity'],
-                'unit_price' => $product['price'],
-                'total_price' => $product['quantity'] * $product['price'],
-                'manufacture_date' => $product['manufacture_date'] ?? null,
-                'expiry_date' => $product['expiry_date'] ?? null,
+                'sale_id' => $salesId,
+                // 'product_id' => $product['product_id'],
+                // 'product_name' => $product['product_name'],
+                // 'sku_code' => $product['sku_code'],
+                // 'variation_id' => $product['variation_id'] ?? null,
+                // 'variation_value_id' => $product['variation_value_id'] ?? null,
+                // 'quantity' => $product['quantity'],
+                // 'unit_price' => $product['price'],
+                // 'total_price' => $product['quantity'] * $product['price'],
+                // 'manufacture_date' => $product['manufacture_date'] ?? null,
+                // 'expiry_date' => $product['expiry_date'] ?? null,
             ];
-
-            $purchaseItemsModel->insert($itemData);
+            // dd($itemData);
+            $salesItemsModel->insert($itemData);
         }
 
-        return redirect()->to(route_to('purchases.index'))->with('notifySuccess', 'Purchase Added Successfully');
+        return redirect()->to(route_to('sales.index'))->with('notifySuccess', 'Purchase Added Successfully');
     }
 
-    public function editPurchases($id)
+    public function editSales($id)
     {
-        if (!$this->hasPermission('purchases_edit')) {
-            return redirect()->to(route_to('purchases.index'))->with('error', 'Permission Denied');
+        if (!$this->hasPermission('sales_edit')) {
+            return redirect()->to(route_to('sales.index'))->with('error', 'Permission Denied');
         }
 
-        $purchasesModel = new PurchasesModel();
-        $purchase = $purchasesModel->select('purchases.*, suppliers.supplier_name')
-            ->join('suppliers', 'suppliers.id = purchases.supplier_id')
-            ->where('purchases.id', $id)
+        $SalesModel = new SalesModel();
+        $sale = $SalesModel->select('sales.*, customers.customer_name')
+            ->join('customers', 'customers.id = sales.customer_id')
+            ->where('sales.id', $id)
             ->first();
 
-        if (!$purchase) {
-            return redirect()->to(route_to('purchases.index'))->with('error', 'Purchase not found');
+        if (!$sale) {
+            return redirect()->to(route_to('sales.index'))->with('error', 'Sales not found');
         }
 
-        $supplierModel = new SuppliersModel();
-        $suppliers = $supplierModel->select('id, supplier_name')
-            ->where('supplier_status', 'active')
+        $CustomersModel = new CustomersModel();
+        $customer = $CustomersModel->select('id, customer_name')
+            ->where('customer_status', 'active')
             ->findAll();
 
-        $purchaseItemsModel = new PurchaseItemsModel();
+        $SaleItemsModel = new SaleItemsModel();
         // Modified query to include items without variations
-        $purchaseItems = $purchaseItemsModel->select('purchase_items.*, variations.variation_name, variation_values.variation_value')
-            ->join('variations', 'variations.id = purchase_items.variation_id', 'left') // Use 'left' join to include products without variations
-            ->join('variation_values', 'variation_values.id = purchase_items.variation_value_id', 'left') // Use 'left' join to include products without variation values
-            ->where('purchase_items.purchase_id', $id)
+        $saleItems = $SaleItemsModel->select('sales_items.*, variations.variation_name, variation_values.variation_value')
+            ->join('variations', 'variations.id = sales_items.variation_id', 'left') // Use 'left' join to include products without variations
+            ->join('variation_values', 'variation_values.id = sales_items.variation_value_id', 'left') // Use 'left' join to include products without variation values
+            ->where('sales_items.sale_id', $id)
             ->findAll();
 
         $data = [
-            'purchase' => $purchase,
-            'purchaseItems' => $purchaseItems,
-            'suppliers' => $suppliers,
+            'sale' => $sale,
+            'saleItems' => $saleItems,
+            'customers' => $customer,
         ];
 
         $this->updatePageData(['submenu' => 'Edit Purchase']);
-        return view('Purchases\Views\purchases\edit', $data);
+        return view('Sales\Views\sales\edit', $data);
     }
-
-    public function updatePurchases($purchaseId)
+    public function updateSales($salesId)
     {
 
-        if (!$this->hasPermission('purchases_edit')) {
+        if (!$this->hasPermission('sales_edit')) {
             return redirect()->to(route_to('purchases.index'))->with('error', 'Permission Denied');
         }
 
@@ -205,57 +205,57 @@ class Sales extends AdminBaseController
             'purchase_status' => $purchaseStatus,
         ];
 
-        $purchasesModel->update($purchaseId, $purchaseData);
+        // $purchasesModel->update($purchaseId, $purchaseData);
 
-        // Update 'purchase_items' table
-        $purchaseItemsModel = new PurchaseItemsModel();
-        $purchaseItemsModel->where('purchase_id', $purchaseId)->delete(); // Delete existing items
+        // // Update 'purchase_items' table
+        // $purchaseItemsModel = new PurchaseItemsModel();
+        // $purchaseItemsModel->where('purchase_id', $purchaseId)->delete(); // Delete existing items
 
-        foreach ($products as $product) {
-            $itemData = [
-                'purchase_id' => $purchaseId,
-                'product_name' => $product['product_name'] ?? null,
-                'product_id' => $product['product_id'],
-                'variation_id' => $product['variation_id'] ?? null,
-                'variation_value_id' => $product['variation_value_id'] ?? null,
-                'sku_code' => $product['sku_code'] ?? null,
-                'category_id' => $product['category_id'] ?? null,
-                'sub_category_id' => $product['sub_category_id'] ?? null,
-                'unit_id' => $product['unit_id'] ?? null,
-                'brand_id' => $product['brand_id'] ?? null,
-                'quantity' => $product['quantity'],
-                'unit_price' => $product['price'],
-                'total_price' => $product['quantity'] * $product['price'],
-                'manufacture_date' => $product['manufacture_date'] ?? null,
-                'expiry_date' => $product['expiry_date'] ?? null,
-            ];
-            $purchaseItemsModel->insert($itemData);
-        }
+        // foreach ($products as $product) {
+        //     $itemData = [
+        //         'purchase_id' => $purchaseId,
+        //         'product_name' => $product['product_name'] ?? null,
+        //         'product_id' => $product['product_id'],
+        //         'variation_id' => $product['variation_id'] ?? null,
+        //         'variation_value_id' => $product['variation_value_id'] ?? null,
+        //         'sku_code' => $product['sku_code'] ?? null,
+        //         'category_id' => $product['category_id'] ?? null,
+        //         'sub_category_id' => $product['sub_category_id'] ?? null,
+        //         'unit_id' => $product['unit_id'] ?? null,
+        //         'brand_id' => $product['brand_id'] ?? null,
+        //         'quantity' => $product['quantity'],
+        //         'unit_price' => $product['price'],
+        //         'total_price' => $product['quantity'] * $product['price'],
+        //         'manufacture_date' => $product['manufacture_date'] ?? null,
+        //         'expiry_date' => $product['expiry_date'] ?? null,
+        //     ];
+        //     $purchaseItemsModel->insert($itemData);
+        // }
 
         // Redirect with success message
         return redirect()->to(route_to('purchases.index'))->with('notifySuccess', 'Purchase Updated Successfully');
     }
 
 
-    public function deletePurchases($id)
+    public function deleteSales($id)
     {
-        if (!$this->hasPermission('purchases_delete')) {
-            return redirect()->to(route_to('purchases.index'))->with('error', 'Permission Denied');
+        if (!$this->hasPermission('sales_delete')) {
+            return redirect()->to(route_to('sales.index'))->with('error', 'Permission Denied');
         }
 
-        $purchaseItemsModel = new PurchaseItemsModel();
-        $purchasesModel = new PurchasesModel();
+        $SaleItemsModel = new SaleItemsModel();
+        $SalesModel = new SalesModel();
 
-        $purchase = $purchasesModel->find($id);
-        if (!$purchase) {
-            return redirect()->to(route_to('purchases.index'))->with('error', 'Purchase not found');
+        $sale = $SalesModel->find($id);
+        if (!$sale) {
+            return redirect()->to(route_to('sales.index'))->with('error', 'Sales not found');
         }
 
-        $purchaseItemsModel->where('purchase_id', $id)->delete();
+        $SaleItemsModel->where('sale_id', $id)->delete();
 
-        $purchasesModel->delete($id);
+        $SalesModel->delete($id);
 
-        return redirect()->to(route_to('purchases.index'))->with('notifySuccess', 'Purchase Deleted Successfully');
+        return redirect()->to(route_to('sales.index'))->with('notifySuccess', 'Sales Deleted Successfully');
     }
 
 
