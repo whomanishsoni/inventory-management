@@ -1,72 +1,72 @@
 <?php
-namespace Purchases\Controllers;
+namespace Sales\Controllers;
 
 use App\Controllers\AdminBaseController;
 use \Hermawan\DataTables\DataTable;
 use App\Models\RolePermissionModel;
-use Purchases\Models\PurchasesModel;
-use Purchases\Models\PurchaseItemsModel;
+use Sales\Models\SalesModel;
+use Sales\Models\SaleItemsModel;
 use Products\Models\ProductsModel;
 use Products\Models\ProductVariationsModel;
 use Products\Models\VariationValuesModel;
-use Suppliers\Models\SuppliersModel;
+use Customers\Models\CustomersModel;
 use CodeIgniter\API\ResponseTrait;
 
-class Purchases extends AdminBaseController
+class Sales extends AdminBaseController
 {
 
-    public $title = 'Purchases Management';
-    public $menu = 'purchases';
+    public $title = 'Sales Management';
+    public $menu = 'sales';
 
-    public function purchases()
+    public function sales()
     {
-        $listPurchases = (new PurchasesModel())
-            ->join('suppliers', 'suppliers.id = purchases.supplier_id')
-            ->select('purchases.*, suppliers.supplier_name')
+        $listSales = (new SalesModel())
+            ->join('customers', 'customers.id = sales.customer_id')
+            ->select('sales.*, customers.customer_name')
             ->findAll();
 
-        $this->updatePageData(['submenu' => 'Purchases List']);
-        return view('Purchases\Views\purchases\list', compact('listPurchases'));
+        $this->updatePageData(['submenu' => 'Sales List']);
+        return view('Sales\Views\sales\list', compact('listSales'));
     }
 
-    public function addPurchases()
+    public function addSales()
     {
-        if (!$this->hasPermission('purchases_add')) {
-            return redirect()->to(route_to('purchases.index'))->with('error', 'Permission Denied');
+        if (!$this->hasPermission('sales_add')) {
+            return redirect()->to(route_to('sales.index'))->with('error', 'Permission Denied');
         }
-        $supplierModel = new SuppliersModel();
+        $CustomersModel = new CustomersModel();
 
         $activeEntities = [
-            'suppliers' => $supplierModel->where('supplier_status', 'active')->findAll(),
+            'customers' => $CustomersModel->where('customer_status', 'active')->findAll(),
         ];
 
-        $this->updatePageData(['submenu' => 'Add New Purchase']);
-        return view('Purchases\Views\purchases\add', $activeEntities);
+        $this->updatePageData(['submenu' => 'Add New Sale']);
+        return view('Sales\Views\sales\add', $activeEntities);
     }
 
     public function storePurchases()
     {
-        if (!$this->hasPermission('purchases_add')) {
-            return redirect()->to(route_to('purchases.index'))->with('error', 'Permission Denied');
+        if (!$this->hasPermission('sales_add')) {
+            return redirect()->to(route_to('sales.index'))->with('error', 'Permission Denied');
         }
 
-        $validationRules = [
-            'supplier_id' => 'required|integer',
-            'purchase_date' => 'required|valid_date',
-            'payment_status' => 'required|in_list[paid,unpaid,partial]',
-            'purchase_status' => 'required|in_list[received,pending]',
-            'products.*.quantity' => 'required|integer|greater_than_equal_to[1]',
-            'products.*.price' => 'required|numeric|greater_than_equal_to[0.01]',
-            'total_amount' => 'required|numeric|greater_than_equal_to[0.01]',
-            'paid_amount' => 'required|numeric|greater_than_equal_to[0]',
-            'products.*.manufacture_date' => 'permit_empty|valid_date',
-            'products.*.expiry_date' => 'permit_empty|valid_date',
-            'remaining_amount' => 'required|numeric|greater_than_equal_to[0]',
-        ];
+        // $validationRules = [
+        //     'customer_id' => 'required|integer',
+        //     'sales_date' => 'required|valid_date',
+        //     'payment_status' => 'required|in_list[paid,unpaid,partial]',
+        //     'sales_status' => 'required|in_list[received,pending]',
+        //     'products.*.quantity' => 'required|integer|greater_than_equal_to[1]',
+        //     'products.*.price' => 'required|numeric|greater_than_equal_to[0.01]',
+        //     'total_amount' => 'required|numeric|greater_than_equal_to[0.01]',
+        //     'paid_amount' => 'required|numeric|greater_than_equal_to[0]',
+        //     'products.*.manufacture_date' => 'permit_empty|valid_date',
+        //     'products.*.expiry_date' => 'permit_empty|valid_date',
+        //     'remaining_amount' => 'required|numeric|greater_than_equal_to[0]',
+        // ];
 
-        if (!$this->validate($validationRules)) {
-            return view('Products\Views\purchases\add', ['validation' => $this->validator]);
-        }
+        // if (!$this->validate($validationRules)) {
+        //     return view('Products\Views\purchases\add', ['validation' => $this->validator]);
+        // }
 
         // Retrieve form data
         $supplierId = $this->request->getPost('supplier_id');
@@ -278,14 +278,15 @@ class Purchases extends AdminBaseController
         }
     }
 
-    public function generatePurchaseOrderNumber()
+    public function generateSalesOrderNumber()
     {
-        $purchasesModel = new PurchasesModel();
-        $lastPurchase = $purchasesModel->orderBy('id', 'DESC')->first();
+        $SalesModel = new SalesModel();
+        $lastSale = $SalesModel->orderBy('id', 'DESC')->first();
 
-        $sequenceNumber = ($lastPurchase) ? $lastPurchase->id + 1 : 1;
+        $sequenceNumber = ($lastSale) ? $lastSale->id + 1 : 1;
 
-        $referenceNo = 'PUR' . str_pad($sequenceNumber, 4, '0', STR_PAD_LEFT); // Example format: PO-0001
+        $referenceNo = 'SALE' . str_pad($sequenceNumber, 4, '0', STR_PAD_LEFT); // Example format: PO-0001
+
 
         return $this->response->setJSON(['reference_no' => $referenceNo]);
     }
@@ -342,10 +343,10 @@ class Purchases extends AdminBaseController
 
         // Replace the logic below with your actual permission check
         $allowedPermissions = [
-            'purchases_list',
-            'purchases_add',
-            'purchases_edit',
-            'purchases_delete',
+            'sales_list',
+            'sales_add',
+            'sales_edit',
+            'sales_delete',
         ];
 
         return in_array($permission, $allowedPermissions);
