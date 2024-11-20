@@ -206,18 +206,18 @@
 <script src="<?= assets_url('admin') ?>/plugins/jquery-validation/additional-methods.min.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         // Validation setup
         $.validator.setDefaults({
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
                 $(element).closest('.form-group').find('.invalid-feedback').remove();
             }
@@ -260,13 +260,13 @@
                     oneOf: "<?= lang('App.invalid_purchase_status_error') ?>"
                 }
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 form.submit();
             }
         });
 
         // Custom validation method for oneOf
-        $.validator.addMethod("oneOf", function (value, element, arg) {
+        $.validator.addMethod("oneOf", function(value, element, arg) {
             return $.inArray(value, arg) != -1;
         }, "<?= lang('App.valid_value_error') ?>");
 
@@ -275,12 +275,8 @@
     });
 </script>
 
-
-
-
-
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const productNameInput = document.getElementById('product_name');
         const productSuggestions = document.getElementById('product_suggestions');
         const productTableBody = document.getElementById('product_table_body');
@@ -292,22 +288,27 @@
         const referenceNoInput = document.getElementById('reference_no');
         const form = document.getElementById('purchase-edit');
 
-        const addedProductIds = new Set(); // Track added product IDs
-        const addedProductNames = new Set(); // Track added product names
-        const existingProducts = new Set(); // Store existing product IDs
+        const addedProductIds = new Set();
+        const addedProductNames = new Set();
+        const existingProducts = new Set();
 
         // Load existing purchase items and populate the table
         const purchaseItems = <?= json_encode($purchaseItems) ?>;
+
+        // console.log('purchase item data', purchaseItems);
+
         purchaseItems.forEach(item => {
             // Always add the product row regardless of whether it has a variation or not
             addProductRow(item, true);
             addedProductNames.add(item.product_name);
-            existingProducts.add(item.id); // Track existing product IDs
+            existingProducts.add(item.id);
             // Always track the main product ID (even if it doesn't have variations)
             if (item.has_variation) {
-                existingProducts.add(item.variation_id); // Track variation IDs if present
+                existingProducts.add(item.variation_id);
             }
         });
+
+        console.log('purchase item data', JSON.stringify(purchaseItems, null, 2));
 
         fetchPurchaseOrderNumber();
 
@@ -323,25 +324,19 @@
         function addProductRow(product, isExisting, price) {
             // Use the appropriate ID for tracking
             const productId = product.has_variation ? product.variation_id : product.id;
-            const productSKU = product.sku_code || product.variation_sku_code || ''; // Add SKU Code
+            const productSKU = product.sku_code || product.variation_sku_code || '';
             const productName = product.variation_product_name || product.product_name;
             if (addedProductIds.has(productId) && !isExisting) {
                 alert('This product has already been added.');
                 return;
             }
 
-            const uniqueIndex = isExisting ? product.unique_index : Date.now();
+            const uniqueIndex = isExisting && product.unique_index ? product.unique_index : Date.now();
             addedProductIds.add(productId);
-
-            // Ensure displayPrice is a valid number
             const displayPrice = isExisting ? product.unit_price : price || 0;
-
-            // Extract display name for the row
             const displayName = product.variation_product_name || product.product_name;
-
-            // Set default values for quantity and price to avoid NaN
-            const quantity = product.quantity || 1; // Default quantity to 1 if not defined
-            const validPrice = parseFloat(displayPrice) || 0; // Ensure displayPrice is a number
+            const quantity = product.quantity || 1;
+            const validPrice = parseFloat(displayPrice) || 0;
 
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -383,15 +378,15 @@
         }
 
         function attachRowEvents(row) {
-            row.querySelector('.quantity-input').addEventListener('input', function () {
+            row.querySelector('.quantity-input').addEventListener('input', function() {
                 updateRowTotal.call(this);
                 updateTotalAmount();
             });
-            row.querySelector('.price-input').addEventListener('input', function () {
+            row.querySelector('.price-input').addEventListener('input', function() {
                 updateRowTotal.call(this);
                 updateTotalAmount();
             });
-            row.querySelector('.remove-product').addEventListener('click', function () {
+            row.querySelector('.remove-product').addEventListener('click', function() {
                 const productId = row.querySelector('input[name*="[product_id]"]').value;
                 addedProductIds.delete(productId);
                 row.remove();
@@ -399,7 +394,7 @@
             });
         }
 
-        productNameInput.addEventListener('input', function () {
+        productNameInput.addEventListener('input', function() {
             const query = this.value.trim();
             if (query.length < 2) {
                 productSuggestions.innerHTML = '';
@@ -416,13 +411,12 @@
                         const price = product.buying_price || product.variation_buying_price;
                         suggestions += `<button type="button" class="list-group-item list-group-item-action" data-product='${JSON.stringify(product)}'>${displayName} - ${price}</button>`;
                     });
-                    console.log(data);
                     productSuggestions.innerHTML = suggestions.length > 0 ? suggestions : '<div class="list-group-item">No result</div>';
                 })
                 .catch(error => console.error('Error fetching product suggestions:', error));
         });
 
-        productSuggestions.addEventListener('click', function (e) {
+        productSuggestions.addEventListener('click', function(e) {
             if (e.target.classList.contains('list-group-item') && e.target.getAttribute('data-product')) {
                 const product = JSON.parse(e.target.getAttribute('data-product'));
 
@@ -447,7 +441,7 @@
         });
 
 
-        form.addEventListener('submit', function (event) {
+        form.addEventListener('submit', function(event) {
             if (!validateProductTable()) {
                 event.preventDefault();
             }
@@ -478,7 +472,7 @@
             remainingAmountField.value = remainingAmount.toFixed(2);
         }
 
-        paidAmountField.addEventListener('input', function () {
+        paidAmountField.addEventListener('input', function() {
             updateRemainingAmount();
         });
 
@@ -502,12 +496,8 @@
     });
 </script>
 
-
-
-
-
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('.select2').select2();
     });
 </script>

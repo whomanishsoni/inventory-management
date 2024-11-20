@@ -1,4 +1,5 @@
 <?php
+
 namespace Purchases\Controllers;
 
 use App\Controllers\AdminBaseController;
@@ -156,30 +157,30 @@ class Purchases extends AdminBaseController
 
     public function updatePurchases($purchaseId)
     {
-
         if (!$this->hasPermission('purchases_edit')) {
             return redirect()->to(route_to('purchases.index'))->with('error', 'Permission Denied');
         }
 
         // Validate incoming data
-        // $validationRules = [
-        //     'supplier_id' => 'required|integer',
-        //     'reference_no' => 'required',
-        //     'purchase_date' => 'required|valid_date',
-        //     'payment_status' => 'required|in_list[paid,unpaid,partial]',
-        //     'purchase_status' => 'required|in_list[received,pending]',
-        //     'products.*.quantity' => 'required|integer|greater_than_equal_to[1]',
-        //     'products.*.price' => 'required|numeric|greater_than_equal_to[0.01]',
-        //     'total_amount' => 'required|numeric|greater_than_equal_to[0.01]',
-        //     'paid_amount' => 'required|numeric|greater_than_equal_to[0]',
-        //     'products.*.manufacture_date' => 'permit_empty|valid_date',
-        //     'products.*.expiry_date' => 'permit_empty|valid_date',
-        //     'remaining_amount' => 'required|numeric|greater_than_equal_to[0]',
-        // ];
+        $validationRules = [
+            'supplier_id' => 'required|integer',
+            'reference_no' => 'required',
+            'purchase_date' => 'required|valid_date',
+            'payment_status' => 'required|in_list[paid,unpaid,partial]',
+            'purchase_status' => 'required|in_list[received,pending]',
+            'products.*.quantity' => 'required|integer|greater_than_equal_to[1]',
+            'products.*.price' => 'required|numeric|greater_than_equal_to[0.01]',
+            'total_amount' => 'required|numeric|greater_than_equal_to[0.01]',
+            'paid_amount' => 'required|numeric|greater_than_equal_to[0]',
+            'products.*.manufacture_date' => 'permit_empty|valid_date',
+            'products.*.expiry_date' => 'permit_empty|valid_date',
+            'remaining_amount' => 'required|numeric|greater_than_equal_to[0]',
+        ];
 
-        // if (!$this->validate($validationRules)) {
-        //     return view('Purchases\Views\purchases\edit', ['validation' => $this->validator]);
-        // }
+        if (!$this->validate($validationRules)) {
+            dd($this->validator->getErrors());
+            return view('Purchases\Views\purchases\edit', ['validation' => $this->validator]);
+        }
 
         // Retrieve form data
         $supplierId = $this->request->getPost('supplier_id');
@@ -191,6 +192,9 @@ class Purchases extends AdminBaseController
         $paidAmount = $this->request->getPost('paid_amount');
         $remainingAmount = $this->request->getPost('remaining_amount');
         $products = $this->request->getPost('products');
+
+        // Debug retrieved data
+        // dd(compact('supplierId', 'referenceNo', 'purchaseDate', 'paymentStatus', 'purchaseStatus', 'totalAmount', 'paidAmount', 'remainingAmount', 'products'));
 
         // Update 'purchases' table
         $purchasesModel = new PurchasesModel();
@@ -205,12 +209,11 @@ class Purchases extends AdminBaseController
             'purchase_status' => $purchaseStatus,
         ];
 
-        $purchasesModel->update($purchaseId, $purchaseData);
+        $result = $purchasesModel->update($purchaseId, $purchaseData);
 
         // Update 'purchase_items' table
         $purchaseItemsModel = new PurchaseItemsModel();
-        $purchaseItemsModel->where('purchase_id', $purchaseId)->delete(); // Delete existing items
-
+        $purchaseItemsModel->where('purchase_id', $purchaseId)->delete();
         foreach ($products as $product) {
             $itemData = [
                 'purchase_id' => $purchaseId,
@@ -229,7 +232,10 @@ class Purchases extends AdminBaseController
                 'manufacture_date' => $product['manufacture_date'] ?? null,
                 'expiry_date' => $product['expiry_date'] ?? null,
             ];
-            $purchaseItemsModel->insert($itemData);
+            $insertResult = $purchaseItemsModel->insert($itemData);
+
+            // Debug each insert result
+            dd(compact('product', 'itemData', 'insertResult'));
         }
 
         // Redirect with success message
@@ -350,5 +356,4 @@ class Purchases extends AdminBaseController
 
         return in_array($permission, $allowedPermissions);
     }
-
 }

@@ -1,0 +1,70 @@
+CRITICAL - 2024-11-20 11:32:16 --> Creation of dynamic property App\Controllers\Auth\Login::$session is deprecated
+#0 C:\wamp64\www\inventory-management\app\Controllers\BaseController.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\wamp64\\www\\i...', 54)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-11-20 11:32:28 --> Creation of dynamic property App\Controllers\Auth\Logout::$session is deprecated
+#0 C:\wamp64\www\inventory-management\app\Controllers\BaseController.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\wamp64\\www\\i...', 54)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-11-20 11:32:31 --> Creation of dynamic property App\Controllers\Auth\Login::$session is deprecated
+#0 C:\wamp64\www\inventory-management\app\Controllers\BaseController.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\wamp64\\www\\i...', 54)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-11-20 11:32:46 --> Creation of dynamic property App\Controllers\Auth\Login::$session is deprecated
+#0 C:\wamp64\www\inventory-management\app\Controllers\BaseController.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\wamp64\\www\\i...', 54)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-11-20 11:32:58 --> Creation of dynamic property App\Controllers\Auth\Logout::$session is deprecated
+#0 C:\wamp64\www\inventory-management\app\Controllers\BaseController.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\wamp64\\www\\i...', 54)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-11-20 11:33:07 --> Creation of dynamic property App\Controllers\Auth\Logout::$session is deprecated
+#0 C:\wamp64\www\inventory-management\app\Controllers\BaseController.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\wamp64\\www\\i...', 54)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-11-20 11:33:27 --> Creation of dynamic property App\Controllers\Auth\Login::$session is deprecated
+#0 C:\wamp64\www\inventory-management\app\Controllers\BaseController.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\wamp64\\www\\i...', 54)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-11-20 11:39:30 --> Creation of dynamic property App\Controllers\Dashboard::$session is deprecated
+#0 C:\wamp64\www\inventory-management\app\Controllers\AdminBaseController.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\wamp64\\www\\i...', 58)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\AdminBaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-11-20 11:40:07 --> Creation of dynamic property App\Controllers\Dashboard::$session is deprecated
+#0 C:\wamp64\www\inventory-management\app\Controllers\AdminBaseController.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\wamp64\\www\\i...', 58)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\AdminBaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-11-20 11:40:12 --> Creation of dynamic property App\Controllers\Dashboard::$session is deprecated
+#0 C:\wamp64\www\inventory-management\app\Controllers\AdminBaseController.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\wamp64\\www\\i...', 58)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\AdminBaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
