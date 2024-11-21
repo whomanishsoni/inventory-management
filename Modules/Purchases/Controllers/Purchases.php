@@ -140,8 +140,8 @@ class Purchases extends AdminBaseController
         $purchaseItemsModel = new PurchaseItemsModel();
         // Modified query to include items without variations
         $purchaseItems = $purchaseItemsModel->select('purchase_items.*, variations.variation_name, variation_values.variation_value')
-            ->join('variations', 'variations.id = purchase_items.variation_id', 'left') // Use 'left' join to include products without variations
-            ->join('variation_values', 'variation_values.id = purchase_items.variation_value_id', 'left') // Use 'left' join to include products without variation values
+            ->join('variations', 'variations.id = purchase_items.variation_id', 'left')
+            ->join('variation_values', 'variation_values.id = purchase_items.variation_value_id', 'left')
             ->where('purchase_items.purchase_id', $id)
             ->findAll();
 

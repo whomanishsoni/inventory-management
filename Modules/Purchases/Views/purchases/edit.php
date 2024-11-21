@@ -295,20 +295,19 @@
         // Load existing purchase items and populate the table
         const purchaseItems = <?= json_encode($purchaseItems) ?>;
 
-        // console.log('purchase item data', purchaseItems);
+        console.log('purchase item data', purchaseItems);
 
         purchaseItems.forEach(item => {
-            // Always add the product row regardless of whether it has a variation or not
             addProductRow(item, true);
             addedProductNames.add(item.product_name);
             existingProducts.add(item.id);
-            // Always track the main product ID (even if it doesn't have variations)
+
             if (item.has_variation) {
                 existingProducts.add(item.variation_id);
             }
         });
 
-        console.log('purchase item data', JSON.stringify(purchaseItems, null, 2));
+        // console.log('purchase item data', JSON.stringify(purchaseItems, null, 2));
 
         fetchPurchaseOrderNumber();
 

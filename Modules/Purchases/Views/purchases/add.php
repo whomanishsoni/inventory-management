@@ -41,7 +41,7 @@
                                         data-dropdown-css-class="select2-danger" id="supplier_id" name="supplier_id">
                                         <option value="" selected><?= lang('App.select_supplier') ?></option>
                                         <?php foreach ($suppliers as $supplier): ?>
-                                        <option value="<?= $supplier->id; ?>"><?= $supplier->supplier_name; ?></option>
+                                            <option value="<?= $supplier->id; ?>"><?= $supplier->supplier_name; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <?= isset($validation) && $validation->getError('supplier_id') ? '<p class="text-danger mt-2">' . esc($validation->getError('supplier_id')) . '</p>' : '' ?>
@@ -185,167 +185,167 @@
 <script src="<?php echo assets_url('admin') ?>/plugins/jquery-validation/additional-methods.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $.validator.setDefaults({
-        errorElement: 'span',
-        errorPlacement: function(error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.form-group').append(error);
-        },
-        highlight: function(element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-            $(element).closest('.form-group').find('.invalid-feedback').remove();
-        }
-    });
-
-    $('#purchase-add').validate({
-        rules: {
-            supplier_id: {
-                required: true,
-                digits: true
+    $(document).ready(function() {
+        $.validator.setDefaults({
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
             },
-            purchase_date: {
-                required: true,
-                date: true
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
             },
-            payment_status: {
-                required: true,
-                oneOf: ["paid", "unpaid", "partial"]
-            },
-            purchase_status: {
-                required: true,
-                oneOf: ["received", "pending"]
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+                $(element).closest('.form-group').find('.invalid-feedback').remove();
             }
-        },
-        messages: {
-            supplier_id: {
-                required: "Please select a supplier.",
-                digits: "Invalid supplier ID."
+        });
+
+        $('#purchase-add').validate({
+            rules: {
+                supplier_id: {
+                    required: true,
+                    digits: true
+                },
+                purchase_date: {
+                    required: true,
+                    date: true
+                },
+                payment_status: {
+                    required: true,
+                    oneOf: ["paid", "unpaid", "partial"]
+                },
+                purchase_status: {
+                    required: true,
+                    oneOf: ["received", "pending"]
+                }
             },
-            purchase_date: {
-                required: "Please enter the purchase date.",
-                date: "Please enter a valid date."
+            messages: {
+                supplier_id: {
+                    required: "Please select a supplier.",
+                    digits: "Invalid supplier ID."
+                },
+                purchase_date: {
+                    required: "Please enter the purchase date.",
+                    date: "Please enter a valid date."
+                },
+                payment_status: {
+                    required: "Please select the payment status.",
+                    oneOf: "Invalid payment status."
+                },
+                purchase_status: {
+                    required: "Please select the purchase status.",
+                    oneOf: "Invalid purchase status."
+                }
             },
-            payment_status: {
-                required: "Please select the payment status.",
-                oneOf: "Invalid payment status."
-            },
-            purchase_status: {
-                required: "Please select the purchase status.",
-                oneOf: "Invalid purchase status."
+            submitHandler: function(form) {
+                form.submit();
             }
-        },
-        submitHandler: function(form) {
-            form.submit();
-        }
+        });
+
+        // Custom validation method for oneOf
+        $.validator.addMethod("oneOf", function(value, element, arg) {
+            return $.inArray(value, arg) != -1;
+        }, "Please specify a valid value.");
+
+        $('#paid_amount').val('0');
     });
-
-    // Custom validation method for oneOf
-    $.validator.addMethod("oneOf", function(value, element, arg) {
-        return $.inArray(value, arg) != -1;
-    }, "Please specify a valid value.");
-
-    $('#paid_amount').val('0');
-});
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const productNameInput = document.getElementById('product_name');
-    const productSuggestions = document.getElementById('product_suggestions');
-    const productTableBody = document.getElementById('product_table_body');
-    const totalAmountDisplay = document.getElementById('total_amount_display');
-    const paidAmountField = document.getElementById('paid_amount');
-    const remainingAmountDisplay = document.getElementById('remaining_amount_display');
-    const totalAmountField = document.querySelector('input[name="total_amount"]');
-    const remainingAmountField = document.querySelector('input[name="remaining_amount"]');
-    const referenceNoInput = document.getElementById('reference_no');
-    const form = document.getElementById('purchase-add');
+    document.addEventListener('DOMContentLoaded', function() {
+        const productNameInput = document.getElementById('product_name');
+        const productSuggestions = document.getElementById('product_suggestions');
+        const productTableBody = document.getElementById('product_table_body');
+        const totalAmountDisplay = document.getElementById('total_amount_display');
+        const paidAmountField = document.getElementById('paid_amount');
+        const remainingAmountDisplay = document.getElementById('remaining_amount_display');
+        const totalAmountField = document.querySelector('input[name="total_amount"]');
+        const remainingAmountField = document.querySelector('input[name="remaining_amount"]');
+        const referenceNoInput = document.getElementById('reference_no');
+        const form = document.getElementById('purchase-add');
 
-    // Fetch purchase order number on page load
-    fetchPurchaseOrderNumber();
+        // Fetch purchase order number on page load
+        fetchPurchaseOrderNumber();
 
-    function fetchPurchaseOrderNumber() {
-        fetch('<?= site_url(route_to('purchases.generate_purchase_order_number')) ?>')
-            .then(response => response.json())
-            .then(data => {
-                console.log('Purchase Order Number:', data.reference_no);
-                referenceNoInput.value = data.reference_no;
-            })
-            .catch(error => {
-                console.error('Error fetching purchase order number:', error);
-            });
-    }
-
-    productNameInput.addEventListener('input', function() {
-        const query = this.value.trim();
-        if (query.length < 2) {
-            productSuggestions.innerHTML = '';
-            return;
+        function fetchPurchaseOrderNumber() {
+            fetch('<?= site_url(route_to('purchases.generate_purchase_order_number')) ?>')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Purchase Order Number:', data.reference_no);
+                    referenceNoInput.value = data.reference_no;
+                })
+                .catch(error => {
+                    console.error('Error fetching purchase order number:', error);
+                });
         }
 
-        // AJAX request to fetch product suggestions
-        fetch('<?= site_url(route_to('purchases.search')) ?>?query=' + encodeURIComponent(query))
-            .then(response => response.json())
-            .then(data => {
-                console.log('Product Suggestions:', data);
+        productNameInput.addEventListener('input', function() {
+            const query = this.value.trim();
+            if (query.length < 2) {
+                productSuggestions.innerHTML = '';
+                return;
+            }
 
-                let suggestions = '';
-                if (data.length > 0) {
-                    data.forEach(product => {
-                        suggestions +=
-                            `<button type="button" class="list-group-item list-group-item-action" data-product='${JSON.stringify(product)}'>${product.variation_product_name ? product.variation_product_name : product.product_name}</button>`;
-                    });
-                } else {
-                    suggestions = '<div class="list-group-item">No result</div>';
-                }
-                productSuggestions.innerHTML = suggestions;
-            })
-            .catch(error => {
-                console.error('Error fetching product suggestions:', error);
-            });
-    });
+            // AJAX request to fetch product suggestions
+            fetch('<?= site_url(route_to('purchases.search')) ?>?query=' + encodeURIComponent(query))
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Product Suggestions:', data);
 
-    // Handle product suggestion click
-    productSuggestions.addEventListener('click', function(e) {
-        if (e.target.classList.contains('list-group-item') && e.target.getAttribute('data-product')) {
-            const product = JSON.parse(e.target.getAttribute('data-product'));
-            addProductToTable(product);
-            productNameInput.value = '';
-            productSuggestions.innerHTML = '';
-        }
-    });
+                    let suggestions = '';
+                    if (data.length > 0) {
+                        data.forEach(product => {
+                            suggestions +=
+                                `<button type="button" class="list-group-item list-group-item-action" data-product='${JSON.stringify(product)}'>${product.variation_product_name ? product.variation_product_name : product.product_name}</button>`;
+                        });
+                    } else {
+                        suggestions = '<div class="list-group-item">No result</div>';
+                    }
+                    productSuggestions.innerHTML = suggestions;
+                })
+                .catch(error => {
+                    console.error('Error fetching product suggestions:', error);
+                });
+        });
 
-    form.addEventListener('submit', function(event) {
-        if (!validateProductTable()) {
-            event.preventDefault();
-        }
-    });
+        // Handle product suggestion click
+        productSuggestions.addEventListener('click', function(e) {
+            if (e.target.classList.contains('list-group-item') && e.target.getAttribute('data-product')) {
+                const product = JSON.parse(e.target.getAttribute('data-product'));
+                addProductToTable(product);
+                productNameInput.value = '';
+                productSuggestions.innerHTML = '';
+            }
+        });
 
-    function addProductToTable(product) {
-        const productId = product.has_variation ? product.product_id : product.id;
-        const productName = product.variation_product_name || product.product_name;
-        const productSKU = product.sku_code || product.variation_sku_code || ''; // Add SKU Code
-        const productPrice = parseFloat(product.buying_price || product.variation_buying_price || 0);
-        const manufactureDate = '';
-        const expiryDate = '';
+        form.addEventListener('submit', function(event) {
+            if (!validateProductTable()) {
+                event.preventDefault();
+            }
+        });
 
-        // These fields are for brand, unit, category, and sub-category
-        const brandId = product.brand_id || ''; // Handle missing value if it's not provided
-        const unitId = product.unit_id || '';
-        const categoryId = product.category_id || '';
-        const subCategoryId = product.sub_category_id || '';
+        function addProductToTable(product) {
+            const productId = product.has_variation ? product.product_id : product.id;
+            const productName = product.variation_product_name || product.product_name;
+            const productSKU = product.sku_code || product.variation_sku_code || ''; // Add SKU Code
+            const productPrice = parseFloat(product.buying_price || product.variation_buying_price || 0);
+            const manufactureDate = '';
+            const expiryDate = '';
 
-        if (product.has_variation && Array.isArray(product.variations)) {
-            product.variations.forEach((variation, index) => {
-                // Create a unique key for each variation row by appending an index
-                const uniqueIndex = Date.now() + '-' + index; // You can use any unique logic here
+            // These fields are for brand, unit, category, and sub-category
+            const brandId = product.brand_id || ''; // Handle missing value if it's not provided
+            const unitId = product.unit_id || '';
+            const categoryId = product.category_id || '';
+            const subCategoryId = product.sub_category_id || '';
 
-                const row = document.createElement('tr');
-                row.innerHTML = `
+            if (product.has_variation && Array.isArray(product.variations)) {
+                product.variations.forEach((variation, index) => {
+                    // Create a unique key for each variation row by appending an index
+                    const uniqueIndex = Date.now() + '-' + index; // You can use any unique logic here
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
                     <td>
                         <input type="hidden" name="products[${uniqueIndex}][product_id]" value="${productId}" /> 
                         ${productName} - ${variation.name}
@@ -377,29 +377,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     <input type="hidden" name="products[${uniqueIndex}][variation_id]" value="${variation.id || ''}" />
                     <input type="hidden" name="products[${uniqueIndex}][variation_value_id]" value="${variation.value_id || ''}" />
                 `;
-                productTableBody.appendChild(row);
+                    productTableBody.appendChild(row);
 
-                row.querySelectorAll('input').forEach(input => {
-                    input.addEventListener('input', function() {
-                        if (validateProductRow(row)) {
-                            clearValidationError(input);
-                        }
-                        updateRowTotal.call(input);
+                    row.querySelectorAll('input').forEach(input => {
+                        input.addEventListener('input', function() {
+                            if (validateProductRow(row)) {
+                                clearValidationError(input);
+                            }
+                            updateRowTotal.call(input);
+                        });
                     });
-                });
 
-                row.querySelector('.remove-product').addEventListener('click', function() {
-                    row.remove();
+                    row.querySelector('.remove-product').addEventListener('click', function() {
+                        row.remove();
+                        updateTotalAmount();
+                    });
+
                     updateTotalAmount();
                 });
-
-                updateTotalAmount();
-            });
-        } else {
-            // Handle product without variations
-            const uniqueIndex = Date.now(); // Unique index for single product row
-            const row = document.createElement('tr');
-            row.innerHTML = `
+            } else {
+                // Handle product without variations
+                const uniqueIndex = Date.now(); // Unique index for single product row
+                const row = document.createElement('tr');
+                row.innerHTML = `
                 <td>
                     <input type="hidden" name="products[${uniqueIndex}][product_id]" value="${productId}" /> 
                     ${productName}
@@ -431,158 +431,158 @@ document.addEventListener('DOMContentLoaded', function() {
                 <input type="hidden" name="products[${uniqueIndex}][variation_id]" value="${product.variation_id || ''}" />
                 <input type="hidden" name="products[${uniqueIndex}][variation_value_id]" value="${product.variation_value_id || ''}" />
             `;
-            productTableBody.appendChild(row);
+                productTableBody.appendChild(row);
 
-            row.querySelectorAll('input').forEach(input => {
-                input.addEventListener('input', function() {
-                    if (validateProductRow(row)) {
-                        clearValidationError(input);
-                    }
-                    updateRowTotal.call(input);
+                row.querySelectorAll('input').forEach(input => {
+                    input.addEventListener('input', function() {
+                        if (validateProductRow(row)) {
+                            clearValidationError(input);
+                        }
+                        updateRowTotal.call(input);
+                    });
                 });
-            });
 
-            row.querySelector('.remove-product').addEventListener('click', function() {
-                row.remove();
+                row.querySelector('.remove-product').addEventListener('click', function() {
+                    row.remove();
+                    updateTotalAmount();
+                });
+
                 updateTotalAmount();
+            }
+        }
+
+        // Function to validate a product row
+        function validateProductRow(row) {
+            let isValid = true;
+
+            const quantityInput = row.querySelector('.quantity-input');
+            const manufactureDateInput = row.querySelector('.manufacture-date-input');
+            const expiryDateInput = row.querySelector('.expiry-date-input');
+
+            if (quantityInput.value <= 0) {
+                displayValidationError(quantityInput, 'Quantity must be greater than 0.');
+                isValid = false;
+            } else {
+                clearValidationError(quantityInput);
+            }
+
+            const manufactureDate = new Date(manufactureDateInput.value);
+            const expiryDate = new Date(expiryDateInput.value);
+
+            if (manufactureDate > expiryDate) {
+                displayValidationError(manufactureDateInput, 'Manufacture date must be before the expiry date.');
+                displayValidationError(expiryDateInput, 'Expiry date must be after the manufacture date.');
+                isValid = false;
+            } else {
+                clearValidationError(manufactureDateInput);
+                clearValidationError(expiryDateInput);
+            }
+
+            return isValid;
+        }
+
+        // Function to validate the entire product table
+        function validateProductTable() {
+            let isValid = true;
+            const productRows = productTableBody.querySelectorAll('tr');
+
+            if (productRows.length === 0) {
+                alert('Please add at least one product.');
+            }
+
+            productRows.forEach(row => {
+                if (!validateProductRow(row)) {
+                    isValid = false;
+                }
             });
 
+            const totalAmount = parseFloat(totalAmountField.value) || 0;
+            const paidAmount = parseFloat(paidAmountField.value) || 0;
+
+            if (paidAmount > totalAmount) {
+                displayValidationError(paidAmountField, 'Paid amount cannot be greater than the total amount.');
+                isValid = false;
+            } else {
+                clearValidationError(paidAmountField);
+            }
+
+            return isValid;
+        }
+
+        // Function to display validation error messages dynamically
+        function displayValidationError(element, message) {
+            const errorElement = element.closest('td').querySelector('.error-message');
+            if (errorElement) {
+                errorElement.textContent = message;
+            } else {
+                const errorMessage = document.createElement('span');
+                errorMessage.classList.add('text-danger', 'mt-2', 'error-message');
+                errorMessage.textContent = message;
+                element.closest('td').appendChild(errorMessage);
+            }
+        }
+
+        // Function to clear validation error messages
+        function clearValidationError(element) {
+            const errorElement = element.closest('td').querySelector('.error-message');
+            if (errorElement) {
+                errorElement.textContent = '';
+            }
+        }
+
+        // Function to update row total amount
+        function updateRowTotal() {
+            const row = this.closest('tr');
+            const quantity = parseFloat(row.querySelector('.quantity-input').value) || 0;
+            const price = parseFloat(row.querySelector('.price-input').value) || 0;
+            const total = quantity * price;
+            row.querySelector('.total').textContent = total.toFixed(2);
             updateTotalAmount();
         }
-    }
 
-    // Function to validate a product row
-    function validateProductRow(row) {
-        let isValid = true;
+        // Function to update total amount of all products
+        function updateTotalAmount() {
+            let totalAmount = 0;
+            productTableBody.querySelectorAll('tr').forEach(row => {
+                const total = parseFloat(row.querySelector('.total').textContent) || 0;
+                totalAmount += total;
+            });
 
-        const quantityInput = row.querySelector('.quantity-input');
-        const manufactureDateInput = row.querySelector('.manufacture-date-input');
-        const expiryDateInput = row.querySelector('.expiry-date-input');
-
-        if (quantityInput.value <= 0) {
-            displayValidationError(quantityInput, 'Quantity must be greater than 0.');
-            isValid = false;
-        } else {
-            clearValidationError(quantityInput);
+            totalAmountDisplay.value = totalAmount.toFixed(2);
+            totalAmountField.value = totalAmount.toFixed(2);
+            updateRemainingAmount();
         }
 
-        const manufactureDate = new Date(manufactureDateInput.value);
-        const expiryDate = new Date(expiryDateInput.value);
+        // Function to update remaining amount after paid amount change
+        function updateRemainingAmount() {
+            const paidAmount = parseFloat(paidAmountField.value) || 0;
+            const totalAmount = parseFloat(totalAmountField.value) || 0;
+            const remainingAmount = totalAmount - paidAmount;
 
-        if (manufactureDate > expiryDate) {
-            displayValidationError(manufactureDateInput, 'Manufacture date must be before the expiry date.');
-            displayValidationError(expiryDateInput, 'Expiry date must be after the manufacture date.');
-            isValid = false;
-        } else {
-            clearValidationError(manufactureDateInput);
-            clearValidationError(expiryDateInput);
+            remainingAmountDisplay.value = remainingAmount.toFixed(2);
+            remainingAmountField.value = remainingAmount.toFixed(2);
         }
 
-        return isValid;
-    }
-
-    // Function to validate the entire product table
-    function validateProductTable() {
-        let isValid = true;
-        const productRows = productTableBody.querySelectorAll('tr');
-
-        if (productRows.length === 0) {
-            alert('Please add at least one product.');
-        }
-
-        productRows.forEach(row => {
-            if (!validateProductRow(row)) {
-                isValid = false;
+        // Event listener for paid amount field input
+        paidAmountField.addEventListener('input', function() {
+            if (paidAmountField.value > parseFloat(totalAmountField.value) || 0) {
+                displayValidationError(paidAmountField,
+                    'Paid amount cannot be greater than the total amount.');
+            } else {
+                clearValidationError(paidAmountField);
             }
+            updateRemainingAmount();
         });
 
-        const totalAmount = parseFloat(totalAmountField.value) || 0;
-        const paidAmount = parseFloat(paidAmountField.value) || 0;
-
-        if (paidAmount > totalAmount) {
-            displayValidationError(paidAmountField, 'Paid amount cannot be greater than the total amount.');
-            isValid = false;
-        } else {
-            clearValidationError(paidAmountField);
-        }
-
-        return isValid;
-    }
-
-    // Function to display validation error messages dynamically
-    function displayValidationError(element, message) {
-        const errorElement = element.closest('td').querySelector('.error-message');
-        if (errorElement) {
-            errorElement.textContent = message;
-        } else {
-            const errorMessage = document.createElement('span');
-            errorMessage.classList.add('text-danger', 'mt-2', 'error-message');
-            errorMessage.textContent = message;
-            element.closest('td').appendChild(errorMessage);
-        }
-    }
-
-    // Function to clear validation error messages
-    function clearValidationError(element) {
-        const errorElement = element.closest('td').querySelector('.error-message');
-        if (errorElement) {
-            errorElement.textContent = '';
-        }
-    }
-
-    // Function to update row total amount
-    function updateRowTotal() {
-        const row = this.closest('tr');
-        const quantity = parseFloat(row.querySelector('.quantity-input').value) || 0;
-        const price = parseFloat(row.querySelector('.price-input').value) || 0;
-        const total = quantity * price;
-        row.querySelector('.total').textContent = total.toFixed(2);
-        updateTotalAmount();
-    }
-
-    // Function to update total amount of all products
-    function updateTotalAmount() {
-        let totalAmount = 0;
-        productTableBody.querySelectorAll('tr').forEach(row => {
-            const total = parseFloat(row.querySelector('.total').textContent) || 0;
-            totalAmount += total;
-        });
-
-        totalAmountDisplay.value = totalAmount.toFixed(2);
-        totalAmountField.value = totalAmount.toFixed(2);
-        updateRemainingAmount();
-    }
-
-    // Function to update remaining amount after paid amount change
-    function updateRemainingAmount() {
-        const paidAmount = parseFloat(paidAmountField.value) || 0;
-        const totalAmount = parseFloat(totalAmountField.value) || 0;
-        const remainingAmount = totalAmount - paidAmount;
-
-        remainingAmountDisplay.value = remainingAmount.toFixed(2);
-        remainingAmountField.value = remainingAmount.toFixed(2);
-    }
-
-    // Event listener for paid amount field input
-    paidAmountField.addEventListener('input', function() {
-        if (paidAmountField.value > parseFloat(totalAmountField.value) || 0) {
-            displayValidationError(paidAmountField,
-                'Paid amount cannot be greater than the total amount.');
-        } else {
-            clearValidationError(paidAmountField);
-        }
-        updateRemainingAmount();
+        // Set default value for paid amount
+        paidAmountField.value = '0';
     });
-
-    // Set default value for paid amount
-    paidAmountField.value = '0';
-});
 </script>
 
 <script>
-$(document).ready(function() {
-    $('.select2').select2();
-});
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
 </script>
 
 
