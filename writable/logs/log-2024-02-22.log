@@ -1,0 +1,86 @@
+CRITICAL - 2024-02-22 12:01:23 --> Undefined variable: material
+#0 C:\wamp64\www\pos\Modules\Products\Views\units\edit.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 36, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\Units.php(63): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Units->editUnits('12')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Units))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-02-22 12:02:29 --> Undefined variable: material
+#0 C:\wamp64\www\pos\Modules\Products\Views\units\edit.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 36, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\Units.php(63): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Units->editUnits('12')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Units))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-02-22 12:05:02 --> Undefined variable: material
+#0 C:\wamp64\www\pos\Modules\Products\Views\units\edit.php(39): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 39, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\Units.php(63): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Units->editUnits('12')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Units))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-02-22 12:14:29 --> Undefined variable: material
+#0 C:\wamp64\www\pos\Modules\Products\Views\units\edit.php(39): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 39, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\Units.php(63): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Units->editUnits('12')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Units))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-02-22 20:33:10 --> Undefined variable: listMaterials
+#0 C:\wamp64\www\pos\Modules\Products\Views\categories\list.php(53): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 53, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\Categories.php(18): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Categories->categories()
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Categories))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-02-22 20:53:25 --> Undefined variable: totalTime
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Debug\Toolbar\Views\toolbar.tpl.php(40): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 40, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Debug\Toolbar.php(501): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Debug\Toolbar.php(464): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#3 C:\wamp64\www\pos\app\Config\Events.php(48): CodeIgniter\Debug\Toolbar->respond()
+#4 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Events\Events.php(149): CodeIgniter\Events\Events::Config\{closure}()
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(308): CodeIgniter\Events\Events::trigger('pre_system')
+#6 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-02-22 20:57:09 --> Undefined property: stdClass::$category_status
+#0 C:\wamp64\www\pos\Modules\Products\Views\categories\list.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\p...', 62, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\Categories.php(18): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Categories->categories()
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Categories))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-02-22 20:59:23 --> Undefined property: stdClass::$category_status
+#0 C:\wamp64\www\pos\Modules\Products\Views\categories\list.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\p...', 62, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\Categories.php(18): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Categories->categories()
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Categories))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

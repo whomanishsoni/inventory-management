@@ -1,0 +1,234 @@
+CRITICAL - 2024-06-10 11:32:49 --> Class 'Purchases\Controllers\ProductModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 11:34:16 --> Class 'Purchases\Controllers\ProductModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 11:34:16 --> Class 'Purchases\Controllers\ProductModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:36:47 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:36:48 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:36:50 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:36:52 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:36:54 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:36:55 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:36:56 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:36:56 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:37:01 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:37:01 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:37:10 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:37:10 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:37:12 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:39:31 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:39:31 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:39:33 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:39:35 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:39:35 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:42:31 --> Call to undefined method Purchases\Controllers\Purchases::respondNoContent()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:56:20 --> Call to undefined method Purchases\Controllers\Purchases::respondNoContent()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:56:24 --> Call to undefined method Purchases\Controllers\Purchases::respondNoContent()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:56:37 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 12:56:37 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 13:48:11 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 13:48:11 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 13:48:14 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 13:57:28 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 13:57:29 --> Class 'Purchases\Controllers\ProductVariationModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 13:59:09 --> Call to undefined method Purchases\Controllers\Purchases::respondNoContent()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 14:19:06 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 14:19:18 --> Call to undefined method Purchases\Controllers\Purchases::respond()
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 14:32:04 --> Cannot use object of type stdClass as array
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 14:32:05 --> Cannot use object of type stdClass as array
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 14:32:08 --> Cannot use object of type stdClass as array
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 14:50:25 --> Cannot use object of type stdClass as array
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-10 14:50:26 --> Cannot use object of type stdClass as array
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->searchProducts()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}

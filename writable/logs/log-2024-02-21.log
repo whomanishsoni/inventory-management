@@ -1,0 +1,11 @@
+CRITICAL - 2024-02-21 10:40:35 --> Undefined variable: material
+#0 C:\wamp64\www\pos\Modules\Products\Views\brands\edit.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\p...', 36, Array)
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Products\\Views\\...', Array, true)
+#4 C:\wamp64\www\pos\Modules\Products\Controllers\Brands.php(61): view('Products\\Views\\...', Array)
+#5 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\Brands->editBrands('1')
+#6 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\Brands))
+#7 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

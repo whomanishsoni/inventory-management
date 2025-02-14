@@ -1,0 +1,130 @@
+CRITICAL - 2024-06-08 13:43:50 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\i...', 118, Array)
+#1 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/product-manage...', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-06-08 13:44:35 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\i...', 118, Array)
+#1 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-06-08 13:44:42 --> Trying to get property 'id' of non-object
+#0 C:\wamp64\www\inventory-management\app\Helpers\basic_helper.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\i...', 118, Array)
+#1 C:\wamp64\www\inventory-management\app\Filters\AuthFilter.php(14): is_logged()
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-06-08 20:08:45 --> Class 'Purchases\Controllers\BrandsModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->purchases()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-06-08 20:10:20 --> Undefined variable: listProducts
+#0 C:\wamp64\www\inventory-management\Modules\Purchases\Views\purchases\list.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\i...', 58, Array)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Purchases\\Views...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(18): view('Purchases\\Views...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->purchases()
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-06-08 20:31:01 --> Class 'Purchases\Controllers\ProductsModel' not found
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->purchases()
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2024-06-08 20:32:30 --> Unknown table 'products'
+CRITICAL - 2024-06-08 20:32:30 --> Unknown table 'products'
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `product...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(20): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->purchases()
+#8 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2024-06-08 20:32:53 --> Unknown column 'brands.supplier_name' in 'field list'
+CRITICAL - 2024-06-08 20:32:53 --> Unknown column 'brands.supplier_name' in 'field list'
+#0 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `purchas...', 0)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `purchas...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `purchas...')
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `purchas...', Array, false)
+#4 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(20): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->purchases()
+#8 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#9 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-06-08 20:33:16 --> Undefined property: stdClass::$product_name
+#0 C:\wamp64\www\inventory-management\Modules\Purchases\Views\purchases\list.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 62, Array)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Purchases\\Views...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(23): view('Purchases\\Views...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->purchases()
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-06-08 20:34:40 --> Undefined property: stdClass::$product_name
+#0 C:\wamp64\www\inventory-management\Modules\Purchases\Views\purchases\list.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 62, Array)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Purchases\\Views...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(23): view('Purchases\\Views...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->purchases()
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-06-08 20:35:00 --> Undefined property: stdClass::$unit_name
+#0 C:\wamp64\www\inventory-management\Modules\Purchases\Views\purchases\list.php(65): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 65, Array)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Purchases\\Views...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(23): view('Purchases\\Views...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->purchases()
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-06-08 20:38:10 --> Undefined property: stdClass::$purchases_status
+#0 C:\wamp64\www\inventory-management\Modules\Purchases\Views\purchases\list.php(61): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 61, Array)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Purchases\\Views...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(23): view('Purchases\\Views...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->purchases()
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-06-08 20:54:39 --> Undefined property: stdClass::$product_name
+#0 C:\wamp64\www\inventory-management\Modules\Purchases\Views\purchases\list.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\i...', 59, Array)
+#1 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\wamp64\\www\\i...')
+#2 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('Purchases\\Views...', Array, true)
+#4 C:\wamp64\www\inventory-management\Modules\Purchases\Controllers\Purchases.php(23): view('Purchases\\Views...', Array)
+#5 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Purchases\Controllers\Purchases->purchases()
+#6 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Purchases\Controllers\Purchases))
+#7 C:\wamp64\www\inventory-management\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\inventory-management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

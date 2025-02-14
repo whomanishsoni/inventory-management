@@ -1,0 +1,12 @@
+CRITICAL - 2024-04-02 22:05:33 --> Too few arguments to function Products\Controllers\TaxRates::taxRates(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\TaxRates->taxRates()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\TaxRates))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-04-02 22:06:26 --> Too few arguments to function Products\Controllers\TaxRates::taxRates(), 0 passed in C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Products\Controllers\TaxRates->taxRates()
+#1 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Products\Controllers\TaxRates))
+#2 C:\wamp64\www\pos\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}

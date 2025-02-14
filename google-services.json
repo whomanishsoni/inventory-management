@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "677389175517",
+    "project_id": "deepratna-55c04",
+    "storage_bucket": "deepratna-55c04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677389175517:android:65e29fd41a0c32d2c22934",
+        "android_client_info": {
+          "package_name": "com.inspireui.fluxstore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtPnokdNuZSFDRWjgSQSGXI66Yhi7e-Pc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
